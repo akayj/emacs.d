@@ -1,2 +1,5 @@
 *.el~
+
+custom.el
+
 elpa/
