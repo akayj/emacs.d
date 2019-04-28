@@ -16,7 +16,6 @@
 
 (setq gc-cons-threshold 400000)
 
-
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
 
 ;; all backups goto ~/.backups instead in the current directory
@@ -25,7 +24,9 @@
 
 (require 'init-elpa)
 (require 'init-gui-frames)
+(require 'init-usepackages)
 (require 'init-shortcut)
+(require 'init-input)
 (require 'init-evil)
 
 ;; golang
