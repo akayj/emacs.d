@@ -22,6 +22,7 @@
 ;; all backups goto ~/.backups instead in the current directory
 ;; (setq backup-directory-alist (quote (("." . "~/.emacs-backups"))))
 (setq make-backup-files nil)
+(setq show-paren-mode t)
 
 (require 'init-elpa)
 (require 'init-gui-frames)
@@ -29,6 +30,7 @@
 (require 'init-shortcut)
 (require 'init-input)
 (require 'init-evil)
+(require 'init-company-mode)
 
 ;; autopair
 (require 'autopair)
