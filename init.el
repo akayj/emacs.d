@@ -5,6 +5,7 @@
 (package-initialize)
 
 (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
+(add-to-list 'load-path (expand-file-name "packages" user-emacs-directory))
 (add-to-list 'load-path (expand-file-name "packages/evil" user-emacs-directory))
 
 ;; Adjust garbage collection threshold during startup, and thereafter
@@ -28,6 +29,10 @@
 (require 'init-shortcut)
 (require 'init-input)
 (require 'init-evil)
+
+;; autopair
+(require 'autopair)
+(autopair-global-mode)
 
 ;; golang
 (add-to-list 'load-path (expand-file-name "lisp/go-mode.el" user-emacs-directory))
