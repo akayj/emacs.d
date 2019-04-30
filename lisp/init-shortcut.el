@@ -43,7 +43,6 @@
 
 (global-set-key "\C-c\C-k" 'copy-line)
 
-
 ;; duplicate current line
 (defun duplicate-current-line (&optional n)
   "duplicate current line, make more than 1 copy given a numeric argument"

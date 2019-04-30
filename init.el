@@ -5,8 +5,6 @@
 (package-initialize)
 
 (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
-(add-to-list 'load-path (expand-file-name "packages" user-emacs-directory))
-(add-to-list 'load-path (expand-file-name "packages/evil" user-emacs-directory))
 
 ;; Adjust garbage collection threshold during startup, and thereafter
 ;;(let ((normal-gc-cons-threshold (* 20 1024 1024))
@@ -26,20 +24,19 @@
 
 (require 'init-elpa)
 (require 'init-gui-frames)
-(require 'init-usepackages)
 (require 'init-shortcut)
-(require 'init-input)
+
+(require 'init-usepackages)
+
 (require 'init-evil)
 (require 'init-company-mode)
-
-;; autopair
-(require 'autopair)
-(autopair-global-mode)
+(require 'init-autopair)
 
 ;; golang
-(add-to-list 'load-path (expand-file-name "lisp/go-mode.el" user-emacs-directory))
-(autoload 'go-mode "go-mode" nil t)
-(add-to-list 'auto-mode-alist '("\\.go\\'" . go-mode))
+(require 'init-golang)
+
+;; git
+(require 'init-git)
 
 (provide 'init)
 ;; init.el ends here
