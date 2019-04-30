@@ -11,5 +11,6 @@
   :config
   (global-evil-surround-mode 1))
 
+
 (provide 'init-evil)
 ;; init-evil.el ends here

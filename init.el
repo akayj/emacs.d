@@ -21,6 +21,9 @@
 ;; golang
 (require 'init-golang)
 
+;; python
+(require 'init-python)
+
 ;; git
 (require 'init-git)
 
