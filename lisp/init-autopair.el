@@ -1,4 +1,3 @@
-
 (use-package autopair
   :ensure t
   :config
