@@ -27,5 +27,8 @@
 ;; git
 (require 'init-git)
 
+;; (require 'init-ibuffer)
+(require 'init-themes)
+
 (provide 'init)
 ;; init.el ends here
