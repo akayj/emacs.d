@@ -5,5 +5,8 @@
 
 (package-initialize)
 
+(package-refresh-contents)
+(package-install 'use-package)
+
 (provide 'init-elpa)
 ;; init-elpa.el ends here
