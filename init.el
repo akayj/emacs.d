@@ -16,6 +16,8 @@
 (require 'init-company-mode)
 (require 'init-autopair)
 
+(require 'init-whitespace)
+
 ;; golang
 (require 'init-golang)
 

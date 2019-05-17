@@ -3,5 +3,5 @@
 custom.el
 
 auto-save-list/
-elpa/
+elpa-*/
 transient/
