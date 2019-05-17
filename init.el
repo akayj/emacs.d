@@ -12,8 +12,6 @@
 (require 'init-gui-frames)
 (require 'init-shortcut)
 
-(require 'init-usepackages)
-
 (require 'init-evil)
 (require 'init-company-mode)
 (require 'init-autopair)
