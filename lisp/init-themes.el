@@ -1,7 +1,8 @@
 ;; (use-package color-theme-sanityinc-solarized :ensure t)
-(use-package color-theme-sanityinc-tomorrow :ensure t)
-
-;; (set-default custom-enabled-themes '(sanityinc-tomorrow-bright))
+(use-package color-theme-sanityinc-tomorrow :ensure t
+  :init
+  (require 'color-theme-sanityinc-tomorrow)
+  (color-theme-sanityinc-tomorrow--define-theme bright))
 
 (defun reapply-themes ()
   (dolist (theme custom-enabled-themes)
