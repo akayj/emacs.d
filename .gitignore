@@ -6,3 +6,4 @@ auto-save-list/
 elpa/
 elpa-*/
 transient/
+.last-package-update-day

@@ -10,6 +10,7 @@
       auto-save-default nil)
 
 (require 'init-elpa)
+
 (require 'init-gui-frames)
 (require 'init-shortcut)
 
@@ -21,6 +22,8 @@
 
 ;; golang
 (require 'init-golang)
+;; javascript
+(require 'init-js)
 
 ;; python
 (require 'init-python)
@@ -32,6 +35,14 @@
 (require 'init-themes)
 
 (require 'init-csv)
+
+(require 'init-diminish)
+
+;; (require 'init-keys)
+
+(require 'init-powerline)
+
+(require 'init-org)
 
 (provide 'init)
 ;; init.el ends here

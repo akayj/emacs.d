@@ -4,7 +4,8 @@
 (let ((versioned-package-dir
        (expand-file-name (format "elpa-%s.%s" emacs-major-version emacs-minor-version)
 			 user-emacs-directory)))
-  (setq package-user-dir versioned-package-dir))
+  (setq package-user-dir versioned-package-dir)
+  (message "Install packages into %s" package-user-dir))
 
 
 (setq package-archives '(("gnu" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
@@ -19,11 +20,13 @@
   "A list of packages to ensure are installed at launch.")
 
 
-(package-refresh-contents)
+;; (package-refresh-contents)
 
 (dolist (p my-packages)
   (unless (package-installed-p p)
-    (package-install p)))
+    (package-refresh-contents)
+    (package-install p)
+    (message "%s is installed" p)))
 
 ;;(dolist (p my-packages)
 ;;  (unless (package-installed-p p)
@@ -33,6 +36,12 @@
 ;;      (error
 ;;       (message "%s" (error-message-string err))))))
 
+(use-package auto-package-update
+  :ensure t
+  :config
+  (setq auto-package-update-delete-old-version t)
+  (setq auto-package-update-hide-results t)
+  (auto-package-update-maybe))
 
 (provide 'init-elpa)
 ;; init-elpa.el ends here

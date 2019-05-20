@@ -1,7 +1,5 @@
 (use-package evil
   :ensure t
-  ;; :init
-  ;; (add-to-list 'load-path "~/.emacs.d/packages/evil")
   :config
   (evil-mode 1))
 
@@ -11,6 +9,17 @@
   :config
   (global-evil-surround-mode 1))
 
+
+;; evil-escape
+(use-package evil-escape
+  :ensure t
+  :init
+  (setq-default evil-escape-key-sequence "jk")
+  :config
+  (evil-escape-mode 1))
+
+;; All the Icons
+;; (use-package all-the-icons :ensure t)
 
 (provide 'init-evil)
 ;; init-evil.el ends here
