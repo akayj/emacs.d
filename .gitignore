@@ -8,3 +8,4 @@ elpa/
 elpa-*/
 transient/
 .last-package-update-day
+eshell/
