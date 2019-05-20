@@ -8,6 +8,7 @@
 (setq make-backup-files nil)
 (setq show-paren-mode t)
 (setq auto-save-default nil)
+(show-paren-mode 1)
 
 (require 'init-elpa)
 
