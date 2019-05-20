@@ -5,9 +5,9 @@
 
 ;; all backups goto ~/.backups instead in the current directory
 ;; (setq backup-directory-alist (quote (("." . "~/.emacs-backups"))))
-(setq make-backup-files nil
-      show-paren-mode t
-      auto-save-default nil)
+(setq make-backup-files nil)
+(setq show-paren-mode t)
+(setq auto-save-default nil)
 
 (require 'init-elpa)
 
