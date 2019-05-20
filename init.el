@@ -31,5 +31,7 @@
 ;; (require 'init-ibuffer)
 (require 'init-themes)
 
+(require 'init-csv)
+
 (provide 'init)
 ;; init.el ends here
