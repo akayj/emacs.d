@@ -35,5 +35,11 @@
   :config
   (setq tab-width 4))
 
+;; ElDoc
+(use-package go-eldoc
+  :ensure t
+  :config
+  (add-hook 'go-mode-hook 'go-eldoc-setup))
+
 (provide 'init-golang)
 ;; init-golang.el ends here.
