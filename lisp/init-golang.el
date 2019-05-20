@@ -10,14 +10,12 @@
   (autoload 'go-mode "go-mode" nil t)
 
   ;; (exec-path-from-shell-copy-env "GOPATH")
+  (setq exec-path-from-shell-arguments '("-l"))
   (exec-path-from-shell-copy-envs '("GOPATH" "PATH"))
   (setq gofmt-command "goimports")
 
   (add-hook 'before-save-hook 'gofmt-before-save)
-  (add-hook 'go-mode-hook #'go-guru-hl-identifier)
-
-  (add-hook 'go-mode-hook (lambda()
-			    (local-set-key (kbd "C-c C-r" 'go-remove-unused-imports)))))
+  (add-hook 'go-mode-hook #'go-guru-hl-identifier))
 
 (use-package go-autocomplete
   :ensure t
