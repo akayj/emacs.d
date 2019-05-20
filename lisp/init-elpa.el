@@ -19,9 +19,6 @@
                       color-theme-sanityinc-tomorrow)
   "A list of packages to ensure are installed at launch.")
 
-
-;; (package-refresh-contents)
-
 (dolist (p my-packages)
   (unless (package-installed-p p)
     (package-refresh-contents)

@@ -17,7 +17,10 @@
   (setq gofmt-command "goimports")
   (add-hook 'before-save-hook #'gofmt-before-save)
 
-  (add-hook 'go-mode-hook #'go-guru-hl-identifier))
+  (add-hook 'go-mode-hook #'go-guru-hl-identifier)
+  (add-hook 'go-mode-hook (lambda ()
+			    (setq tab-width 4)
+			    (setq indent-tabs-mode 1))))
 
 (use-package go-autocomplete
   :ensure t

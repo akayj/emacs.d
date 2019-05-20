@@ -10,6 +10,10 @@
 (setq auto-save-default nil)
 (show-paren-mode 1)
 
+(fset 'yes-or-no-p 'y-or-n-p)
+
+(set-default 'fill-column 80)
+
 (require 'init-elpa)
 
 (require 'init-gui-frames)
