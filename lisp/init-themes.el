@@ -7,7 +7,7 @@
 (use-package doom-themes
   :ensure t
   :config
-  (load-theme 'doom-nord t))
+  (load-theme 'doom-one t))
 
 (provide 'init-themes)
 ;; init-themes.el ends here
