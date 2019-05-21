@@ -1,6 +1,6 @@
 (use-package abbrev
   :diminish abbrev-mode
-  :config
+  :init
   (if (file-exists-p abbrev-file-name)
       (quietly-read-abbrev-file)))
 
