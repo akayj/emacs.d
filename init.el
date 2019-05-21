@@ -25,6 +25,8 @@
 
 (require 'init-whitespace)
 
+(require 'init-completion)
+
 ;; golang
 (require 'init-golang)
 ;; javascript
