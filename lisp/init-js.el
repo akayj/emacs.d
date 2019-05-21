@@ -6,4 +6,4 @@
 (use-package tern :ensure t)
 
 (provide 'init-js)
-;; init-js.el ends here.
+;;; init-js.el ends here

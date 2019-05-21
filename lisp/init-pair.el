@@ -14,4 +14,4 @@
   )
 
 (provide 'init-pair)
-;; init-pair.el ends here.
+;;; init-pair.el ends here

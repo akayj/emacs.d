@@ -5,4 +5,4 @@
   (advice-add 'python-mode :before 'elpy-enable))
 
 (provide 'init-python)
-;; init-python.el ends here.
+;;; init-python.el ends here

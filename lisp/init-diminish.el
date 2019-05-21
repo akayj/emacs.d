@@ -5,4 +5,4 @@
       (quietly-read-abbrev-file)))
 
 (provide 'init-diminish)
-;; init-diminish.el ends here
+;;; init-diminish.el ends here

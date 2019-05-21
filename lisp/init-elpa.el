@@ -41,4 +41,4 @@
   (auto-package-update-maybe))
 
 (provide 'init-elpa)
-;; init-elpa.el ends here
+;;; init-elpa.el ends here

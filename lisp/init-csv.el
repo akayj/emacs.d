@@ -6,4 +6,4 @@
     "Major mode for editing comma-separated value files." t))
 
 (provide 'init-csv)
-;; init-csv.el ends here
+;;; init-csv.el ends here

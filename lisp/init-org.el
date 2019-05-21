@@ -8,4 +8,4 @@
 	("DONE" . "green")))
 
 (provide 'init-org)
-;; init-org.el ends here.
+;;; init-org.el ends here

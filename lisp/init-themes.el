@@ -10,4 +10,4 @@
   (load-theme 'doom-one t))
 
 (provide 'init-themes)
-;; init-themes.el ends here
+;;; init-themes.el ends here

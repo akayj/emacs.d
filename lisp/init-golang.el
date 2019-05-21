@@ -46,4 +46,4 @@
   (add-hook 'go-mode-hook 'go-eldoc-setup))
 
 (provide 'init-golang)
-;; init-golang.el ends here.
+;;; init-golang.el ends here

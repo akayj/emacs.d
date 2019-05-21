@@ -51,5 +51,7 @@
 
 (require 'init-org)
 
+(require 'init-flycheck)
+
 (provide 'init)
-;; init.el ends here
+;;; init.el ends here

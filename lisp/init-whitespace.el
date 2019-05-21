@@ -6,4 +6,4 @@
   (add-hook 'after-init-hook 'global-whitespace-cleanup-mode))
 
 (provide 'init-whitespace)
-;; init-whitespace.el ends here.
+;;; init-whitespace.el ends here

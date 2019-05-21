@@ -19,4 +19,4 @@
   (evil-escape-mode 1))
 
 (provide 'init-evil)
-;; init-evil.el ends here
+;;; init-evil.el ends here

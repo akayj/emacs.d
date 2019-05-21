@@ -52,4 +52,4 @@
 
 
 (provide 'init-powerline)
-;; init-powerline.el ends here.
+;;; init-powerline.el ends here
