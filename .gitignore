@@ -2,6 +2,7 @@
 *.dat
 
 custom.el
+recentf
 
 auto-save-list/
 elpa/
