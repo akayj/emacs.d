@@ -26,7 +26,7 @@
   :hook
   (after-init . doom-modeline-mode)
   :config
-  (setq doom-modeline-height 24)
+  (setq doom-modeline-height 25)
   (setq doom-modeline-bar-width 3)
 
   (setq doom-modeline-icon t)
