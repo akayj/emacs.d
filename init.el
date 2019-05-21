@@ -21,7 +21,7 @@
 
 (require 'init-evil)
 (require 'init-company-mode)
-(require 'init-autopair)
+(require 'init-pair)
 
 (require 'init-whitespace)
 
