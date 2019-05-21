@@ -15,6 +15,7 @@
 
   ;; format go source code
   (setq gofmt-command "goimports")
+  (setq gofmt-args '("-local" "git.dianpingoa.com/dpop-app"))
   (add-hook 'before-save-hook #'gofmt-before-save)
 
   (add-hook 'go-mode-hook #'go-guru-hl-identifier)
