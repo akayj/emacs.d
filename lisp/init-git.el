@@ -8,7 +8,9 @@
   (setq magit-last-seen-setup-instructions "1.4.0")
 
   :config
-  (global-set-key (kbd "C-c m") 'magit-status))
+  (global-set-key (kbd "C-c m") 'magit-status)
+  (global-set-key (kbd "C-c l") 'magit-log-buffer-file)
+  )
 
 (provide 'init-git)
 ;; init-git.el ends here.
