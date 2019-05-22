@@ -15,7 +15,10 @@
 	(global-evil-leader-mode)
 	(setq evil-leader/in-all-states 1)
 	(evil-leader/set-leader "<SPC>")
-	(evil-leader/set-key "c" 'compile)
+
+	;; (evil-leader/set-key "c" 'compile)
+	(evil-leader/set-key-for-mode 'emacs-lisp-mode "c" 'byte-compile-file)
+
 	(evil-leader/set-key "f" 'ido-find-file)
 
 	;; git
