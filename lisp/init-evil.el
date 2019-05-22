@@ -25,7 +25,7 @@
 	(evil-leader/set-key "m" 'magit-status)
 
 	;; buffer
-	(evil-leader/set-key "k" 'ido-kill-buffer)
+	(evil-leader/set-key "k" 'kill-this-buffer)
 	(evil-leader/set-key "b" 'ido-switch-buffer)
 	(evil-leader/set-key "s" 'save-buffer)
 
