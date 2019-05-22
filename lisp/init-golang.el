@@ -14,7 +14,8 @@
   (exec-path-from-shell-copy-envs '("GOPATH" "PATH"))
 
   ;; format go source code
-  (setq gofmt-command "goimports")
+  ;; (setq gofmt-command "goimports")
+  (setq gofmt-command "goreturns")
   (setq gofmt-args '("-local" "git.dianpingoa.com/dpop-app"))
   (add-hook 'before-save-hook #'gofmt-before-save)
 
