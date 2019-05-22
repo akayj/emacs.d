@@ -31,6 +31,8 @@
 (require 'init-golang)
 ;; javascript
 (require 'init-js)
+;; yaml
+(require 'init-yaml)
 
 ;; python
 (require 'init-python)
