@@ -55,5 +55,7 @@
 
 (require 'init-flycheck)
 
+(require 'init-yasnippet)
+
 (provide 'init)
 ;;; init.el ends here
