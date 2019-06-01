@@ -29,7 +29,7 @@
   (setq doom-modeline-height 25)
   (setq doom-modeline-bar-width 3)
 
-  (setq doom-modeline-icon t)
+  (setq doom-modeline-icon nil)
   ;; (setq doom-modeline-major-mode-icon t)
   ;; (setq doom-modeline-buffer-state-icon t)
 
