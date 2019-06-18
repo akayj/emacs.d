@@ -1,3 +1,6 @@
+(if (not (file-exists-p "~/.emacs.d/snippets"))
+ (dired-create-directory "~/.emacs.d/snippets"))
+
 (use-package yasnippet
   :ensure t
   :init
