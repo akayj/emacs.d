@@ -11,7 +11,7 @@
 
 
 ;; (set-frame-font "Fira Code-13")
-(set-frame-font "Inconsolata-15")
+(set-frame-font "Inconsolata-18")
 
 (provide 'init-gui-frames)
 ;;; init-gui-frames.el ends here

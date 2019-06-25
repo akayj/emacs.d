@@ -9,14 +9,16 @@
   (add-to-list 'auto-mode-alist '("\\.go\\'" . go-mode))
   (autoload 'go-mode "go-mode" nil t)
 
-  ;; (exec-path-from-shell-copy-env "GOPATH")
+  (setenv "SHELL" "/bin/zsh")
+
   (setq exec-path-from-shell-arguments '("-l"))
+  ;; (exec-path-from-shell-copy-env "GOPATH")
   (exec-path-from-shell-copy-envs '("GOPATH" "PATH"))
 
   ;; format go source code
   ;; (setq gofmt-command "goimports")
   (setq gofmt-command "goreturns")
-  (setq gofmt-args '("-local" "git.dianpingoa.com/dpop-app"))
+  (setq gofmt-args '("-local" "git.ppdaicorp.com/ops"))
   (add-hook 'before-save-hook #'gofmt-before-save)
 
   (add-hook 'go-mode-hook #'go-guru-hl-identifier)
