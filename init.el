@@ -49,7 +49,7 @@
 
 ;; (require 'init-keys)
 
-(require 'init-powerline)
+;; (require 'init-powerline)
 
 (require 'init-org)
 
