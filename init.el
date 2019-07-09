@@ -33,6 +33,7 @@
 (require 'init-js)
 ;; yaml
 (require 'init-yaml)
+(require 'init-toml)
 
 ;; python
 (require 'init-python)
