@@ -17,7 +17,7 @@
 	(evil-leader/set-leader "<SPC>")
 
 	;; (evil-leader/set-key "c" 'compile)
-	(evil-leader/set-key-for-mode 'emacs-lisp-mode "c" 'byte-compile-file)
+	;; (evil-leader/set-key-for-mode 'emacs-lisp-mode "c" 'byte-compile-file)
 
 	(evil-leader/set-key "f" 'ido-find-file)
 
@@ -28,6 +28,9 @@
 	(evil-leader/set-key "k" 'kill-this-buffer)
 	(evil-leader/set-key "b" 'ido-switch-buffer)
 	(evil-leader/set-key "s" 'save-buffer)
+
+	;; comment/uncomment
+	(evil-leader/set-key "cl" 'comment-line)
 
 	;; quit
 	(evil-leader/set-key "qq" 'save-buffers-kill-terminal)
