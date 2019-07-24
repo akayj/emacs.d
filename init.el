@@ -35,6 +35,9 @@
 (require 'init-yaml)
 (require 'init-toml)
 
+;; lua
+(require 'init-lua)
+
 ;; python
 (require 'init-python)
 
