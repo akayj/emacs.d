@@ -13,7 +13,12 @@
 
   (setq exec-path-from-shell-arguments '("-l"))
   ;; (exec-path-from-shell-copy-env "GOPATH")
-  (exec-path-from-shell-copy-envs '("GOPATH" "PATH"))
+  ;; (setenv "GOPATH" "/Users/yujianjian/go_workspace")
+  ;; (exec-path-from-shell-copy-envs '("GOPATH" "PATH"))
+
+  (when (memq window-system '(mac ns))
+    (exec-path-from-shell-initialize))
+  (exec-path-from-shell-copy-env "GOPATH")
 
   ;; format go source code
   ;; (setq gofmt-command "goimports")

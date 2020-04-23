@@ -61,5 +61,9 @@
 
 (require 'init-yasnippet)
 
+(require 'init-dockerfile)
+
+(require 'init-tree)
+
 (provide 'init)
 ;;; init.el ends here
