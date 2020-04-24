@@ -26,7 +26,8 @@
 
 	;; buffer
 	(evil-leader/set-key "k" 'kill-this-buffer)
-	(evil-leader/set-key "b" 'ido-switch-buffer)
+	;; (evil-leader/set-key "b" 'ido-switch-buffer)
+	(evil-leader/set-key "b" 'ivy-switch-buffer)
 	(evil-leader/set-key "s" 'save-buffer)
 
 	;; comment/uncomment

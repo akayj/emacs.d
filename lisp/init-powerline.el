@@ -25,14 +25,16 @@
   :ensure t
   :hook
   (after-init . doom-modeline-mode)
+
   :config
   (setq doom-modeline-height 25)
   (setq doom-modeline-bar-width 3)
 
-  (setq doom-modeline-icon nil)
+  (setq doom-modeline-icon (display-graphic-p))
   ;; (setq doom-modeline-major-mode-icon t)
   ;; (setq doom-modeline-buffer-state-icon t)
 
+  ;; display the environment version.
   (setq doom-modeline-env-enable-python t)
   (setq doom-modeline-env-enable-go t)
 
