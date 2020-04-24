@@ -1,5 +1,18 @@
 (use-package exec-path-from-shell
-  :ensure t)
+  :ensure t
+  :config
+  (setq exec-path-from-shell-arguments '("-l"))
+  (setenv "SHELL" "/bin/zsh")
+
+  (when (memq window-system '(mac ns x))
+    (message "starting init env variables...")
+    ;; (setq exec-path-from-shell-variables '("GOPATH" "GOROOT"))
+    ;; This sets `$MANPATH', `$PATH', `exec-path' from your shell
+    (exec-path-from-shell-initialize)
+
+    )
+
+  )
 
 (use-package go-mode
   :ensure t
@@ -9,16 +22,9 @@
   (add-to-list 'auto-mode-alist '("\\.go\\'" . go-mode))
   (autoload 'go-mode "go-mode" nil t)
 
-  (setenv "SHELL" "/bin/zsh")
-
-  (setq exec-path-from-shell-arguments '("-l"))
+  ;; 确保配置在 `~/.zshenv' 中
   ;; (exec-path-from-shell-copy-env "GOPATH")
-  ;; (setenv "GOPATH" "/Users/yujianjian/go_workspace")
-  ;; (exec-path-from-shell-copy-envs '("GOPATH" "PATH"))
-
-  (when (memq window-system '(mac ns))
-    (exec-path-from-shell-initialize))
-  (exec-path-from-shell-copy-env "GOPATH")
+  (exec-path-from-shell-copy-envs '("GOPATH" "GOROOT"))
 
   ;; format go source code
   ;; (setq gofmt-command "goimports")
