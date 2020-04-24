@@ -19,6 +19,8 @@
 	;; (evil-leader/set-key "c" 'compile)
 	;; (evil-leader/set-key-for-mode 'emacs-lisp-mode "c" 'byte-compile-file)
 
+    (evil-leader/set-key "n" 'neotree-toggle)
+		  
 	(evil-leader/set-key "f" 'ido-find-file)
 
 	;; git
@@ -53,7 +55,6 @@
 
     )
   )
-
 
 (provide 'init-evil)
 ;;; init-evil.el ends here
