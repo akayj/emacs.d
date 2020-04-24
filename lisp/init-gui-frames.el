@@ -14,5 +14,7 @@
 ;; (set-frame-font "Fira Code-13")
 ;; (set-frame-font "Inconsolata-18")
 
+(blink-cursor-mode 0)
+
 (provide 'init-gui-frames)
 ;;; init-gui-frames.el ends here
