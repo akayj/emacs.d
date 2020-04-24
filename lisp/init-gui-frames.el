@@ -16,5 +16,7 @@
 
 (blink-cursor-mode 0)
 
+(setq-default line-spacing 0.25)
+
 (provide 'init-gui-frames)
 ;;; init-gui-frames.el ends here
