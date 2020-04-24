@@ -2,12 +2,9 @@
 
 (use-package neotree
   :ensure t
-  :init
-  :config
-  (require 'neotree)
-  (global-set-key [f8] 'neotree-toggle)
-
-  (add-hook 'neotree-mode-hook
+  :requires (all-the-icons evil)
+  :hook
+  (neotree-mode .
 	    (lambda ()
 	      (define-key evil-normal-state-local-map (kbd "TAB") 'neotree-enter)
 	      (define-key evil-normal-state-local-map (kbd "SPC") 'neotree-quick-look)
@@ -18,8 +15,9 @@
 	      (define-key evil-normal-state-local-map (kbd "p") 'neotree-previous-line)
 	      (define-key evil-normal-state-local-map (kbd "A") 'neotree-stretch-toggle)
 	      (define-key evil-normal-state-local-map (kbd "H") 'neotree-hidden-file-toggle)))
-
-  (setq neo-theme (if (display-graphic-p) 'icons 'arrow))
+	     
+  :custom
+  (neo-theme (if (display-graphic-p) 'icons 'arrow))
   )
 
 (provide 'init-tree)
