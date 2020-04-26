@@ -33,7 +33,7 @@
       "Set the tab width."
       (setq-local tab-width 4)
       (setq-local indent-tabs-mode 1))
-    (add-hook 'go-mode-hook 'go-set-tab-width))
+    (add-hook 'go-mode-hook 'set-tab-width))
 
   :config
   (progn
