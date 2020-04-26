@@ -12,3 +12,4 @@ elpa-*/
 transient/
 .last-package-update-day
 eshell/
+elpy/
