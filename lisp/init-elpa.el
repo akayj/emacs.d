@@ -38,9 +38,10 @@
 
 (use-package auto-package-update
   :ensure t
+  :custom
+  (auto-package-update-delete-old-version t)
+  (auto-package-update-hide-results t)
   :config
-  (setq auto-package-update-delete-old-version t)
-  (setq auto-package-update-hide-results t)
   (auto-package-update-maybe))
 
 (provide 'init-elpa)

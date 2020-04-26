@@ -1,3 +1,6 @@
+;;; package -- summary
+;;; Code:
+;;; Commentary:
 (use-package which-key
   :ensure t
   :init
@@ -21,4 +24,4 @@
 ;;    ))
 
 (provide 'init-keys)
-;; init-keys.el ends here.
+;;; init-keys.el ends here
