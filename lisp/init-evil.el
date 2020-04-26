@@ -1,3 +1,6 @@
+;;; package -- evil related settings
+;;; Code:
+;;; Commentary:
 (use-package evil
   :ensure t
   :init
@@ -19,25 +22,26 @@
 	;; (evil-leader/set-key "c" 'compile)
 	;; (evil-leader/set-key-for-mode 'emacs-lisp-mode "c" 'byte-compile-file)
 
-    (evil-leader/set-key "n" 'neotree-toggle)
-		  
-	(evil-leader/set-key "f" 'ido-find-file)
-
-	;; git
-	(evil-leader/set-key "m" 'magit-status)
-
-	;; buffer
-	(evil-leader/set-key "k" 'kill-this-buffer)
-	;; (evil-leader/set-key "b" 'ido-switch-buffer)
-	(evil-leader/set-key "b" 'ivy-switch-buffer)
-	(evil-leader/set-key "s" 'save-buffer)
-
-	;; comment/uncomment
-	(evil-leader/set-key "cl" 'comment-line)
-
-	;; quit
-	(evil-leader/set-key "qq" 'save-buffers-kill-terminal)
+	(evil-leader/set-key
+	  "n" 'neotree-toggle
+	  "f" 'ido-find-file
+	  ;; git
+	  "m" 'magit-status
+	  ;; buffer
+	  "k" 'kill-this-buffer
+	  "b" 'ivy-switch-buffer
+	  "s" 'save-buffer
+	  ;; comment/uncomment
+	  ;; "cl" 'comment-line
+	  ;; quit
+	  "qq" 'save-buffers-kill-terminal)
       ))
+
+    ;; evil-commentary
+    (use-package evil-commentary
+      :ensure t
+      :config
+      (evil-commentary-mode))
 
     ;; evil-surround
     (use-package evil-surround
