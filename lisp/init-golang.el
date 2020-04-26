@@ -1,41 +1,56 @@
+;;; package -- Setup golang mode.
+;;; Commentary:
+;;; Code:
+
+(defun go/copy-envs ()
+  "Init go mode."
+  (when (memq window-system '(mac ns x))
+    (dolist (env '("GOPATH"))
+      (unless (getenv env)
+	(progn
+	  (exec-path-from-shell-copy-env env)
+	  (message "copy env %s => %s" env (getenv env)))
+	)))
+  )
+
 (use-package exec-path-from-shell
   :ensure t
   :config
-  (setq exec-path-from-shell-arguments '("-l"))
-  (setenv "SHELL" "/bin/zsh")
-
-  (when (memq window-system '(mac ns x))
-    (message "starting init env variables...")
-    ;; (setq exec-path-from-shell-variables '("GOPATH" "GOROOT"))
-    ;; This sets `$MANPATH', `$PATH', `exec-path' from your shell
+  (progn
+    (setenv "SHELL" "/bin/zsh")
+    (setq exec-path-from-shell-arguments '("-l"))
+    (go/copy-envs)
     (exec-path-from-shell-initialize)
-
     )
-
   )
+
 
 (use-package go-mode
   :ensure t
+  :init
+  (progn
+    (defun set-tab-width ()
+      "Set the tab width."
+      (setq-local tab-width 4)
+      (setq-local indent-tabs-mode 1))
+    (add-hook 'go-mode-hook 'go-set-tab-width))
+
   :config
-  (use-package go-errcheck :ensure t)
+  (progn
+    (add-hook 'before-save-hook 'gofmt-before-save)
 
-  (add-to-list 'auto-mode-alist '("\\.go\\'" . go-mode))
-  (autoload 'go-mode "go-mode" nil t)
-
-  ;; 确保配置在 `~/.zshenv' 中
-  ;; (exec-path-from-shell-copy-env "GOPATH")
-  (exec-path-from-shell-copy-envs '("GOPATH" "GOROOT"))
+    (add-to-list 'auto-mode-alist '("\\.go\\'" . go-mode))
+    (autoload 'go-mode "go-mode" nil t)
+    )
 
   ;; format go source code
   ;; (setq gofmt-command "goimports")
-  (setq gofmt-command "goreturns")
-  (setq gofmt-args '("-local" "git.ppdaicorp.com/ops"))
-  (add-hook 'before-save-hook #'gofmt-before-save)
+  :custom
+  (gofmt-command "goreturns")
+  (gofmt-args '("-local" "git.ppdaicorp.com/ops"))
+  )
 
-  (add-hook 'go-mode-hook #'go-guru-hl-identifier)
-  (add-hook 'go-mode-hook (lambda ()
-			    (setq tab-width 4)
-			    (setq indent-tabs-mode 1))))
+(use-package go-errcheck :ensure t)
 
 (use-package go-autocomplete
   :ensure t
@@ -57,7 +72,6 @@
 (use-package go-eldoc
   :ensure t
   :config
-  (require 'go-eldoc)
   (add-hook 'go-mode-hook 'go-eldoc-setup))
 
 (provide 'init-golang)
