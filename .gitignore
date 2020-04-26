@@ -1,4 +1,6 @@
 *.el~
+*.elc
+*.pyc
 *.dat
 
 custom.el
