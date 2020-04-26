@@ -5,7 +5,7 @@
 (defun go/copy-envs ()
   "Init go mode."
   (when (memq window-system '(mac ns x))
-    (dolist (env '("GOPATH"))
+    (dolist (env '("GOPATH" "GOROOT"))
       (unless (getenv env)
 	(progn
 	  (exec-path-from-shell-copy-env env)
