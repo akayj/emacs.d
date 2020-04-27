@@ -10,14 +10,15 @@
 
 (require 'elpa-mirror)
 (setq elpamr-default-output-directory "~/myelpa")
-(elpamr-create-mirror-for-installed)
+;; (elpamr-create-mirror-for-installed)
 
 ;; (setq package-archives '(("gnu" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
 ;; 			 ("melpa" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")))
 
-(setq package-archives '(("myelpa" . "~/myelpa")
-			 ("gnu" . "http://elpa.emacs-china.org/gnu/")
-			 ("melpa" . "http://elpa.emacs-china.org/melpa/")))
+(setq package-archives '(("myelpa" . "~/myelpa")))
+; (setq package-archives '(("myelpa" . "~/myelpa")
+; 			 ("gnu" . "http://elpa.emacs-china.org/gnu/")
+; 			 ("melpa" . "http://elpa.emacs-china.org/melpa/")))
 
 (package-initialize)
 
