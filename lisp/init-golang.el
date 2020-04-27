@@ -37,7 +37,7 @@
 
   :config
   (progn
-    (add-hook 'before-save-hook 'gofmt-before-save)
+    ;; (add-hook 'before-save-hook 'gofmt-before-save)
 
     (add-to-list 'auto-mode-alist '("\\.go\\'" . go-mode))
     (autoload 'go-mode "go-mode" nil t)
@@ -55,6 +55,7 @@
 (use-package go-autocomplete
   :ensure t
   :config
+  (require 'auto-complete)
   (ac-config-default))
 
 (use-package go-guru

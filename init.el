@@ -29,6 +29,7 @@
 
 ;; golang
 (require 'init-golang)
+(require 'init-golang-lsp)
 ;; javascript
 (require 'init-js)
 ;; yaml
