@@ -24,9 +24,9 @@
 	lsp-ui-sideline-show-hover nil)
 
   ;; lsp-ui-doc
-  (setq lsp-ui-doc-enable nil
+  (setq lsp-ui-doc-enable t
 	lsp-ui-doc-position 'top
-	lsp-ui-doc-delay 1.5)
+	lsp-ui-doc-delay 5)
   )
 
 ;; Company mode is a standard completion package that works well with lsp-mode.

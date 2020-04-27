@@ -7,6 +7,7 @@
   (progn
     (evil-mode t)
     (evil-define-key 'normal go-mode-map "gd" 'godef-jump)
+    (evil-define-key 'normal go-mode-map "gb" 'xref-pop-marker-stack)
     (define-key evil-insert-state-map (kbd "C-g") 'evil-normal-state))
 
   :config
