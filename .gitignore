@@ -5,7 +5,7 @@
 
 custom.el
 recentf
-lsp-session-*
+.lsp-session-*
 
 auto-save-list/
 elpa/
