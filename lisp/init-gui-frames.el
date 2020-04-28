@@ -18,5 +18,7 @@
 
 (setq-default line-spacing 0.25)
 
+(add-to-list 'default-frame-alist '(fullscreen . maximize-window))
+
 (provide 'init-gui-frames)
 ;;; init-gui-frames.el ends here

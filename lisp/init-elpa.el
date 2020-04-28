@@ -1,3 +1,12 @@
+;;; init-elpa.el -- setup elpa mirror
+
+;;; Commentary:
+
+;; This file setup variable `package-archives'
+;; install the `elpa-mirror' for package archives, that we can host
+;; them on other site, like github or your private git site, even local directory.
+
+;;; Code:
 (require 'package)
 
 ;; Install into separate package dirs for each Emacs version, to prevent bytecode incompatibility.
