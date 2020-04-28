@@ -6,6 +6,7 @@
 custom.el
 recentf
 .lsp-session-*
+projectile-*
 
 auto-save-list/
 elpa/

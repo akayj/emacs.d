@@ -29,7 +29,7 @@
                   (line-end-position))
                   ;; (line-beginning-position (+ 1 arg)))
   (message "%d line%s copied" arg (if (= 1 arg) "" "s")))
- 
+
 (global-set-key (kbd "M-k") 'qiang-copy-line)
 
 
@@ -44,21 +44,21 @@
 (global-set-key "\C-c\C-k" 'copy-line)
 
 ;; duplicate current line
-(defun duplicate-current-line (&optional n)
-  "duplicate current line, make more than 1 copy given a numeric argument"
-  (interactive "p")
-  (save-excursion
-    (let ((nb (or n 1))
-	  (current-line (thing-at-point 'line)))
-      ;; when on last line, insert a newline first
-      (when (or (= 1 (forward-line 1))
-		(insert "\n"))
-	;; now insert as many time as requested
-	(while (> n 0)
-	  (insert current-line)
-	  decf n)))))
+;; (defun duplicate-current-line (&optional n)
+;;   "Duplicate current line, make more than 1 copy given a numeric argument."
+;;   (interactive "p")
+;;   (save-excursion
+;;     (let ((nb (or n 1))
+;; 	  (current-line (thing-at-point 'line)))
+;;       ;; when on last line, insert a newline first
+;;       (when (or (= 1 (forward-line 1))
+;; 		(insert "\n"))
+;; 	;; now insert as many time as requested
+;; 	(while (> n 0)
+;; 	  (insert current-line)
+;; 	  decf n)))))
 
-(global-set-key (kbd "C-S-d") 'duplicate-current-line)
+;; (global-set-key (kbd "C-S-d") 'duplicate-current-line)
 
 
 (provide 'init-shortcut)

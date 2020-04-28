@@ -1,3 +1,8 @@
+;;; init.el -- entry file for emacs configurtions
+
+;;; Commentary:
+
+;;; Code:
 (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
 
 (setq gc-cons-threshold 400000)
@@ -17,7 +22,7 @@
 (require 'init-elpa)
 
 (require 'init-gui-frames)
-(require 'init-shortcut)
+;; (require 'init-shortcut)
 
 (require 'init-evil)
 (require 'init-company-mode)
@@ -65,6 +70,7 @@
 (require 'init-dockerfile)
 
 (require 'init-tree)
+(require 'init-projectile)
 
 (provide 'init)
 ;;; init.el ends here

@@ -1,3 +1,8 @@
+;;; init-tree.el -- neotree configurtions
+
+;;; Commentary:
+
+;;; Code:
 (use-package all-the-icons :ensure t)
 
 (use-package neotree
@@ -15,7 +20,6 @@
 	      (define-key evil-normal-state-local-map (kbd "p") 'neotree-previous-line)
 	      (define-key evil-normal-state-local-map (kbd "A") 'neotree-stretch-toggle)
 	      (define-key evil-normal-state-local-map (kbd "H") 'neotree-hidden-file-toggle)))
-	     
   :custom
   (neo-theme (if (display-graphic-p) 'icons 'arrow))
   )

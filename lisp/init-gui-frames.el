@@ -1,10 +1,18 @@
+;;; init-gui-frames.el -- setup gui related default configurations
+
+;;; Commentary:
+
+;;; Code:
 (setq inhibit-startup-screen t)
+
+(defconst *is-macos* (memq window-system '(ns x)))
 
 (when (fboundp 'tool-bar-mode)
   (tool-bar-mode -1))
 
 (when (fboundp 'menu-bar-mode)
-  (menu-bar-mode -1))
+  (unless *is-macos*
+    (menu-bar-mode -1)))
 
 (when (fboundp 'set-scroll-bar-mode)
   (set-scroll-bar-mode nil))
