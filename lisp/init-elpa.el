@@ -22,9 +22,13 @@
 ;; (elpamr-create-mirror-for-installed)
 (setq elpamr-debug t)
 
-(setq package-archives '(("gnu" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
-			 ("melpa" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")
-			 ("org" . "https://orgmode.org/elpa/")))
+;; (setq package-archives '(("gnu" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
+;; 			 ("melpa" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")
+;; 			 ("org" . "https://orgmode.org/elpa/")))
+
+(setq package-archives '(("gnu" . "http://elpa.emacs-china.org/gnu/")
+			 ("melpa" . "http:///elpa.emacs-china.org/melpa/")
+			 ("org" . "http://elpa.emacs-china.org/org/")))
 
 
 ; FIXME: connection refused

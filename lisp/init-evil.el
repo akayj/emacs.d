@@ -32,6 +32,11 @@
 	  "k" 'kill-this-buffer
 	  "b" 'ivy-switch-buffer
 	  "s" 'save-buffer
+
+	  ;; `projectile' settings
+	  "p" 'projectile-switch-project
+	  "o" 'projectile-switch-open-project
+
 	  ;; comment/uncomment
 	  ;; "cl" 'comment-line
 	  ;; quit
