@@ -23,7 +23,9 @@
 ; (add-to-list 'package-archives '(("myelpa" . "https://raw.githubusercontent.com/akayj/myelpa/master/")))
 ; (setq package-archives '(("myelpa" . "https://gitee.com/askingyj/myelpa/raw/master/")))
 
-; (add-to-list 'package-archives '(("myelpa" . "~/myelpa/")))
+; (add-to-list 'package-archives '("myelpa" . "~/myelpa/"))
+; (setq package-archives '(("myelpa-ppd" . "http://git.ppd.com/yujianjian/myelpa/raw/master/")))
+;; (add-to-list 'package-archives '("myelpa-ppd" . "http://git.ppd.com/yujianjian/myelpa/raw/master/"))
 
 ; (add-to-list 'package-archives '(
          ;; ("myelpa-gitee" . "https://gitee.com/askingyj/myelpa/raw/master/")
