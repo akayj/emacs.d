@@ -22,28 +22,33 @@
 (setq elpamr-debug t)
 ;; (elpamr-create-mirror-for-installed)
 
-;; (setq package-archives '(("gnu" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
-;; 			 ("melpa" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")
-;; 			 ("org" . "https://orgmode.org/elpa/")))
+;; 清华源
+(setq package-archives '(("gnu" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
+                         ("melpa" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")
+                         ("melpa-stable" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa-stable/")
+                         ("org" . "https://mirrors.tuna.tsinghua.edu.cn/elpa/org/")))
 
-(setq package-archives '(("gnu" . "http://elpa.emacs-china.org/gnu/")
-			 ("melpa" . "http:///elpa.emacs-china.org/melpa/")
-			 ("org" . "http://elpa.emacs-china.org/org/")))
+;; (setq package-archives '(("myelpa-local" . "~/myelpa/")))
+;; (add-to-list 'package-archives '("myelpa-local" . "~/myelpa/"))
 
+;; FIXME: connection refused
+;; https://raw.githubusercontent.com/akayj/myelpa/master/
+;; (add-to-list 'package-archives '(("myelpa" . "https://raw.githubusercontent.com/akayj/myelpa/master/")))
+;; (setq package-archives '(("myelpa" . "https://gitee.com/askingyj/myelpa/raw/master/")))
 
-; FIXME: connection refused
-; https://raw.githubusercontent.com/akayj/myelpa/master/
-; (add-to-list 'package-archives '(("myelpa" . "https://raw.githubusercontent.com/akayj/myelpa/master/")))
-; (setq package-archives '(("myelpa" . "https://gitee.com/askingyj/myelpa/raw/master/")))
-
-;; (setq package-archives '(("myelpa" . "~/myelpa/")))
-; (setq package-archives '(("myelpa-ppd" . "http://git.ppd.com/yujianjian/myelpa/raw/master/")))
+;; (setq package-archives '(("myelpa-ppd" . "http://git.ppd.com/yujianjian/myelpa/raw/master/")))
 ;; (add-to-list 'package-archives '("myelpa-ppd" . "http://git.ppd.com/yujianjian/myelpa/raw/master/"))
 
-; (add-to-list 'package-archives '(
-         ;; ("myelpa-gitee" . "https://gitee.com/askingyj/myelpa/raw/master/")
-     ; )
- ; )
+;; (add-to-list 'package-archives '(
+;;          ("myelpa-gitee" . "https://gitee.com/askingyj/myelpa/raw/master/")
+;;      )
+;;  )
+
+;; (setq package-archive-priorities
+;;       '(("melpa-stable" . 20)
+;; 	("gnu" . 10)
+;; 	("melpa" . 6)
+;; 	("myelpa-local" . 100)))
 
 (package-initialize)
 
