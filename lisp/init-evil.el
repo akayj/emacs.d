@@ -5,6 +5,7 @@
   :ensure t
   :init
   (progn
+    (global-evil-leader-mode)
     (evil-mode t)
     (evil-define-key 'normal go-mode-map "gd" 'godef-jump)
     (evil-define-key 'normal go-mode-map "gb" 'xref-pop-marker-stack)
@@ -16,7 +17,6 @@
       :ensure t
       :init
       (progn
-	(global-evil-leader-mode)
 	(setq evil-leader/in-all-states 1)
 	(evil-leader/set-leader "<SPC>")
 
