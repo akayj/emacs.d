@@ -21,8 +21,9 @@
 
 (require 'init-elpa)
 
-(require 'init-symbols)
+(require 'init-alias nil t)
 
+(require 'init-symbols)
 (require 'init-gui-frames)
 ;; (require 'init-shortcut)
 
