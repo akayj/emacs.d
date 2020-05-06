@@ -21,6 +21,8 @@
 
 (require 'init-elpa)
 
+(require 'init-symbols)
+
 (require 'init-gui-frames)
 ;; (require 'init-shortcut)
 

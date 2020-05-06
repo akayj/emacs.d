@@ -1,7 +1,13 @@
+;;; init-js.el -- setting for Javascript
+;;; Commentary:
+;;; Code:
 (use-package js2-mode
   :ensure t
   :init
-  (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode)))
+  (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
+
+  :hook
+  (js2-mode . my-add-pretty-lambda))
 
 (use-package tern :ensure t)
 

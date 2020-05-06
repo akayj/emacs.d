@@ -12,6 +12,9 @@
      ("WORKING" . "yellow")
      ("HOLD" . "red")
      ("DONE" . "green")))
+
+  :hook
+  (org-mode . my-org-symbols)
   )
 
 (provide 'init-org)

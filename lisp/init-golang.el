@@ -33,7 +33,9 @@
       "Set the tab width."
       (setq-local tab-width 4)
       (setq-local indent-tabs-mode 1))
-    (add-hook 'go-mode-hook 'set-tab-width))
+    (add-hook 'go-mode-hook 'set-tab-width)
+    (add-hook 'go-mode-hook 'my-add-pretty-lambda)
+    )
 
   :config
   (progn
@@ -47,7 +49,7 @@
   ;; (setq gofmt-command "goimports")
   :custom
   (gofmt-command "goreturns")
-  (gofmt-args '("-local" "git.ppdaicorp.com/ops"))
+  (gofmt-args '("-local" "git.ppda.com/ops"))
   )
 
 (use-package go-errcheck :ensure t)
