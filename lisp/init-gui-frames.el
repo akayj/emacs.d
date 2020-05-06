@@ -28,5 +28,9 @@
 
 (add-to-list 'default-frame-alist '(fullscreen . maximize-window))
 
+;; line number (version must >= 26)
+(when (version<= "26.0" emacs-version)
+  (global-display-line-numbers-mode))
+
 (provide 'init-gui-frames)
 ;;; init-gui-frames.el ends here
