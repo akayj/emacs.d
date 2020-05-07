@@ -38,6 +38,7 @@
     (smartparens-mode . nil)
     (whitespace-cleanup-mode . nil)
 
+    (ivy-mode . nil)
     (evil-escape-mode . nil)
     (evil-commentary-mode . nil)
     )
@@ -94,8 +95,8 @@ want to use in the modeline *in lieu of* the original.")
 ;;   :config
 ;;   (setq doom-modeline-height 25)
 ;;   (setq doom-modeline-bar-width 3)
-;;   (set-face-attribute 'mode-line nil :family "Menlo" :height 125)
-;;   (set-face-attribute 'mode-line-inactive nil :family "Menlo" :height 125)
+(set-face-attribute 'mode-line nil :family "Menlo" :height 125)
+(set-face-attribute 'mode-line-inactive nil :family "Menlo" :height 125)
 
 ;;   (setq doom-modeline-icon (display-graphic-p))
 ;;   ;; (setq doom-modeline-major-mode-icon t)
