@@ -66,7 +66,7 @@
 
 ;; (require 'init-keys)
 
-(require 'init-powerline)
+(require 'init-modeline)
 
 (require 'init-org)
 

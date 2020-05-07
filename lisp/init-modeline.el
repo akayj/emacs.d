@@ -1,4 +1,4 @@
-;;; init-powerline.el -- custom my modeline
+;;; init-modeline.el -- custom my modeline
 
 ;;; Commentary:
 
@@ -123,5 +123,5 @@ want to use in the modeline *in lieu of* the original.")
 ;; (use-package all-the-icons :ensure t)
 
 
-(provide 'init-powerline)
-;;; init-powerline.el ends here
+(provide 'init-modeline)
+;;; init-modeline.el ends here
