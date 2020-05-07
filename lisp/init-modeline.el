@@ -4,9 +4,35 @@
 
 ;;; Code:
 
-;; (setq mode-line-format '("%e"))
-      ;; '(
-      ;;	))
+(setq mode-line-format '("["
+			 "%e"
+			 ;; evil-mode-line-tag
+			 "]"
+			 mode-line-front-space
+			 ;; mode-line-mule-info
+			 "["
+			 mode-name
+			 ":"
+			 mode-line-buffer-identification
+			 "]"
+			 " "
+			 mode-line-position
+			 (vc-mode vc-mode)
+			 " "
+			 "["
+			 minor-mode-alist
+			 "]"
+			 mode-line-misc-info
+			 ))
+
+(setq evil-mode-line-format '(before . mode-line-front-space))
+;;; modify evil-state-tag
+(setq evil-normal-state-tag   (propertize "[N]")
+      evil-emacs-state-tag    (propertize "[E]")
+      evil-insert-state-tag   (propertize "[I]")
+      evil-motion-state-tag   (propertize "[M]")
+      evil-visual-state-tag   (propertize "[V]")
+      evil-operator-state-tag (propertize "[O]"))
 
 (defvar mode-line-cleaner-alist
   `(
@@ -26,9 +52,11 @@
     ;; (python-mode . "Py")
     (python-mode . 128013)
     (go-mode . 128063)
+    (go-dot-mod-mode . 128063)
 
     (emacs-lisp-mode . 8721)
     (nxhtml-mode . "nx")
+    (projectile-mode . "P")
 
     (helm-mode . 9405)
     (company-mode . 9426)
