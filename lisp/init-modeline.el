@@ -27,12 +27,14 @@
 
 (setq evil-mode-line-format '(before . mode-line-front-space))
 ;;; modify evil-state-tag
-(setq evil-normal-state-tag   (propertize "[N]")
-      evil-emacs-state-tag    (propertize "[E]")
-      evil-insert-state-tag   (propertize "[I]")
-      evil-motion-state-tag   (propertize "[M]")
-      evil-visual-state-tag   (propertize "[V]")
-      evil-operator-state-tag (propertize "[O]"))
+;; Color the evil tag - colors taken from spaceline
+(setq evil-normal-state-tag   (propertize "[N]" 'face '((:background "DarkGoldenrod2" :foreground "black")))
+      evil-emacs-state-tag    (propertize "[E]" 'face '((:background "SkyBlue2"       :foreground "black")))
+      evil-insert-state-tag   (propertize "[I]" 'face '((:background "chartreuse3"    :foreground "black")))
+      evil-replace-state-tag  (propertize "[R]" 'face '((:background "chocolate"      :foreground "black")))
+      evil-motion-state-tag   (propertize "[M]" 'face '((:background "plum3"          :foreground "black")))
+      evil-visual-state-tag   (propertize "[V]" 'face '((:background "gray"           :foreground "black")))
+      evil-operator-state-tag (propertize "[O]" 'face '((:background "sandy brown"    :foreground "black"))))
 
 (defvar mode-line-cleaner-alist
   `(
@@ -123,8 +125,8 @@ want to use in the modeline *in lieu of* the original.")
 ;;   :config
 ;;   (setq doom-modeline-height 25)
 ;;   (setq doom-modeline-bar-width 3)
-(set-face-attribute 'mode-line nil :family "Menlo" :height 125)
-(set-face-attribute 'mode-line-inactive nil :family "Menlo" :height 125)
+(set-face-attribute 'mode-line nil :family "DejaVu Sans Mono" :height 125)
+(set-face-attribute 'mode-line-inactive nil :family "DejaVu Sans Mono" :height 125)
 
 ;;   (setq doom-modeline-icon (display-graphic-p))
 ;;   ;; (setq doom-modeline-major-mode-icon t)
