@@ -27,9 +27,13 @@
 (require 'init-gui-frames)
 ;; (require 'init-shortcut)
 
+(require 'init-helm)
+
 (require 'init-evil)
 (require 'init-company-mode)
 (require 'init-pair)
+
+(require 'init-swiper)
 
 (require 'init-whitespace)
 
