@@ -8,7 +8,8 @@
 ;;; modify evil-state-tag
 ;; Color the evil tag - colors taken from spaceline
 (setq evil-normal-state-tag   (propertize "[N]" 'face '((:background "DarkGoldenrod2" :foreground "black")))
-      evil-emacs-state-tag    (propertize "[E]" 'face '((:background "SkyBlue2"       :foreground "black")))
+      ;; evil-emacs-state-tag    (propertize "[E]" 'face '((:background "SkyBlue2"       :foreground "black")))
+      evil-emacs-state-tag    (propertize "[E]" 'face '((:background "purple"       :foreground "black")))
       evil-insert-state-tag   (propertize "[I]" 'face '((:background "chartreuse3"    :foreground "black")))
       evil-replace-state-tag  (propertize "[R]" 'face '((:background "chocolate"      :foreground "black")))
       evil-motion-state-tag   (propertize "[M]" 'face '((:background "plum3"          :foreground "black")))
@@ -21,6 +22,7 @@
 	Emacs-Lisp 8721
 	Lisp\ Interaction 955
 	;; Foundamental "F"
+	Go 128063
 	Python 120587
 	Markdown 120615
 	Org 120570
@@ -101,8 +103,9 @@ want to use in the modeline *in lieu of* the original.")
 	") "
 
 	;; major mode
-	"["
 	'(:eval (propertize (simplify-major-mode-name) 'face 'font-lock-string-face))
+	"["
+	;; '(:eval ())
 	"]"
 
 	;; file modified?
