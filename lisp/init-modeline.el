@@ -22,7 +22,7 @@
 	Emacs-Lisp 8721
 	Lisp\ Interaction 955
 	;; Foundamental "F"
-	Go 128063
+	;; Go 128063
 	Python 120587
 	Markdown 120615
 	Org 120570
@@ -110,10 +110,11 @@ want to use in the modeline *in lieu of* the original.")
 	") "
 
 	;; major mode
-	'(:eval (propertize (simplify-major-mode-name) 'face 'font-lock-string-face))
-	"["
-	'(:eval (minor-mode-str))
-	"] "
+	;; '(:eval (propertize (simplify-major-mode-name) 'face 'font-lock-string-face))
+	;; "["
+	;; '(:eval (minor-mode-str))
+	;; "] "
+	mode-line-modes
 	)
       )
 
