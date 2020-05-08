@@ -21,7 +21,9 @@
 	Emacs-Lisp 8721
 	Lisp\ Interaction 955
 	;; Foundamental "F"
-	Python "Py"
+	Python 120587
+	Markdown 120615
+	Org 120570
 	))
 
 (defvar mode-line-cleaner-alist
@@ -106,9 +108,9 @@ want to use in the modeline *in lieu of* the original.")
 	;; file modified?
 	" "
 	'(:eval (when (buffer-modified-p)
-		(concat "," (propertize "Mod"
-					'face 'font-lock-warning-face
-					'help-echo "Buffer modified"))))
+		  (propertize "Mod"
+			      'face 'font-lock-warning-face
+			      'help-echo "Buffer modified")))
 	)
       )
 
