@@ -9,7 +9,7 @@
 ;; Color the evil tag - colors taken from spaceline
 (setq evil-normal-state-tag   (propertize "[N]" 'face '((:background "DarkGoldenrod2" :foreground "black")))
       ;; evil-emacs-state-tag    (propertize "[E]" 'face '((:background "purple"       :foreground "white")))
-      evil-emacs-state-tag    (propertize "[E]" 'face 'all-the-icons-maroon)
+      evil-emacs-state-tag    (propertize "[E]" 'face 'font-lock-function-name-face)
       evil-insert-state-tag   (propertize "[I]" 'face '((:background "chartreuse3"    :foreground "black")))
       evil-replace-state-tag  (propertize "[R]" 'face '((:background "chocolate"      :foreground "black")))
       evil-motion-state-tag   (propertize "[M]" 'face '((:background "plum3"          :foreground "black")))
@@ -95,7 +95,7 @@ want to use in the modeline *in lieu of* the original.")
 	" "
 	'(:eval
 	  (if (and buffer-file-name (buffer-modified-p))
-	      (propertize "%b " 'face '((:background "black" :foreground "red" :weight bold :slant italic))
+	      (propertize "%b " 'face '((:foreground "red" :weight bold :slant italic))
 			'help-echo (buffer-file-name))
 	    (propertize "%b " 'face 'font-lock-keyword-face)
 	    ))
