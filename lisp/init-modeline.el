@@ -8,8 +8,8 @@
 ;;; modify evil-state-tag
 ;; Color the evil tag - colors taken from spaceline
 (setq evil-normal-state-tag   (propertize "[N]" 'face '((:background "DarkGoldenrod2" :foreground "black")))
-      ;; evil-emacs-state-tag    (propertize "[E]" 'face '((:background "SkyBlue2"       :foreground "black")))
-      evil-emacs-state-tag    (propertize "[E]" 'face '((:background "purple"       :foreground "black")))
+      ;; evil-emacs-state-tag    (propertize "[E]" 'face '((:background "purple"       :foreground "white")))
+      evil-emacs-state-tag    (propertize "[E]" 'face 'all-the-icons-maroon)
       evil-insert-state-tag   (propertize "[I]" 'face '((:background "chartreuse3"    :foreground "black")))
       evil-replace-state-tag  (propertize "[R]" 'face '((:background "chocolate"      :foreground "black")))
       evil-motion-state-tag   (propertize "[M]" 'face '((:background "plum3"          :foreground "black")))
@@ -93,8 +93,12 @@ want to use in the modeline *in lieu of* the original.")
 
 	;; buffer name; the file name as a tool tip
 	" "
-	'(:eval (propertize "%b " 'face 'font-lock-keyword-face
-			    'help-echo (buffer-file-name)))
+	'(:eval
+	  (if (and buffer-file-name (buffer-modified-p))
+	      (propertize "%b " 'face '((:background "black" :foreground "red" :weight bold :slant italic))
+			'help-echo (buffer-file-name))
+	    (propertize "%b " 'face 'font-lock-keyword-face)
+	    ))
 
 	;; row and column
 	"("
@@ -109,11 +113,11 @@ want to use in the modeline *in lieu of* the original.")
 	"]"
 
 	;; file modified?
-	" "
-	'(:eval (when (and buffer-file-name (buffer-modified-p))
-		  (propertize "Mod"
-			      'face 'font-lock-warning-face
-			      'help-echo "Buffer modified")))
+	;; " "
+	;; '(:eval (when (and buffer-file-name (buffer-modified-p))
+	;;	  (propertize "Mod"
+	;;		      'face 'font-lock-warning-face
+	;;		      'help-echo "Buffer modified")))
 	)
       )
 
@@ -132,64 +136,10 @@ want to use in the modeline *in lieu of* the original.")
 
 ;; (add-hook 'after-change-major-mode-hook 'clean-mode-line)
 
-;; (use-package anzu
-;;   :ensure t
-;;   :config
-;;   (global-anzu-mode +1)
-;;   (setq anzu-cons-mode-line-p nil))
-
-;; (use-package diminish
-;;   :ensure t
-;;   :defer t)
-
-;; (use-package spaceline
-;;   :ensure t
-
-;;   :init
-;;   (setq powerline-default-separator 'slant)
-
-;;   :config
-;;   (spaceline-emacs-theme)
-;;   (spaceline-toggle-minor-modes-off)
-;;   ;; (spaceline-toggle-evil-state-on)
-;;   (spaceline-toggle-buffer-size-off)
-;;   (spaceline-toggle-evil-state-on))
-
-;; (use-package doom-modeline
-;;   :ensure t
-;;   :hook
-;;   (after-init . doom-modeline-mode)
-
-;;   :config
-;;   (setq doom-modeline-height 25)
-;;   (setq doom-modeline-bar-width 3)
 (set-face-attribute 'mode-line nil :family "DejaVu Sans Mono" :height 125)
 (set-face-attribute 'mode-line-inactive nil :family "DejaVu Sans Mono" :height 125)
 
-;;   (setq doom-modeline-icon (display-graphic-p))
-;;   ;; (setq doom-modeline-major-mode-icon t)
-;;   ;; (setq doom-modeline-buffer-state-icon t)
-
-;;   ;; display the environment version.
-;;   (setq doom-modeline-env-enable-python t)
-;;   (setq doom-modeline-env-enable-go t)
-
-;;   (setq doom-modeline-major-mode-color-icon t)
-;;   (setq doom-modeline-lsp t)
-;;   (setq doom-modeline-enable-word-count t)
-;;   (setq doom-modeline-project-detection 'project)
-;;   (doom-modeline-def-modeline 'my-simple-line
-;;     '(bar matches buffer-info remote-host buffer-position parrot selection-info)
-;;     '(misc-info minor-modes input-method buffer-encoding major-mode process vcs checker))
-
-;;   (defun setup-custom-doom-modeline ()
-;;     (doom-modeline-set-modeline 'my-simple-line))
-
-;;   (add-hook 'doom-modeline-mode-hook 'setup-custom-doom-modeline)
-;;   )
-
 ;; (use-package all-the-icons :ensure t)
-
 
 (provide 'init-modeline)
 ;;; init-modeline.el ends here
