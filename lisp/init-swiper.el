@@ -12,7 +12,7 @@
   :config
   (ivy-mode 1))
 
-(defvar swiper-evil-keymap nil "Swiper keyma for evil mode.")
+(defvar swiper-evil-keymap nil "Swiper keymap for evil mode.")
 (setq swiper-evil-keymap (make-sparse-keymap))
 (progn
   (define-key swiper-evil-keymap (kbd "a") 'counsel-ag)
