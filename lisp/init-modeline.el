@@ -110,7 +110,7 @@ want to use in the modeline *in lieu of* the original.")
 
 	;; file modified?
 	" "
-	'(:eval (when (buffer-modified-p)
+	'(:eval (when (and buffer-file-name (buffer-modified-p))
 		  (propertize "Mod"
 			      'face 'font-lock-warning-face
 			      'help-echo "Buffer modified")))
