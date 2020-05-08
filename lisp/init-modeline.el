@@ -31,44 +31,47 @@
 (defvar mode-line-cleaner-alist
   `((auto-complete-mode . 945) ;; α
     (yas-minor-mode . 9422)
-    (paredit-mode . nil)
-    (eldoc-mode . nil)
-    (abbrev-mode . nil)
-    (auto-revert-mode . nil)
+    ;; (paredit-mode . nil)
+    ;; (eldoc-mode . nil)
+    ;; (abbrev-mode . nil)
+    ;; (auto-revert-mode . nil)
 
-    (counsel-mode . nil)
+    ;; (counsel-mode . nil)
     (flycheck-mode . 9403)
 
     ;; Major modes
-    (lisp-interaction-mode . 955) ;; λ
-    (hi-lock-mode . nil)
+    ;; (lisp-interaction-mode . 955) ;; λ
+    ;; (hi-lock-mode . nil)
     ;; (python-mode . "Py")
-    (python-mode . 128013)
-    (go-mode . 128063)
-    (go-dot-mod-mode . 128063)
 
     ;; (emacs-lisp-mode . 8721)
-    (Emacs-Lisp . "EL")
-    (nxhtml-mode . "nx")
     (projectile-mode . "P")
 
     (helm-mode . 9405)
     (company-mode . 9426)
 
-    (undo-tree-mode . nil)
+    ;; (undo-tree-mode . nil)
+    ;; (smartparens-mode . nil)
+    ;; (whitespace-cleanup-mode . nil)
 
-    (smartparens-mode . nil)
-    (whitespace-cleanup-mode . nil)
-
-    (ivy-mode . nil)
-    (evil-escape-mode . nil)
-    (evil-commentary-mode . nil)
+    ;; (ivy-mode . nil)
+    ;; (evil-escape-mode . nil)
+    ;; (evil-commentary-mode . nil)
     )
   "Alist for `clean-mode-line'.
 
 When you add a new element to the alist, keep in mind that you
 must pass the correct minor/major mode symbol and a string you
 want to use in the modeline *in lieu of* the original.")
+
+(defun minor-mode-str ()
+  (setq results "")
+  (let* (
+	 (modes (seq-filter (lambda (cleaner) (assq (car cleaner) minor-mode-alist)) mode-line-cleaner-alist)))
+    (dolist (mode modes)
+      (setq results (concat results (char-to-string (cdr mode))))
+      ))
+  results)
 
 ;; 简化 `major-mode' 的名字
 (defun simplify-major-mode-name ()
@@ -109,15 +112,8 @@ want to use in the modeline *in lieu of* the original.")
 	;; major mode
 	'(:eval (propertize (simplify-major-mode-name) 'face 'font-lock-string-face))
 	"["
-	;; '(:eval ())
-	"]"
-
-	;; file modified?
-	;; " "
-	;; '(:eval (when (and buffer-file-name (buffer-modified-p))
-	;;	  (propertize "Mod"
-	;;		      'face 'font-lock-warning-face
-	;;		      'help-echo "Buffer modified")))
+	'(:eval (minor-mode-str))
+	"] "
 	)
       )
 
