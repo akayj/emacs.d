@@ -7,17 +7,17 @@
 ;; (setq evil-mode-line-format '(before . mode-line-front-space))
 ;;; modify evil-state-tag
 ;; Color the evil tag - colors taken from spaceline
-(setq evil-normal-state-tag   (propertize "[N]" 'face '((:background "DarkGoldenrod2" :foreground "black")))
-      ;; evil-emacs-state-tag    (propertize "[E]" 'face '((:background "purple"       :foreground "white")))
-      evil-emacs-state-tag    (propertize "[E]" 'face 'font-lock-function-name-face)
-      evil-insert-state-tag   (propertize "[I]" 'face '((:background "chartreuse3"    :foreground "black")))
-      evil-replace-state-tag  (propertize "[R]" 'face '((:background "chocolate"      :foreground "black")))
-      evil-motion-state-tag   (propertize "[M]" 'face '((:background "plum3"          :foreground "black")))
-      evil-visual-state-tag   (propertize "[V]" 'face '((:background "gray"           :foreground "black")))
-      evil-operator-state-tag (propertize "[O]" 'face '((:background "sandy brown"    :foreground "black"))))
+;; (setq evil-normal-state-tag   (propertize "[N]" 'face '((:background "DarkGoldenrod2" :foreground "black")))
+;;       ;; evil-emacs-state-tag    (propertize "[E]" 'face '((:background "purple"       :foreground "white")))
+;;       evil-emacs-state-tag    (propertize "[E]" 'face 'font-lock-function-name-face)
+;;       evil-insert-state-tag   (propertize "[I]" 'face '((:background "chartreuse3"    :foreground "black")))
+;;       evil-replace-state-tag  (propertize "[R]" 'face '((:background "chocolate"      :foreground "black")))
+;;       evil-motion-state-tag   (propertize "[M]" 'face '((:background "plum3"          :foreground "black")))
+;;       evil-visual-state-tag   (propertize "[V]" 'face '((:background "gray"           :foreground "black")))
+;;       evil-operator-state-tag (propertize "[O]" 'face '((:background "sandy brown"    :foreground "black"))))
 
 
-(setq mode-name-replace-plist
+(defvar mode-name-replace-plist
       '(
 	Emacs-Lisp 8721
 	Lisp\ Interaction 955
@@ -64,14 +64,15 @@ When you add a new element to the alist, keep in mind that you
 must pass the correct minor/major mode symbol and a string you
 want to use in the modeline *in lieu of* the original.")
 
-(defun minor-mode-str ()
-  (setq results "")
-  (let* (
-	 (modes (seq-filter (lambda (cleaner) (assq (car cleaner) minor-mode-alist)) mode-line-cleaner-alist)))
-    (dolist (mode modes)
-      (setq results (concat results (char-to-string (cdr mode))))
-      ))
-  results)
+;; FIXME: this can not modify modeline correctlly
+;; (defun minor-mode-str ()
+;;   (setq results "")
+;;   (let* (
+;;	 (modes (seq-filter (lambda (cleaner) (assq (car cleaner) minor-mode-alist)) mode-line-cleaner-alist)))
+;;     (dolist (mode modes)
+;;       (setq results (concat results (char-to-string (cdr mode))))
+;;       ))
+;;   results)
 
 ;; 简化 `major-mode' 的名字
 (defun simplify-major-mode-name ()
@@ -110,11 +111,12 @@ want to use in the modeline *in lieu of* the original.")
 	") "
 
 	;; major mode
-	;; '(:eval (propertize (simplify-major-mode-name) 'face 'font-lock-string-face))
+	'(:eval (propertize (simplify-major-mode-name) 'face 'font-lock-string-face))
 	;; "["
 	;; '(:eval (minor-mode-str))
 	;; "] "
-	mode-line-modes
+	;; mode-line-modes
+	'(vc-mode vc-mode)
 	)
       )
 
