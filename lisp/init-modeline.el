@@ -3,30 +3,16 @@
 ;;; Commentary:
 
 ;;; Code:
-
-;; (setq evil-mode-line-format '(before . mode-line-front-space))
-;;; modify evil-state-tag
-;; Color the evil tag - colors taken from spaceline
-;; (setq evil-normal-state-tag   (propertize "[N]" 'face '((:background "DarkGoldenrod2" :foreground "black")))
-;;       ;; evil-emacs-state-tag    (propertize "[E]" 'face '((:background "purple"       :foreground "white")))
-;;       evil-emacs-state-tag    (propertize "[E]" 'face 'font-lock-function-name-face)
-;;       evil-insert-state-tag   (propertize "[I]" 'face '((:background "chartreuse3"    :foreground "black")))
-;;       evil-replace-state-tag  (propertize "[R]" 'face '((:background "chocolate"      :foreground "black")))
-;;       evil-motion-state-tag   (propertize "[M]" 'face '((:background "plum3"          :foreground "black")))
-;;       evil-visual-state-tag   (propertize "[V]" 'face '((:background "gray"           :foreground "black")))
-;;       evil-operator-state-tag (propertize "[O]" 'face '((:background "sandy brown"    :foreground "black"))))
-
-
-(defvar mode-name-replace-plist
-      '(
-	Emacs-Lisp 8721
-	Lisp\ Interaction 955
-	;; Foundamental "F"
-	;; Go 128063
-	Python 120587
-	Markdown 120615
-	Org 120570
-	))
+;; (defvar mode-name-replace-plist
+;;       '(
+;;	Emacs-Lisp 8721
+;;	Lisp\ Interaction 955
+;;	;; Foundamental "F"
+;;	;; Go 128063
+;;	Python 120587
+;;	Markdown 120615
+;;	Org 120570
+;;	))
 
 (defvar mode-line-cleaner-alist
   `((auto-complete-mode . 945) ;; α
@@ -74,15 +60,24 @@ want to use in the modeline *in lieu of* the original.")
 ;;       ))
 ;;   results)
 
+(defvar mode-name-replace-plist
+      '(
+	emacs-lisp-mode 8721
+	lisp-interaction-mode 955
+	org-mode 120570
+	;; Foundamental "F"
+	;; go-mode 128063
+	go-mode 9404
+	python-mode 120587
+	markdown-mode 120615
+	org-mode 120570
+	))
+
 ;; 简化 `major-mode' 的名字
 (defun simplify-major-mode-name ()
   "Return simplifyed major mode name."
   (let* ((major-name (format-mode-line "%m"))
-	 ;; (replace-table mode-line-cleaner-alist)
-	 (replace-table mode-name-replace-plist)
-	 ;; (replace-table '(Emacs-Lisp "EL"))
-	 (replace-name (plist-get replace-table (intern major-name))))
-	 ;; (replace-name (plist-get replace-table (intern major-name))))
+	 (replace-name (plist-get mode-name-replace-plist major-mode)))
     (if replace-name
 	(if (numberp replace-name)
 	    (char-to-string replace-name)
