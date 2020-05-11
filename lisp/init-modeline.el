@@ -3,16 +3,7 @@
 ;;; Commentary:
 
 ;;; Code:
-;; (defvar mode-name-replace-plist
-;;       '(
-;;	Emacs-Lisp 8721
-;;	Lisp\ Interaction 955
-;;	;; Foundamental "F"
-;;	;; Go 128063
-;;	Python 120587
-;;	Markdown 120615
-;;	Org 120570
-;;	))
+(use-package all-the-icons :ensure t)
 
 (defvar mode-line-cleaner-alist
   `((auto-complete-mode . 945) ;; α
@@ -76,13 +67,11 @@ want to use in the modeline *in lieu of* the original.")
 ;; 简化 `major-mode' 的名字
 (defun simplify-major-mode-name ()
   "Return simplifyed major mode name."
-  (let* ((major-name (format-mode-line "%m"))
-	 (replace-name (plist-get mode-name-replace-plist major-mode)))
-    (if replace-name
-	(if (numberp replace-name)
-	    (char-to-string replace-name)
-	  replace-name)
-      major-name)))
+  (if (display-graphic-p)
+      (all-the-icons-icon-for-file (buffer-name) :height 0.98 :v-adjust -0.15)
+    (propertize "%m"'face '((:foreground "blue" :weight bold)))
+    )
+  )
 
 (setq-default mode-line-format
       (list
@@ -96,7 +85,8 @@ want to use in the modeline *in lieu of* the original.")
 	  (if (and buffer-file-name (buffer-modified-p))
 	      (propertize "%b " 'face '((:foreground "red" :weight bold :slant italic))
 			'help-echo (buffer-file-name))
-	    (propertize "%b " 'face 'font-lock-keyword-face)
+	    (propertize "%b ")
+	    ;; (propertize "%b " 'face 'font-lock-keyword-face)
 	    ))
 
 	;; row and column
@@ -106,7 +96,8 @@ want to use in the modeline *in lieu of* the original.")
 	") "
 
 	;; major mode
-	'(:eval (propertize (simplify-major-mode-name) 'face 'font-lock-string-face))
+	;; '(:eval (propertize (simplify-major-mode-name) 'face 'font-lock-string-face))
+	'(:eval (simplify-major-mode-name))
 	;; "["
 	;; '(:eval (minor-mode-str))
 	;; "] "
@@ -115,10 +106,9 @@ want to use in the modeline *in lieu of* the original.")
 	)
       )
 
-;; (set-face-attribute 'mode-line nil :family "DejaVu Sans Mono" :height 150)
-;; (set-face-attribute 'mode-line-inactive nil :family "DejaVu Sans Mono" :height 150)
+(set-face-attribute 'mode-line nil :family "DejaVu Sans Mono" :height 150)
+(set-face-attribute 'mode-line-inactive nil :family "DejaVu Sans Mono" :height 150)
 
-;; (use-package all-the-icons :ensure t)
 
 (provide 'init-modeline)
 ;;; init-modeline.el ends here
