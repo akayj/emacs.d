@@ -73,6 +73,20 @@ want to use in the modeline *in lieu of* the original.")
     )
   )
 
+(defun vc-modeline-setup ()
+  "Setup vc status in modeline."
+  (if vc-mode
+      (let* ((noback (replace-regexp-in-string
+		      (format "^ %s" (vc-backend buffer-file-name))
+		      " "
+		      vc-mode))
+	     (face (cond ((string-match "^ -" noback) 'mode-line-vc)
+			 ((string-match "^ [:@]" noback) 'mode-line-vc-edit)
+			 ((string-match "^ [!\\?]" noback) 'mode-line-vc-modified))))
+	(format " %s" (substring noback 2)))
+    )
+  )
+
 (setq-default mode-line-format
       (list
 	;; evil state
@@ -102,7 +116,8 @@ want to use in the modeline *in lieu of* the original.")
 	;; '(:eval (minor-mode-str))
 	;; "] "
 	;; mode-line-modes
-	'(vc-mode vc-mode)
+	;; '(vc-mode vc-mode)
+	'(:eval (vc-modeline-setup))
 	)
       )
 

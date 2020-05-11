@@ -6,6 +6,7 @@
 (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
 
 (setq gc-cons-threshold 400000)
+(add-hook 'focus-out-hook #'garbage-collect) ; auto gc while all frames lost focus.
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
 
 ;; all backups goto ~/.backups instead in the current directory
