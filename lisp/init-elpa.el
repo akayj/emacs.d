@@ -4,7 +4,8 @@
 
 ;; This file setup variable `package-archives'
 ;; install the `elpa-mirror' for package archives, that we can host
-;; them on other site, like github or your private git site, even local directory.
+;; them on other places, like github or your private version control system,
+;; even local directory or Dropbox, Baidu NetDisk.
 
 ;;; Code:
 (require 'package)

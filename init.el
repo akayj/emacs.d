@@ -9,7 +9,7 @@
 (add-hook 'focus-out-hook #'garbage-collect) ; auto gc while all frames lost focus.
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
 
-;; all backups goto ~/.backups instead in the current directory
+;; all backups placed in ~/.backups instead in the current directory
 ;; (setq backup-directory-alist (quote (("." . "~/.emacs-backups"))))
 (setq make-backup-files nil)
 (setq show-paren-mode t)
