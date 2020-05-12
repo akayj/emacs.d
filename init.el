@@ -65,7 +65,7 @@
 
 (require 'init-diminish)
 
-;; (require 'init-keys)
+(require 'init-keys)
 
 (require 'init-modeline)
 
