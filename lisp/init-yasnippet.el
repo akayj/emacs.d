@@ -1,3 +1,7 @@
+;;; init-yasnippet.el -- provide snippet support
+;;; Commentary:
+
+;;; Code:
 (if (not (file-exists-p "~/.emacs.d/snippets"))
  (dired-create-directory "~/.emacs.d/snippets"))
 
