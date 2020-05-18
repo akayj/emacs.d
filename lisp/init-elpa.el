@@ -18,6 +18,7 @@
   (message "Install packages into %s" package-user-dir))
 
 
+(add-to-list 'load-path (expand-file-name "elpamr" user-emacs-directory))
 (require 'elpa-mirror)
 (setq elpamr-default-output-directory "~/myelpa")
 (setq elpamr-debug t)
@@ -73,13 +74,13 @@
 ;;      (error
 ;;       (message "%s" (error-message-string err))))))
 
-(use-package auto-package-update
-  :ensure t
-  :custom
-  (auto-package-update-delete-old-version t)
-  (auto-package-update-hide-results t)
-  :config
-  (auto-package-update-maybe))
+;; (use-package auto-package-update
+;;   :ensure t
+;;   :custom
+;;   (auto-package-update-delete-old-version t)
+;;   (auto-package-update-hide-results nil)
+;;   :config
+;;   (auto-package-update-maybe))
 
 (provide 'init-elpa)
 ;;; init-elpa.el ends here
