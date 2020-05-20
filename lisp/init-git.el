@@ -1,3 +1,8 @@
+;;; init-git.el -- git support
+
+;;; Commentary:
+
+;;; Code:
 (use-package magit-filenotify
   :ensure t)
 
@@ -11,6 +16,11 @@
   (global-set-key (kbd "C-c m") 'magit-status)
   (global-set-key (kbd "C-c l") 'magit-log-buffer-file)
   )
+
+(use-package git-gutter
+  :ensure t
+  :config
+  (global-git-gutter-mode +1))
 
 (provide 'init-git)
 ;;; init-git.el ends here
