@@ -55,9 +55,8 @@
 (package-initialize)
 
 
-(defvar my-packages '(use-package
-                      better-defaults
-                      color-theme-sanityinc-tomorrow)
+(defvar my-packages
+  '(use-package better-defaults)
   "A list of packages to ensure are installed at launch.")
 
 (install-missing-package my-packages)
