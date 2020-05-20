@@ -1,2 +1,8 @@
 * My emacs configurations
   My personal =.emacs.d= configurations.
+
+** Features
+   - Minimal packages required.
+   - Speedup lauching.
+   - Smart theme switch according to current_time
+   - ~more~ ...
