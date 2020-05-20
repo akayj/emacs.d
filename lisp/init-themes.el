@@ -58,9 +58,10 @@ Return t if MORNING-HOUR <= now <= NIGHT-HOUR, otherwise nil."
 ;; Night hour
 (defvar toggled-hours-night 19)
 
-(defvar toggled-themes-day 'solarized-light)
-;; (defvar toggled-themes-night 'monokai)
-(defvar toggled-themes-night 'solarized-dark)
+(defvar toggled-themes-day nil)
+;; (defvar toggled-themes-day 'solarized-light)
+(defvar toggled-themes-night 'monokai)
+;; (defvar toggled-themes-night 'solarized-dark)
 
 (defun next-theme (day-theme night-theme)
   "Toggle theme to DAY-THEME when in day, otherwise NIGHT-THEME."
@@ -68,7 +69,9 @@ Return t if MORNING-HOUR <= now <= NIGHT-HOUR, otherwise nil."
 	 (target-theme (if is-day day-theme night-theme))
 	 (current-theme (get 'next-theme 'theme)))
     (unless (eq current-theme target-theme)
-      (load-theme target-theme t)
+      ;; allow set theme to `nil'.
+      (if target-theme
+	  (load-theme target-theme t))
       ;; cache current theme
       (put 'next-theme 'theme target-theme)
       (message "change theme %s => %s" current-theme target-theme))
