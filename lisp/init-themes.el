@@ -42,11 +42,41 @@
 ;; Sample usage
 ;; (load-theme 'solarized-light t)
 
-;; (defun next-theme ()
-;;   "Change to the next theme."
-;;   )
+(defun day-hour-p (morning-hour night-hour)
+  "Check now is on day, or night.
 
-;; (run-with-timer 0 60 'next-theme)
+Return t if MORNING-HOUR <= now <= NIGHT-HOUR, otherwise nil."
+  (let* ((now (decode-time (current-time)))
+	 (hour (nth 2 now)))
+    (and
+     (>= hour morning-hour)
+     (<= hour night-hour))
+    ))
+
+;; Day hour
+(defvar toggled-hours-day 8)
+;; Night hour
+(defvar toggled-hours-night 19)
+
+(defvar toggled-themes-day 'solarized-light)
+;; (defvar toggled-themes-night 'monokai)
+(defvar toggled-themes-night 'solarized-dark)
+
+(defun next-theme (day-theme night-theme)
+  "Toggle theme to DAY-THEME when in day, otherwise NIGHT-THEME."
+  (let* ((is-day (day-hour-p toggled-hours-day toggled-hours-night))
+	 (target-theme (if is-day day-theme night-theme))
+	 (current-theme (get 'next-theme 'theme)))
+    (unless (eq current-theme target-theme)
+      (load-theme target-theme t)
+      ;; cache current theme
+      (put 'next-theme 'theme target-theme)
+      (message "change theme %s => %s" current-theme target-theme))
+    )
+  )
+
+
+(run-with-timer 0 60 'next-theme toggled-themes-day toggled-themes-night)
 
 (provide 'init-themes)
 ;;; init-themes.el ends here
