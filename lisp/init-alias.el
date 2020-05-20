@@ -1,7 +1,8 @@
 ;;; init-alias.el -- make frequently used commands short
-;;; Code:
+
 ;;; Commentary:
 
+;;; Code:
 (defalias 'yes-or-no-p 'y-or-n-p)
 
 (defalias 'qrr 'query-replace-regexp)

@@ -20,6 +20,8 @@
 
 (set-default 'fill-column 80)
 
+(require 'init-utils)
+
 (require 'init-elpa)
 
 (require 'init-alias nil t)
