@@ -6,6 +6,7 @@
   "Install missing packages PKGS."
   (dolist (p pkgs)
     (unless (package-installed-p p)
+      (package-refresh-contents)
       (package-install p)
       (message "%s is installed!" p))))
 

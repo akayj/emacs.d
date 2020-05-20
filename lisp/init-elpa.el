@@ -60,11 +60,12 @@
                       color-theme-sanityinc-tomorrow)
   "A list of packages to ensure are installed at launch.")
 
-(dolist (p my-packages)
-  (unless (package-installed-p p)
-    (package-refresh-contents)
-    (package-install p)
-    (message "%s is installed" p)))
+(install-missing-package my-packages)
+;; (dolist (p my-packages)
+;;   (unless (package-installed-p p)
+;;     (package-refresh-contents)
+;;     (package-install p)
+;;     (message "%s is installed" p)))
 
 ;;(dolist (p my-packages)
 ;;  (unless (package-installed-p p)
