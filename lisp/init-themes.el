@@ -71,7 +71,8 @@ Return t if MORNING-HOUR <= now <= NIGHT-HOUR, otherwise nil."
     (unless (eq current-theme target-theme)
       ;; allow set theme to `nil'.
       (if target-theme
-	  (load-theme target-theme t))
+	  (load-theme target-theme t)
+	(disable-theme current-theme))
       ;; cache current theme
       (put 'next-theme 'theme target-theme)
       (message "change theme %s => %s" current-theme target-theme))
