@@ -64,7 +64,7 @@ Return t if MORNING-HOUR <= now <= NIGHT-HOUR, otherwise nil."
 ;; (defvar toggled-themes-night 'solarized-dark)
 
 (defun next-theme (day-theme night-theme)
-  "Toggle theme to DAY-THEME when in day, otherwise NIGHT-THEME."
+  "Toggle theme to DAY-THEME when in daytime, otherwise NIGHT-THEME."
   (let* ((is-day (day-hour-p toggled-hours-day toggled-hours-night))
 	 (target-theme (if is-day day-theme night-theme))
 	 (current-theme (get 'next-theme 'theme)))
