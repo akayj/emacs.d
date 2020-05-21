@@ -4,7 +4,7 @@
 
 ;;; Code:
 (install-missing-package
- '(monokai-theme solarized-theme))
+ '(monokai-theme solarized-theme srcery-theme))
 
 ;; (use-package monokai-theme
 ;;   :ensure t
@@ -70,39 +70,15 @@ Return t if MORNING-HOUR <= now <= NIGHT-HOUR, otherwise nil."
   (let* ((is-day (day-hour-p toggled-hours-day toggled-hours-night))
 	 (target-theme (if is-day day-theme night-theme))
 	 (current-theme (car custom-enabled-themes)))
-    (message "current: %s, target: %s" current-theme target-theme)
+    (message "is-day: %s, current: %s, target: %s" is-day current-theme target-theme)
     (unless (eq current-theme target-theme)
       ;; allow set theme to `nil'.
       (if target-theme
 	  (load-theme target-theme t)
-	(disable-theme current-theme))
-      ;; cache current theme
+	(mapc 'disable-theme custom-enabled-themes))
       (message "change theme %s => %s" current-theme target-theme))
     )
   )
-
-(defun change-theme (day-theme night-theme)
-  "Sample change theme to bettwen DAY-THEME and NIGHT-THEME."
-  (let* ((is-day (get 'change-theme 'is-day))
-	 (target-theme (if is-day day-theme night-theme))
-	 (current-theme (get 'change-theme 'theme)))
-
-    ;; switch day and night.
-    (if is-day
-	(put 'change-theme 'is-day nil)
-      (put 'change-theme 'is-day t))
-
-    (unless (eq current-theme target-theme)
-      ;; allow set theme to `nil'.
-      (if target-theme
-	  (load-theme target-theme t)
-	(disable-theme current-theme))
-      ;; cache current theme
-      (put 'change-theme 'theme target-theme)
-      (message "change theme %s => %s" current-theme target-theme))
-    )
-  )
-;; (run-with-timer 0 10 'change-theme nil toggled-themes-night)
 
 (run-with-timer 0 60 'next-theme toggled-themes-day toggled-themes-night)
 
