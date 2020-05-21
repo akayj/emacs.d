@@ -40,7 +40,7 @@
 	  ;; git
 	  "m" 'magit-status
 	  ;; buffer
-	  "k" 'kill-this-buffer
+	  "x" 'kill-this-buffer
 	  "b" 'ivy-switch-buffer
 	  "s" 'save-buffer
 
