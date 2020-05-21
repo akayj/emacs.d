@@ -79,6 +79,28 @@ Return t if MORNING-HOUR <= now <= NIGHT-HOUR, otherwise nil."
     )
   )
 
+(defun change-theme (day-theme night-theme)
+  "Sample change theme to bettwen DAY-THEME and NIGHT-THEME."
+  (let* ((is-day (get 'change-theme 'is-day))
+	 (target-theme (if is-day day-theme night-theme))
+	 (current-theme (get 'change-theme 'theme)))
+
+    ;; switch day and night.
+    (if is-day
+	(put 'change-theme 'is-day nil)
+      (put 'change-theme 'is-day t))
+
+    (unless (eq current-theme target-theme)
+      ;; allow set theme to `nil'.
+      (if target-theme
+	  (load-theme target-theme t)
+	(disable-theme current-theme))
+      ;; cache current theme
+      (put 'change-theme 'theme target-theme)
+      (message "change theme %s => %s" current-theme target-theme))
+    )
+  )
+;; (run-with-timer 0 10 'change-theme nil toggled-themes-night)
 
 (run-with-timer 0 60 'next-theme toggled-themes-day toggled-themes-night)
 
