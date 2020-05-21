@@ -50,7 +50,7 @@ Return t if MORNING-HOUR <= now <= NIGHT-HOUR, otherwise nil."
 	 (hour (nth 2 now)))
     (and
      (>= hour morning-hour)
-     (<= hour night-hour))
+     (< hour night-hour))
     ))
 
 ;; Day hour
@@ -63,18 +63,20 @@ Return t if MORNING-HOUR <= now <= NIGHT-HOUR, otherwise nil."
 (defvar toggled-themes-night 'monokai)
 ;; (defvar toggled-themes-night 'solarized-dark)
 
+(day-hour-p toggled-hours-day toggled-hours-night)
+
 (defun next-theme (day-theme night-theme)
   "Toggle theme to DAY-THEME when in daylight, otherwise NIGHT-THEME."
   (let* ((is-day (day-hour-p toggled-hours-day toggled-hours-night))
 	 (target-theme (if is-day day-theme night-theme))
-	 (current-theme (get 'next-theme 'theme)))
+	 (current-theme (car custom-enabled-themes)))
+    (message "current: %s, target: %s" current-theme target-theme)
     (unless (eq current-theme target-theme)
       ;; allow set theme to `nil'.
       (if target-theme
 	  (load-theme target-theme t)
 	(disable-theme current-theme))
       ;; cache current theme
-      (put 'next-theme 'theme target-theme)
       (message "change theme %s => %s" current-theme target-theme))
     )
   )
