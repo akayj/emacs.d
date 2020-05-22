@@ -56,7 +56,7 @@ Return t if MORNING-HOUR <= now <= NIGHT-HOUR, otherwise nil."
 ;; Day hour
 (defvar toggled-hours-day 8)
 ;; Night hour
-(defvar toggled-hours-night 19)
+(defvar toggled-hours-night 18)
 
 (defvar toggled-themes-day nil)
 ;; (defvar toggled-themes-day 'solarized-light)
