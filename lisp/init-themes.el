@@ -6,41 +6,25 @@
 (install-missing-package
  '(monokai-theme solarized-theme srcery-theme))
 
-;; (use-package monokai-theme
-;;   :ensure t
-;;   :config
-;;   (load-theme 'monokai t)
-
-;;   ;; :custom
-;;   ;; ;; foreground and background
-;;   ;; ;; (monokai-foreground "#ABB2BF")
-;;   ;; (monokai-foreground "white")
-;;   ;; (monokai-background     "#282C34")
-;;   ;; ;; highlights and comments
-;;   ;; ;; (monokai-comments       "#F8F8F0")
-;;   ;; (monokai-comments       "#999")
-;;   ;; ;; (monokai-emphasis       "#282C34")
-;;   ;; ;; (monokai-highlight      "#FFB269")
-;;   ;; ;; (monokai-highlight-alt  "#66D9EF")
-;;   ;; (monokai-highlight-line "#1B1D1E")
-;;   ;; (monokai-line-number    "#F8F8F0")
-;;   ;; ;; colours
-;;   ;; (monokai-blue           "#61AFEF")
-;;   ;; (monokai-cyan           "#56B6C2")
-;;   ;; (monokai-green          "#98C379")
-;;   ;; (monokai-gray           "#3E4451")
-;;   ;; (monokai-violet         "#C678DD")
-;;   ;; (monokai-red            "#E06C75")
-;;   ;; (monokai-orange         "#D19A66")
-;;   ;; (monokai-yellow         "#E5C07B")
-;;   )
-
-;; (use-package theme-changer :ensure t
-;;   :config
-;;   (change-theme 'solarized-light 'solarized-dark))
-
 ;; Sample usage
 ;; (load-theme 'solarized-light t)
+
+;; Day hour (8:00)
+(defvar toggled-hours-day 8)
+(defvar toggled-minute-day 0)
+
+;; Night hour(19:00)
+(defvar toggled-hours-night 19)
+(defvar toggled-minute-night 0)
+
+;; daylight theme
+(defvar toggled-themes-day nil)
+;; (defvar toggled-themes-day 'solarized-light)
+
+;; night theme
+;; (defvar toggled-themes-night 'monokai)
+;; (defvar toggled-themes-night 'solarized-dark)
+(defvar toggled-themes-night 'srcery)
 
 (defun day-hour-p (morning-hour night-hour)
   "Check now is on day, or night.
@@ -53,20 +37,29 @@ Return t if MORNING-HOUR <= now <= NIGHT-HOUR, otherwise nil."
      (< hour night-hour))
     ))
 
-;; Day hour
-(defvar toggled-hours-day 8)
-;; Night hour
-(defvar toggled-hours-night 18)
+;; (daylight-hour-minute-p 8 18)
+;; (daylight-hour-minute-p '(8 30) '(18 30))
 
-(defvar toggled-themes-day nil)
-;; (defvar toggled-themes-day 'solarized-light)
-;; (defvar toggled-themes-night 'monokai)
-;; (defvar toggled-themes-night 'solarized-dark)
-(defvar toggled-themes-night 'srcery-theme)
+(defun time-to-float (@time)
+  "Parse @TIME hour minute list to float style."
+  (string-to-number
+   (format "%d.%d" (car @time) (nth 1 @time))))
+
+(defun daylight-p (start-time end-time)
+  "Check current time is at daylight, or night.
+
+Return t if START-TIME <= now <= END-TIME, otherwise nil."
+  (let* ((start_t (time-to-float start-time))
+	 (end_t (time-to-float end-time))
+	 (now_t (string-to-number (format-time-string "%H.%S"))))
+    (and
+     (>= now_t start_t)
+     (<= now_t end_t))))
 
 (defun next-theme (day-theme night-theme)
   "Toggle theme to DAY-THEME when in daylight, otherwise NIGHT-THEME."
-  (let* ((is-day (day-hour-p toggled-hours-day toggled-hours-night))
+  (let* ((is-day (daylight-p (list toggled-hours-day toggled-minute-day)
+			     (list toggled-hours-night toggled-minute-night)))
 	 (target-theme (if is-day day-theme night-theme))
 	 (current-theme (car custom-enabled-themes)))
     (unless (eq current-theme target-theme)
