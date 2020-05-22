@@ -37,7 +37,7 @@ Return t if START-TIME <= now <= END-TIME, otherwise nil."
   (let* ((start_t (time-to-stamp start-time))
 	 (end_t (time-to-stamp end-time))
 	 (now (decode-time (current-time)))
-	 (now_t (+ (* 60 (nth 2 now)) (nth 1 now))))
+	 (now_t (time-to-stamp (list (nth 2 now) (nth 1 now)))))
     (and (>= now_t start_t)
 	 (< now_t end_t)))
   )
