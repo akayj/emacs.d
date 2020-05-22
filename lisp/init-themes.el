@@ -60,27 +60,41 @@ Return t if MORNING-HOUR <= now <= NIGHT-HOUR, otherwise nil."
 
 (defvar toggled-themes-day nil)
 ;; (defvar toggled-themes-day 'solarized-light)
-(defvar toggled-themes-night 'monokai)
+;; (defvar toggled-themes-night 'monokai)
 ;; (defvar toggled-themes-night 'solarized-dark)
-
-(day-hour-p toggled-hours-day toggled-hours-night)
+(defvar toggled-themes-night 'srcery-theme)
 
 (defun next-theme (day-theme night-theme)
   "Toggle theme to DAY-THEME when in daylight, otherwise NIGHT-THEME."
   (let* ((is-day (day-hour-p toggled-hours-day toggled-hours-night))
 	 (target-theme (if is-day day-theme night-theme))
 	 (current-theme (car custom-enabled-themes)))
-    (message "is-day: %s, current: %s, target: %s" is-day current-theme target-theme)
     (unless (eq current-theme target-theme)
       ;; allow set theme to `nil'.
       (if target-theme
 	  (load-theme target-theme t)
 	(mapc 'disable-theme custom-enabled-themes))
-      (message "change theme %s => %s" current-theme target-theme))
+      (message "%s is-day: %s, change theme %s => %s"
+	       (format-time-string "%Y-%m-%d %H:%M:%S")
+	       is-day current-theme target-theme))
     )
   )
 
-(run-with-timer 0 60 'next-theme toggled-themes-day toggled-themes-night)
+(defun change-theme (interval)
+  "Change theme run `next-theme' in every INTERVAL seconds.
+Smart delay in the first time."
+  (interactive "p")
+  (next-theme toggled-themes-day toggled-themes-night)
+
+  (let* ((now-secs (car (decode-time (current-time))))
+	 (delay-secs (- 60 now-secs)))
+    (if (> delay-secs 0)
+	(message "Adjust delay %d secs" delay-secs))
+    (run-with-timer delay-secs interval
+		    'next-theme toggled-themes-day toggled-themes-night))
+  )
+
+(change-theme 60)
 
 (provide 'init-themes)
 ;;; init-themes.el ends here
