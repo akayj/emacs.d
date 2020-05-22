@@ -13,8 +13,7 @@
 (defvar toggled-hours-day 8)
 (defvar toggled-minute-day 0)
 
-;; Night hour(19:00)
-; (defvar toggled-hours-night 19)
+;; Night hour(18:00)
 (defvar toggled-hours-night 18)
 (defvar toggled-minute-night 0)
 
@@ -23,9 +22,9 @@
 ;; (defvar toggled-themes-day 'solarized-light)
 
 ;; night theme
-;; (defvar toggled-themes-night 'monokai)
+(defvar toggled-themes-night 'monokai)
 ;; (defvar toggled-themes-night 'solarized-dark)
-(defvar toggled-themes-night 'srcery)
+;; (defvar toggled-themes-night 'srcery)
 
 (defun time-to-stamp (time-alist)
   "Parse TIME-ALIST hour minute list to float style."
@@ -53,9 +52,9 @@ Return t if START-TIME <= now <= END-TIME, otherwise nil."
       (if target-theme
 	  (load-theme target-theme t)
 	(mapc 'disable-theme custom-enabled-themes))
-      (message "%s is-day: %s, change theme %s => %s"
+      (message "%s it's %s, change theme %s => %s"
 	       (format-time-string "%Y-%m-%d %H:%M:%S")
-	       is-day current-theme target-theme))
+	       (if is-day "daylight" "night") current-theme target-theme))
     )
   )
 
@@ -67,10 +66,9 @@ Smart delay in the first time."
 
   (let* ((now-secs (car (decode-time (current-time))))
 	 (delay-secs (- 60 now-secs)))
-    (if (> delay-secs 0)
-	(message "Adjust delay %d secs" delay-secs))
-    (run-with-timer delay-secs interval
-		    'next-theme toggled-themes-day toggled-themes-night))
+	(message "next-theme hoc check in %d secs" delay-secs)
+	(run-with-timer delay-secs interval
+			'next-theme toggled-themes-day toggled-themes-night))
   )
 
 (change-theme 60)
