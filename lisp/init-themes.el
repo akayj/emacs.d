@@ -14,7 +14,8 @@
 (defvar toggled-minute-day 0)
 
 ;; Night hour(19:00)
-(defvar toggled-hours-night 19)
+; (defvar toggled-hours-night 19)
+(defvar toggled-hours-night 18)
 (defvar toggled-minute-night 0)
 
 ;; daylight theme
@@ -26,35 +27,20 @@
 ;; (defvar toggled-themes-night 'solarized-dark)
 (defvar toggled-themes-night 'srcery)
 
-(defun day-hour-p (morning-hour night-hour)
-  "Check now is on day, or night.
-
-Return t if MORNING-HOUR <= now <= NIGHT-HOUR, otherwise nil."
-  (let* ((now (decode-time (current-time)))
-	 (hour (nth 2 now)))
-    (and
-     (>= hour morning-hour)
-     (< hour night-hour))
-    ))
-
-;; (daylight-hour-minute-p 8 18)
-;; (daylight-hour-minute-p '(8 30) '(18 30))
-
-(defun time-to-float (@time)
-  "Parse @TIME hour minute list to float style."
-  (string-to-number
-   (format "%d.%d" (car @time) (nth 1 @time))))
+(defun time-to-stamp (time-alist)
+  "Parse TIME-ALIST hour minute list to float style."
+   (+ (* 60 (car time-alist)) (nth 1 time-alist)))
 
 (defun daylight-p (start-time end-time)
   "Check current time is at daylight, or night.
-
 Return t if START-TIME <= now <= END-TIME, otherwise nil."
-  (let* ((start_t (time-to-float start-time))
-	 (end_t (time-to-float end-time))
-	 (now_t (string-to-number (format-time-string "%H.%S"))))
-    (and
-     (>= now_t start_t)
-     (<= now_t end_t))))
+  (let* ((start_t (time-to-stamp start-time))
+	 (end_t (time-to-stamp end-time))
+	 (now (decode-time (current-time)))
+	 (now_t (+ (* 60 (nth 2 now)) (nth 1 now))))
+    (and (>= now_t start_t)
+	 (< now_t end_t)))
+  )
 
 (defun next-theme (day-theme night-theme)
   "Toggle theme to DAY-THEME when in daylight, otherwise NIGHT-THEME."
