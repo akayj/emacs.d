@@ -24,6 +24,9 @@
 
   (org-directory "~/gits/org")
 
+  :config
+  (evil-leader/set-key "oc" 'org-capture)
+
   :hook
   (org-mode . my-org-symbols)
   )
