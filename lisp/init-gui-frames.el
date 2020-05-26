@@ -6,6 +6,7 @@
 (setq inhibit-startup-screen t)
 
 (defconst *is-macos* (memq window-system '(ns x)))
+(defconst *office-laptop* (string-prefix-p "PPD-" (system-name)))
 
 (when (fboundp 'tool-bar-mode)
   (tool-bar-mode -1))
@@ -17,8 +18,10 @@
 (when (fboundp 'set-scroll-bar-mode)
   (set-scroll-bar-mode nil))
 
-
-(set-frame-font "Jetbrains Mono-15")
+;; TODO: replace it with text property?
+(if *office-laptop*
+    (set-frame-font "Jetbrains Mono-15")
+  (set-frame-font "Jetbrains Mono-14"))
 ;; (set-frame-font "DejaVu Sans Mono-14")
 ;; (set-frame-font "Fira Code-13")
 ;; (set-frame-font "Inconsolata-18")
