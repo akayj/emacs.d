@@ -1,3 +1,8 @@
+;;; init-pair.el -- pair support
+
+;;; Commentary:
+
+;;; Code:
 (use-package smartparens
   :ensure t
   :config
@@ -11,6 +16,13 @@
   (add-hook 'c++-mode-hook #'smartparens-mode)
   (add-hook 'java-mode-hook #'smartparens-mode)
   (add-hook 'html-mode-hook #'smartparens-mode)
+  )
+
+(use-package rainbow-delimiters
+  :ensure t
+  :config
+  (add-hook 'emacs-lisp-mode-hook #'rainbow-delimiters-mode)
+  (add-hook 'lisp-interaction-mode-hook  #'rainbow-delimiters-mode)
   )
 
 (provide 'init-pair)
