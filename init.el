@@ -20,6 +20,8 @@
 
 (set-default 'fill-column 80)
 
+(defvar emacs-load-start-time (current-time))
+
 (require 'init-utils)
 
 (require 'init-elpa)
@@ -81,6 +83,10 @@
 
 (require 'init-tree)
 (require 'init-projectile)
+
+(when (require 'time-date nil t)
+  (message "Emacs startup time: %d seconds."
+	   (time-to-seconds (time-since emacs-load-start-time))))
 
 (provide 'init)
 ;;; init.el ends here
