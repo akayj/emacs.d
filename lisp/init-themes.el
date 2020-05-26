@@ -43,6 +43,8 @@ Return t if START-TIME <= now <= END-TIME, otherwise nil."
 
 (defun next-theme (day-theme night-theme)
   "Toggle theme to DAY-THEME when in daylight, otherwise NIGHT-THEME."
+  (put 'change-theme 'last-check (format-time-string "%Y-%m-%d %H:%M:%S"))
+
   (let* ((is-day (daylight-p (list toggled-hours-day toggled-minute-day)
 			     (list toggled-hours-night toggled-minute-night)))
 	 (target-theme (if is-day day-theme night-theme))
@@ -62,6 +64,12 @@ Return t if START-TIME <= now <= END-TIME, otherwise nil."
   "Change theme run `next-theme' in every INTERVAL seconds.
 Smart delay in the first time."
   (interactive "p")
+  (when (get 'change-theme 'started)
+    (error (format "Already started, last check: %s" (get 'change-theme 'last-check))))
+
+  (put 'change-theme 'started t)
+  (put 'change-theme 'last-check (format-time-string "%Y-%m-%d %H:%M:%S"))
+
   (next-theme toggled-themes-day toggled-themes-night)
 
   (let* ((now-secs (car (decode-time (current-time))))
