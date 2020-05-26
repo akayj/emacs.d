@@ -6,8 +6,9 @@
 (setq inhibit-startup-screen t)
 
 (defconst *is-macos* (memq window-system '(ns x)))
-(defconst *laptop-env* (if (string-prefix-p "PPD-" (system-name)) 'work 'home))
-(setplist 'my/font-size '(home 14 work 15))
+(defconst *laptop-env*
+  (if (string-prefix-p "PPD-" (system-name))
+      "work" "home"))
 
 (when (fboundp 'tool-bar-mode)
   (tool-bar-mode -1))
@@ -19,19 +20,32 @@
 (when (fboundp 'set-scroll-bar-mode)
   (set-scroll-bar-mode nil))
 
-(set-frame-font (format "Jetbrains Mono-%d" (get 'my/font-size *laptop-env*)))
+(defvar my/frame-font-family "Jetbrains Mono")
 ;; (set-frame-font "DejaVu Sans Mono-14")
 ;; (set-frame-font "Fira Code-13")
 ;; (set-frame-font "Inconsolata-18")
+
+(defvar my/frame-font-size
+  (cond
+   ((equal *laptop-env* "home") 14)
+   ((equal *laptop-env* "work") 15)))
+
+(defvar my/frame-font
+  (format "%s-%d"
+	  my/frame-font-family
+	  my/frame-font-size))
+
+
+(set-frame-font my/frame-font)
 
 (blink-cursor-mode 0)
 
 (setq-default line-spacing 0.25)
 
-(add-to-list 'default-frame-alist '(fullscreen . maximize-window))
+;; (add-to-list 'default-frame-alist '(fullscreen . maximize-window))
 
 ;; line number (version must >= 26)
-(when (version<= "26.0" emacs-version)
+(when (version<= "26" emacs-version)
   (global-display-line-numbers-mode))
 
 (provide 'init-gui-frames)
