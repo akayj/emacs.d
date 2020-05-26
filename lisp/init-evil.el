@@ -48,6 +48,8 @@
 	  "p" 'projectile-switch-project
 	  "o" 'projectile-switch-open-project
 
+	  "e" 'elpamr-create-mirror-for-installed
+
 	  ;; comment/uncomment
 	  ;; "cl" 'comment-line
 	  ;; quit
