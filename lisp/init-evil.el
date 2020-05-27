@@ -48,6 +48,7 @@
 	  "p" 'projectile-switch-project
 	  "o" 'projectile-switch-open-project
 
+	  "c" 'delete-old-pkgs
 	  "e" 'elpamr-create-mirror-for-installed
 
 	  ;; comment/uncomment

@@ -83,5 +83,17 @@
   :config
   (auto-package-update-maybe))
 
+(defun delete-old-pkgs ()
+  "Delete old version packags."
+  (interactive)
+  (let ((basedir package-user-dir))
+    (dolist (f (directory-files basedir t "[^\\(\\.\\|\\.\\.\\|\\.DS_Store\\|archives\\)$]"))
+      (when (and
+	     (file-directory-p f)
+	     (not (member f load-path)))
+	(delete-directory f t t)
+	(message "%s deleted\n" (file-name-nondirectory f))))
+    (message "cleanup packages under %s" basedir)))
+
 (provide 'init-elpa)
 ;;; init-elpa.el ends here
