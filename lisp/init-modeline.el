@@ -121,8 +121,8 @@ want to use in the modeline *in lieu of* the original.")
 	)
       )
 
-(set-face-attribute 'mode-line nil :family "DejaVu Sans Mono" :height 150)
-(set-face-attribute 'mode-line-inactive nil :family "DejaVu Sans Mono" :height 150)
+;; (set-face-attribute 'mode-line nil :family "DejaVu Sans Mono" :height 150)
+;; (set-face-attribute 'mode-line-inactive nil :family "DejaVu Sans Mono" :height 150)
 
 
 (provide 'init-modeline)
