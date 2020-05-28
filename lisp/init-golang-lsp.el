@@ -1,7 +1,7 @@
-;;; package -- Setup gopls for enhance golang development.
+;;; init-golang-lsp.el -- lsp support for golang
 ;;; Commentary:
-;;; Code:
 
+;;; Code:
 (use-package lsp-mode
   :ensure t
   :commands (lsp lsp-defined)

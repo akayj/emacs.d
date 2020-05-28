@@ -83,6 +83,7 @@
   :config
   (auto-package-update-maybe))
 
+;;;###autoload
 (defun delete-old-pkgs ()
   "Delete old version packags."
   (interactive)
