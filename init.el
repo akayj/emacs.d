@@ -42,8 +42,6 @@
 
 (require 'init-whitespace)
 
-(require 'init-completion)
-
 ;; golang
 (require 'init-golang)
 (require 'init-golang-lsp)

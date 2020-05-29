@@ -1,4 +1,4 @@
-;;; init-elpa.el -- setup elpa mirror
+;;; init-elpa.el -- setup elpa mirror -*- lexical-binding: t -*-
 
 ;;; Commentary:
 
