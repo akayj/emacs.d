@@ -57,7 +57,7 @@ want to use in the modeline *in lieu of* the original.")
 
 ;; 简化 `major-mode' 的名字
 (defun simplify-major-mode-name ()
-  "Return simplifyed major mode name."
+  "Return simplified major mode name."
   (if (display-graphic-p)
       (all-the-icons-icon-for-file (buffer-name) :height 0.98 :v-adjust -0.15)
     (propertize "%m" 'face '((:foreground "blue" :weight bold)))
