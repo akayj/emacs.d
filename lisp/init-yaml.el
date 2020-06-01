@@ -1,3 +1,8 @@
+;;; init-yaml.el --  trailing space indentify
+
+;;; Commentary:
+
+;;; Code:
 (use-package yaml-mode
   :ensure t
   :config

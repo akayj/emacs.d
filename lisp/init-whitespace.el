@@ -1,3 +1,8 @@
+;;; init-whitespace.el --  trailing space indentify
+
+;;; Commentary:
+
+;;; Code:
 (setq-default show-trailing-whitespace t)
 
 (use-package whitespace-cleanup-mode

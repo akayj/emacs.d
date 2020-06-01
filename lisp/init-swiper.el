@@ -17,6 +17,9 @@
 (progn
   (define-key swiper-evil-keymap (kbd "r") 'counsel-rg)
   (define-key swiper-evil-keymap (kbd "g") 'counsel-git)
+  (define-key swiper-evil-keymap (kbd "j") 'counsel-git-grep)
+
+  (define-key minibuffer-local-map (kbd "C-r") 'counsel-minibuffer-history)
   )
 
 

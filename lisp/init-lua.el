@@ -1,3 +1,8 @@
+;;; init-lua -- lua support -*- lexical-binding: t -*-
+
+;;; Commentary:
+
+;;; Code:
 (use-package lua-mode
   :ensure t
   :config
