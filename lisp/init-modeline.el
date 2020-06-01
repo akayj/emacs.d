@@ -25,16 +25,7 @@
     (projectile-mode . "P")
 
     (helm-mode . 9405)
-    (company-mode . 9426)
-
-    ;; (undo-tree-mode . nil)
-    ;; (smartparens-mode . nil)
-    ;; (whitespace-cleanup-mode . nil)
-
-    ;; (ivy-mode . nil)
-    ;; (evil-escape-mode . nil)
-    ;; (evil-commentary-mode . nil)
-    )
+    (company-mode . 9426))
   "Alist for `clean-mode-line'.
 
 When you add a new element to the alist, keep in mind that you
@@ -87,6 +78,23 @@ want to use in the modeline *in lieu of* the original.")
     )
   )
 
+(defun semantic-file-size (size)
+  "Semantic file's SIZE."
+  (let* (($fsize size)
+	 ($units "BKMG")
+	 ($index (1- (length $units))))
+    (while (and (<= 0 $index)
+		(<= $fsize (expt 2 (* 10 $index))))
+      (setq $index (1- $index)))
+
+    (format "%.2f%s" (/ (* $fsize 1.0) (expt 2 (* 10 $index)))
+	    (substring $units $index (1+ $index)))))
+
+(defun current-file-size ()
+  "Calculate current file's size."
+  (when (buffer-file-name)
+    (semantic-file-size (point-max))))
+
 (setq-default mode-line-format
       (list
 	;; evil state
@@ -108,6 +116,10 @@ want to use in the modeline *in lieu of* the original.")
 	(propertize "%02l" 'face 'font-lock-type-face) ","
 	(propertize "%02c" 'face 'font-lock-type-face)
 	") "
+
+	;; '(:eval (current-file-size))
+	'(:eval (propertize (current-file-size) 'face '((:foreground "red" :weight bold))))
+	" "
 
 	;; major mode
 	;; '(:eval (propertize (simplify-major-mode-name) 'face 'font-lock-string-face))
