@@ -123,7 +123,7 @@ want to use in the modeline *in lieu of* the original.")
 	") "
 
 	;; '(:eval (current-file-size))
-	'(:eval (propertize (current-file-size) 'face '((:foreground "green2" :weight bold))))
+	'(:eval (propertize (current-file-size) 'face '((:foreground "purple1" :weight bold))))
 	" "
 
 	;; major mode
