@@ -78,16 +78,21 @@ want to use in the modeline *in lieu of* the original.")
     )
   )
 
-(defun semantic-file-size (size)
-  "Semantic file's SIZE."
+(defun semantic-file-size (size &optional kilo)
+  "Semantic file's SIZE in KILO."
   (let* (($fsize size)
+	 ($kilo (if kilo kilo 1024))
 	 ($units "BKMG")
-	 ($index (1- (length $units))))
-    (while (and (<= 0 $index)
-		(<= $fsize (expt 2 (* 10 $index))))
-      (setq $index (1- $index)))
+	 ($index (1- (length $units)))
+	 ($mod (expt $kilo $index)))
+    (while (and
+	    (<= 0 $index)
+	    (<= $fsize $mod))
+      (setq $index (1- $index))
+      (setq $mod (expt $kilo $index)))
 
-    (format "%.2f%s" (/ (* $fsize 1.0) (expt 2 (* 10 $index)))
+    (format "%.2f%s"
+	    (/ (* $fsize 1.0) $mod)
 	    (substring $units $index (1+ $index)))))
 
 (defun current-file-size ()
