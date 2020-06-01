@@ -48,5 +48,8 @@
 (when (version<= "26" emacs-version)
   (global-display-line-numbers-mode))
 
+(when (fboundp 'windmove-default-keybindings)
+  (windmove-default-keybindings))
+
 (provide 'init-gui-frames)
 ;;; init-gui-frames.el ends here
