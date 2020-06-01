@@ -14,7 +14,8 @@
   :config
   (progn
     ;; set evil tag face in modeline
-    (setq evil-normal-state-tag   (propertize "[N]" 'face '((:background "DarkGoldenrod2" :foreground "black")))
+    ;; (setq evil-normal-state-tag   (propertize "[N]" 'face '((:background "DarkGoldenrod2" :foreground "black")))
+    (setq evil-normal-state-tag   (propertize "[N]" 'face '((:background "blue" :foreground "white")))
 	  ;; evil-emacs-state-tag    (propertize "[E]" 'face '((:background "purple"       :foreground "white")))
 	  evil-emacs-state-tag    (propertize "[E]" 'face 'font-lock-function-name-face)
 	  evil-insert-state-tag   (propertize "[I]" 'face '((:background "chartreuse3"    :foreground "black")))
