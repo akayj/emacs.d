@@ -73,8 +73,9 @@ want to use in the modeline *in lieu of* the original.")
 		      vc-mode))
 	     (face (cond ((string-match "^ -" noback) 'mode-line-vc)
 			 ((string-match "^ [:@]" noback) 'mode-line-vc-edit)
-			 ((string-match "^ [!\\?]" noback) 'mode-line-vc-modified))))
-	(format " %s" (substring noback 2)))
+			 ((string-match "^ [!\\?]" noback) 'mode-line-vc-modified)))
+	     (branch-name (format " %s" (substring noback 2))))
+	(propertize branch-name 'face '((:foreground "green4"))))
     )
   )
 
@@ -98,13 +99,20 @@ want to use in the modeline *in lieu of* the original.")
 (defun current-file-size ()
   "Calculate current file's size."
   (when (buffer-file-name)
-    (semantic-file-size (point-max))))
+    (propertize (semantic-file-size (point-max))
+		'face '((:foreground "magenta"))))
+		;; 'face '((:foreground "DarkOliveGreen4"))))
+  )
 
 (setq-default mode-line-format
       (list
 	;; evil state
 	" "
 	'(:eval (evil-generate-mode-line-tag evil-state))
+
+	;; major mode
+	" "
+	'(:eval (simplify-major-mode-name))
 
 	;; buffer name; the file name as a tool tip
 	" "
@@ -117,24 +125,17 @@ want to use in the modeline *in lieu of* the original.")
 	    ))
 
 	;; row and column
-	"("
+	"["
 	(propertize "%02l" 'face 'font-lock-type-face) ","
 	(propertize "%02c" 'face 'font-lock-type-face)
-	") "
+	"] "
 
 	'(:eval (current-file-size))
 	;; '(:eval (propertize (current-file-size) 'face '((:foreground "purple1" :weight bold))))
-	" "
 
-	;; major mode
-	;; '(:eval (propertize (simplify-major-mode-name) 'face 'font-lock-string-face))
-	'(:eval (simplify-major-mode-name))
-	;; "["
-	;; '(:eval (minor-mode-str))
-	;; "] "
-	;; mode-line-modes
 	;; '(vc-mode vc-mode)
 	'(:eval (vc-modeline-setup))
+	;; '(:eval (propertize (vc-modeline-setup) 'face '((:foreground "red"))))
 	)
       )
 
