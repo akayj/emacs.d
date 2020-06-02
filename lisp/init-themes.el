@@ -60,6 +60,7 @@ Return t if START-TIME <= now <= END-TIME, otherwise nil."
     )
   )
 
+;;;###autoload
 (defun change-theme (interval)
   "Change theme run `next-theme' in every INTERVAL seconds.
 Smart delay in the first time."
@@ -79,7 +80,7 @@ Smart delay in the first time."
 			'next-theme toggled-themes-day toggled-themes-night))
   )
 
-(change-theme 60)
+;; (change-theme 60)
 
 (provide 'init-themes)
 ;;; init-themes.el ends here

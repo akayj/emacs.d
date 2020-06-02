@@ -2,6 +2,7 @@
 ;;; Commentary:
 
 ;;; Code:
+;;;###autoload
 (defun install-missing-package (pkgs)
   "Install missing packages PKGS."
   (dolist (p pkgs)

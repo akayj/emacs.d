@@ -74,14 +74,14 @@
 ;;      (error
 ;;       (message "%s" (error-message-string err))))))
 
-(use-package auto-package-update
-  :ensure t
-  :custom
-  (auto-package-update-delete-old-version t)
-  (auto-package-update-prompt-before-update t)
-  (auto-package-update-hide-results nil)
-  :config
-  (auto-package-update-maybe))
+;; (use-package auto-package-update
+;;   :ensure t
+;;   :custom
+;;   (auto-package-update-delete-old-version t)
+;;   (auto-package-update-prompt-before-update t)
+;;   (auto-package-update-hide-results nil)
+;;   :config
+;;   (auto-package-update-maybe))
 
 ;;;###autoload
 (defun delete-old-pkgs ()

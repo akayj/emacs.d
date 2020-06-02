@@ -3,7 +3,7 @@
 ;;; Commentary:
 
 ;;; Code:
-;; perttify symbols
+;;;###autoload
 (defun my-add-pretty-lambda ()
   "Make some word or string show as pretty Unicode symbols."
   (setq prettify-symbols-alist
@@ -16,6 +16,7 @@
   (prettify-symbols-mode))
 
 
+;;;###autoload
 (defun my-org-symbols ()
   "Make pretty Unicode symbols for `org-mode'."
   (setq prettify-symbols-alist

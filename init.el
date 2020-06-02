@@ -32,10 +32,10 @@
 (require 'init-gui-frames)
 ;; (require 'init-shortcut)
 
-(require 'init-helm)
+;; (require 'init-helm)
 
 (require 'init-evil)
-(require 'init-company-mode)
+;; (require 'init-company-mode)
 (require 'init-pair)
 
 (require 'init-swiper)
@@ -65,7 +65,7 @@
 
 (require 'init-csv)
 
-(require 'init-diminish)
+;; (require 'init-diminish)
 
 (require 'init-keys)
 
@@ -73,17 +73,20 @@
 
 (require 'init-org)
 
-(require 'init-flycheck)
+;; (require 'init-flycheck)
 
-(require 'init-yasnippet)
+;; (require 'init-yasnippet)
 
 (require 'init-dockerfile)
 
 (require 'init-tree)
 (require 'init-projectile)
 
+(with-eval-after-load 'init-themes
+  (change-theme 60))
+
 (when (require 'time-date nil t)
-  (message "Emacs startup time: %d seconds."
+  (message "Emacs startup time: %.2f seconds."
 	   (time-to-seconds (time-since emacs-load-start-time))))
 
 (provide 'init)

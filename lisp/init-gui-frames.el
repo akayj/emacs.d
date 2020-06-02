@@ -20,6 +20,16 @@
 (when (fboundp 'set-scroll-bar-mode)
   (set-scroll-bar-mode nil))
 
+(if (display-graphic-p)
+    (progn
+      (setq initial-frame-alist
+	    '(
+	      (width . 96)
+	      (height . 50)
+	      (left . 50)
+	      ;; (top . 50)
+	      ))))
+
 (defvar my/frame-font-family "Jetbrains Mono")
 ;; (set-frame-font "DejaVu Sans Mono-14")
 ;; (set-frame-font "Fira Code-13")
