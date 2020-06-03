@@ -36,8 +36,11 @@
 
 	(evil-leader/set-key
 	  "n" 'neotree-toggle
+
 	  ;; "f" 'ido-find-file
-	  "f" 'helm-find-files
+	  ;; "f" 'helm-find-files
+	  "f" 'counsel-find-file
+
 	  ;; git
 	  "m" 'magit-status
 	  ;; buffer

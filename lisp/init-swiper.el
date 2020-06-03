@@ -33,7 +33,8 @@
 
   :bind
   (("C-s" . counsel-grep-or-swiper)	; global
-   ("C-x C-f" . counsel-find-file))
+   ("C-x C-f" . counsel-find-file)
+   ("M-x" . counsel-M-x))
 
   ;; :bind (:map help-map
   ;;	      ("f" . counsel-describe-function)

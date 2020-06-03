@@ -18,13 +18,13 @@
 (defvar toggled-minute-night 0)
 
 ;; daylight theme
-(defvar toggled-themes-day nil)
-;; (defvar toggled-themes-day 'solarized-light)
+;; (defvar toggled-themes-day nil)
+(defvar toggled-themes-day 'solarized-light)
 
 ;; night theme
-(defvar toggled-themes-night 'monokai)
+;; (defvar toggled-themes-night 'monokai)
 ;; (defvar toggled-themes-night 'solarized-dark)
-;; (defvar toggled-themes-night 'srcery)
+(defvar toggled-themes-night 'srcery)
 
 (defun time-to-stamp (time-alist)
   "Parse TIME-ALIST hour minute list to float style."
