@@ -100,9 +100,16 @@ want to use in the modeline *in lieu of* the original.")
   "Calculate current file's size."
   (when (buffer-file-name)
     (propertize (semantic-file-size (buffer-size))
-		'face '((:foreground "magenta"))))
+		'face '((:foreground "red3"))))
 		;; 'face '((:foreground "DarkOliveGreen4"))))
   )
+
+(defun current-buffer-loc ()
+  "Calculate line of code of current buffer."
+  (when (buffer-file-name)
+    (propertize (format " %d loc" (count-lines (point-min) (point-max)))
+		'face '((:foreground "MediumBlue")))
+    ))
 
 (setq-default mode-line-format
       (list
@@ -132,6 +139,8 @@ want to use in the modeline *in lieu of* the original.")
 
 	'(:eval (current-file-size))
 	;; '(:eval (propertize (current-file-size) 'face '((:foreground "purple1" :weight bold))))
+
+	'(:eval (current-buffer-loc))
 
 	;; '(vc-mode vc-mode)
 	'(:eval (vc-modeline-setup))
