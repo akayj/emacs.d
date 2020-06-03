@@ -128,23 +128,19 @@ want to use in the modeline *in lieu of* the original.")
 	      (propertize "%b " 'face '((:foreground "red" :weight bold :slant italic))
 			'help-echo (buffer-file-name))
 	    (propertize "%b ")
-	    ;; (propertize "%b " 'face 'font-lock-keyword-face)
 	    ))
 
 	;; row and column
 	"["
-	(propertize "%02l" 'face 'font-lock-type-face) ","
-	(propertize "%02c" 'face 'font-lock-type-face)
+	(propertize "%2l,%2c" 'face 'font-lock-type-face)
 	"] "
 
 	'(:eval (current-file-size))
-	;; '(:eval (propertize (current-file-size) 'face '((:foreground "purple1" :weight bold))))
 
 	'(:eval (current-buffer-loc))
 
 	;; '(vc-mode vc-mode)
 	'(:eval (vc-modeline-setup))
-	;; '(:eval (propertize (vc-modeline-setup) 'face '((:foreground "red"))))
 	)
       )
 
