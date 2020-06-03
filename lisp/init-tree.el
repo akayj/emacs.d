@@ -44,6 +44,7 @@
 	      (define-key evil-normal-state-local-map (kbd "H") 'neotree-hidden-file-toggle)))
   :custom
   (neo-theme (if (display-graphic-p) 'icons 'arrow))
+  (neo-window-fixed-size nil)
   )
 
 
