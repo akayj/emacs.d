@@ -79,6 +79,11 @@ want to use in the modeline *in lieu of* the original.")
     )
   )
 
+(defun trailing-dup-zero (num)
+  (if (= (floor num) num)
+      (format "%d" (floor num))
+    (format "%.2f" num)))
+
 (defun semantic-file-size (size &optional kilo)
   "Semantic file's SIZE in KILO."
   (let* (($fsize size)
@@ -92,8 +97,8 @@ want to use in the modeline *in lieu of* the original.")
       (setq $index (1- $index))
       (setq $mod (expt $kilo $index)))
 
-    (format "%.2f%s"
-	    (/ (* $fsize 1.0) $mod)
+    (format "%s%s"
+	    (trailing-dup-zero (/ (* $fsize 1.0) $mod))
 	    (substring $units $index (1+ $index)))))
 
 (defun current-file-size ()
