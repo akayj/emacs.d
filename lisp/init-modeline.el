@@ -75,7 +75,7 @@ want to use in the modeline *in lieu of* the original.")
 			 ((string-match "^ [:@]" noback) 'mode-line-vc-edit)
 			 ((string-match "^ [!\\?]" noback) 'mode-line-vc-modified)))
 	     (branch-name (format " %s" (substring noback 2))))
-	(propertize branch-name 'face '((:foreground "green4"))))
+	(propertize branch-name 'face '((:foreground "green3"))))
     )
   )
 
@@ -108,7 +108,7 @@ want to use in the modeline *in lieu of* the original.")
   "Calculate line of code of current buffer."
   (when (buffer-file-name)
     (propertize (format " %d loc" (count-lines (point-min) (point-max)))
-		'face '((:foreground "MediumBlue")))
+		'face '((:foreground "white")))
     ))
 
 (setq-default mode-line-format
