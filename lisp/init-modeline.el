@@ -99,7 +99,7 @@ want to use in the modeline *in lieu of* the original.")
 (defun current-file-size ()
   "Calculate current file's size."
   (when (buffer-file-name)
-    (propertize (semantic-file-size (point-max))
+    (propertize (semantic-file-size (buffer-size))
 		'face '((:foreground "magenta"))))
 		;; 'face '((:foreground "DarkOliveGreen4"))))
   )
