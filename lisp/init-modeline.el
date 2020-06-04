@@ -75,7 +75,7 @@ want to use in the modeline *in lieu of* the original.")
 			 ((string-match "^ [:@]" noback) 'mode-line-vc-edit)
 			 ((string-match "^ [!\\?]" noback) 'mode-line-vc-modified)))
 	     (branch-name (format " %s" (substring noback 2))))
-	(propertize branch-name 'face '((:foreground "green3"))))
+	(propertize branch-name 'face 'font-lock-type-face))
     )
   )
 
@@ -97,24 +97,23 @@ want to use in the modeline *in lieu of* the original.")
       (setq $index (1- $index))
       (setq $mod (expt $kilo $index)))
 
-    (format "%s%s"
-	    (trailing-dup-zero (/ (* $fsize 1.0) $mod))
+    ;; (format "%s%s"
+    ;;	    (trailing-dup-zero (/ (* $fsize 1.0) $mod))
+    ;;	    (substring $units $index (1+ $index)))))
+    (concat (trailing-dup-zero (/ (* $fsize 1.0) $mod))
 	    (substring $units $index (1+ $index)))))
 
 (defun current-file-size ()
   "Calculate current file's size."
   (when (buffer-file-name)
     (propertize (semantic-file-size (buffer-size))
-		'face '((:foreground "red3"))))
-		;; 'face '((:foreground "DarkOliveGreen4"))))
-  )
+		'face 'all-the-icons-red)))
 
 (defun current-buffer-loc ()
   "Calculate line of code of current buffer."
   (when (buffer-file-name)
     (propertize (format " %d loc" (count-lines (point-min) (point-max)))
-		'face '((:foreground "white")))
-    ))
+		'face 'all-the-icons-purple)))
 
 (setq-default mode-line-format
       (list
