@@ -14,6 +14,10 @@
 (use-package tide
   :ensure t
   :after (typescript-mode company flycheck)
+  :config
+  (define-key evil-normal-state-map (kbd "gd") 'tide-jump-to-definition)
+  (define-key evil-normal-state-map (kbd "gb") 'tide-jump-back)
+
   :hook ((typescript-mode . tide-setup)
 	 (typescript-mode . tide-hl-identifier-mode)
 	 (before-save . tide-format-before-save)))
