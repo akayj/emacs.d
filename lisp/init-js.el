@@ -11,15 +11,34 @@
 
 (use-package tern :ensure t)
 
+(use-package web-mode
+  :ensure t
+  :config
+  (add-to-list 'auto-mode-alist '("\\.tsx\\'" . web-mode))
+
+  ;; :hook
+  ;; (web-mode . (lambda ()
+  ;;		(when (string-equal "tsx" (file-name-extension buffer-file-name))
+  ;;		  (setup-tide-mode))))
+  )
+
+;;;###autoload
+(defun setup-tide-mode ()
+  "Setup web-mode."
+  (tide-setup)
+  (tide-hl-identifier-mode)
+
+  ;; evil keys
+  (define-key evil-normal-state-map (kbd "gd") 'tide-jump-to-definition)
+  (define-key evil-normal-state-map (kbd "gb") 'tide-jump-back)
+  )
+
 (use-package tide
   :ensure t
   :after (typescript-mode company flycheck)
-  :config
-  (define-key evil-normal-state-map (kbd "gd") 'tide-jump-to-definition)
-  (define-key evil-normal-state-map (kbd "gb") 'tide-jump-back)
+  ;; :config
 
-  :hook ((typescript-mode . tide-setup)
-	 (typescript-mode . tide-hl-identifier-mode)
+  :hook ((typescript-mode . setup-tide-mode)
 	 (before-save . tide-format-before-save)))
 
 (provide 'init-js)
