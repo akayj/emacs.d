@@ -6,7 +6,7 @@
   :init
   (progn
     (global-evil-leader-mode)
-    (evil-mode t)
+    (evil-mode +1)
     (evil-define-key 'normal go-mode-map "gd" 'godef-jump)
     (evil-define-key 'normal go-mode-map "gb" 'xref-pop-marker-stack)
     (define-key evil-insert-state-map (kbd "C-g") 'evil-normal-state))
