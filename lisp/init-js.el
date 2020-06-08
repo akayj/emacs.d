@@ -29,8 +29,8 @@
   (tide-hl-identifier-mode)
 
   ;; evil keys
-  (define-key evil-normal-state-map (kbd "gd") 'tide-jump-to-definition)
-  (define-key evil-normal-state-map (kbd "gb") 'tide-jump-back)
+  (evil-define-key 'normal tide-mode-map "gd" 'tide-jump-to-definition)
+  (evil-define-key 'normal tide-mode-map "gb" 'tide-jump-back)
   )
 
 (use-package tide
