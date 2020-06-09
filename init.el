@@ -41,6 +41,7 @@
 (require 'init-swiper)
 
 (require 'init-whitespace)
+(require 'init-todo)
 
 ;; golang
 (require 'init-golang)
