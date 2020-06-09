@@ -86,8 +86,10 @@
   (message "Emacs startup time: %.2f seconds."
 	   (time-to-seconds (time-since emacs-load-start-time))))
 
-(with-eval-after-load 'init-themes
-  (change-theme 60))
+(if (string-prefix-p "vagrant" system-name)
+    (load-theme toggled-themes-night t)
+  (with-eval-after-load 'init-themes
+    (change-theme 60)))
 
 (provide 'init)
 ;;; init.el ends here
