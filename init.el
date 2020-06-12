@@ -43,6 +43,8 @@
 (require 'init-whitespace)
 (require 'init-todo)
 
+(require 'init-tags)
+
 ;; golang
 (require 'init-golang)
 (require 'init-golang-lsp)
