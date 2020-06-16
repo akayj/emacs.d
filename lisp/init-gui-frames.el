@@ -61,5 +61,12 @@
 (when (fboundp 'windmove-default-keybindings)
   (windmove-default-keybindings))
 
+(use-package dimmer
+  :ensure t
+  :config
+  (dimmer-configure-which-key)
+  (dimmer-configure-helm)
+  (dimmer-mode t))
+
 (provide 'init-gui-frames)
 ;;; init-gui-frames.el ends here
