@@ -1,6 +1,7 @@
 ;;; init-rust.el -- Setup Rust mode.
 ;;; Commentary:
 ;;; Code:
+(install-missing-package '(rust-mode))
 (use-package rust-mode
   :ensure t
   :config
