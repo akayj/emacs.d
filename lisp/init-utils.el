@@ -10,7 +10,19 @@
       (package-refresh-contents)
       (dolist (p missing-packages)
 	(package-install p)
-	(message "%s is installed!" p)))))
+	(message "%s is installed!" (show-package-info p))))))
+
+;;;###autoload
+(defun show-package-info (pkg &optional version-separator)
+  (when (package-installed-p pkg)
+    (let* ((separator (if version-separator version-separator "."))
+	   (desc (cadr (assoc pkg package-alist)))
+	   (name (symbol-name pkg))
+	   (version (string-join
+		     (seq-map (lambda (n) (number-to-string n))
+			      (package-desc-version desc))
+		     separator)))
+      (format "%s, version: %s" name version))))
 
 ;; https://github.com/Kitware/CMake/blob/master/Auxiliary/cmake-mode.el
 ;; TODO: install missing package from an `URL'.
