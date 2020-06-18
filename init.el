@@ -48,6 +48,10 @@
 ;; golang
 (require 'init-golang)
 (require 'init-golang-lsp)
+
+;; rust
+(require 'init-rust)
+
 ;; javascript
 (require 'init-js)
 ;; yaml
