@@ -5,11 +5,12 @@
 ;;;###autoload
 (defun install-missing-package (pkgs)
   "Install missing packages PKGS."
-  (dolist (p pkgs)
-    (unless (package-installed-p p)
+  (let ((missing-packages (seq-filter (lambda (elm) (not (package-installed-p elm))) pkgs)))
+    (when missing-packages
       (package-refresh-contents)
-      (package-install p)
-      (message "%s is installed!" p))))
+      (dolist (p missing-packages)
+	(package-install p)
+	(message "%s is installed!" p)))))
 
 ;; https://github.com/Kitware/CMake/blob/master/Auxiliary/cmake-mode.el
 ;; TODO: install missing package from an `URL'.
