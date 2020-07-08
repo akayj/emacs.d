@@ -39,7 +39,7 @@
 
   :config
   (progn
-    ;; (add-hook 'before-save-hook 'gofmt-before-save)
+    (add-hook 'before-save-hook 'gofmt-before-save)
 
     (add-to-list 'auto-mode-alist '("\\.go\\'" . go-mode))
     (autoload 'go-mode "go-mode" nil t)
