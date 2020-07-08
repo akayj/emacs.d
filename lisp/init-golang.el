@@ -49,7 +49,7 @@
   ;; (setq gofmt-command "goimports")
   :custom
   (gofmt-command "goreturns")
-  (gofmt-args '("-local" "git.ppda.com/ops"))
+  (gofmt-args '("-local" "git.ppd.com/ops"))
   )
 
 (use-package go-errcheck :ensure t)
