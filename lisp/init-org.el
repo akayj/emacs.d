@@ -1,8 +1,11 @@
 ;;; package -- org mode settings
 ;;; Commentary:
 ;;; Code:
+
+(add-to-list 'load-path (expand-file-name "org-mode/lisp" user-emacs-directory))
+
 (use-package org
-  :ensure t
+  ;; :ensure t
   :custom
   (org-log-done 'time)
   (org-log-done 'note)

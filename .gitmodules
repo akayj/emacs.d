@@ -1,3 +1,6 @@
 [submodule "elpamr"]
 	path = elpamr
 	url = https://github.com/redguardtoo/elpa-mirror.git
+[submodule "org-mode"]
+	path = org-mode
+	url = https://code.orgmode.org/bzg/org-mode.git
