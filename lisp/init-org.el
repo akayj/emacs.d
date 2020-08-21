@@ -2,7 +2,7 @@
 ;;; Commentary:
 ;;; Code:
 
-(add-to-list 'load-path (expand-file-name "org-mode/lisp" user-emacs-directory))
+(add-to-list 'load-path (expand-file-name "org/lisp" user-emacs-directory))
 
 (use-package org
   ;; :ensure t
