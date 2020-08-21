@@ -3,12 +3,18 @@
 ;;; Code:
 
 (add-to-list 'load-path (expand-file-name "org/lisp" user-emacs-directory))
+(add-to-list 'load-path (expand-file-name "org/contrib/lisp" user-emacs-directory))
 
 (use-package org
   ;; :ensure t
   :custom
   (org-log-done 'time)
   (org-log-done 'note)
+
+  ;; 打开 org-indent mode
+  (org-startup-indented t)
+  ;; 设置 bullet list
+  (org-bullets-bullet-list '("☰" "☷" "☯" "☭"))
 
   (org-html-validation-link nil)
   (org-todo-keywords
