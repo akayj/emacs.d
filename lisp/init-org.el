@@ -16,6 +16,8 @@
   ;; 设置 bullet list
   (org-bullets-bullet-list '("☰" "☷" "☯" "☭"))
 
+  (org-src-fontify-natively t)
+
   (org-html-validation-link nil)
   (org-todo-keywords
    '((sequence "TODO(t)" "STARTED(s)" "|" "DONE(d)")
