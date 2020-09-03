@@ -14,5 +14,17 @@
   (rust-format-on-save t)
   )
 
+(use-package racer
+  :ensure t
+
+  :config
+  ;; (rust-mode . #'racer-mode)
+  ;; (racer-mode . #'eldoc-mode)
+  (add-hook 'rust-mode-hook #'racer-mode)
+  (add-hook 'racer-mode-hook #'eldoc-mode)
+
+  (evil-define-key 'normal racer-mode-map "gd" 'racer-find-definition)
+  )
+
 (provide 'init-rust)
 ;;; init-rust.el ends here
