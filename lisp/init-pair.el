@@ -25,5 +25,10 @@
   (add-hook 'lisp-interaction-mode-hook  #'rainbow-delimiters-mode)
   )
 
+;; (use-package autopair
+;;   :ensure t
+;;   :config
+;;   (autopair-global-mode))
+
 (provide 'init-pair)
 ;;; init-pair.el ends here

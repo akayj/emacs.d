@@ -4,7 +4,7 @@
 
 ;;; Code:
 (install-missing-package
- '(monokai-theme solarized-theme srcery-theme))
+ '(monokai-theme solarized-theme srcery-theme zenburn-theme))
 
 ;; Sample usage
 ;; (load-theme 'solarized-light t)
