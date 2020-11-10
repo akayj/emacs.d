@@ -4,7 +4,11 @@
 
 ;;; Code:
 (install-missing-package
- '(monokai-theme solarized-theme srcery-theme zenburn-theme))
+ '(monokai-theme
+   solarized-theme
+   srcery-theme
+   zenburn-theme
+   dracla-theme))
 
 ;; Sample usage
 ;; (load-theme 'solarized-light t)
@@ -23,7 +27,7 @@
 ;; (defvar toggled-themes-day 'monokai)
 
 ;; night theme
-(defvar toggled-themes-night 'monokai)
+(defvar toggled-themes-night 'dracla)
 ;; (defvar toggled-themes-night 'solarized-dark)
 ;; (defvar toggled-themes-night 'srcery)
 
