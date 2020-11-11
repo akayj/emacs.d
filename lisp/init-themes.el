@@ -22,8 +22,8 @@
 (defvar toggled-minute-night 0)
 
 ;; daylight theme
-(defvar toggled-themes-day nil)
-;; (defvar toggled-themes-day 'solarized-light)
+;; (defvar toggled-themes-day nil)
+(defvar toggled-themes-day 'solarized-light)
 ;; (defvar toggled-themes-day 'monokai)
 
 ;; night theme
