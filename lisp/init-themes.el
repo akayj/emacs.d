@@ -27,7 +27,7 @@
 ;; (defvar toggled-themes-day 'monokai)
 
 ;; night theme
-(defvar toggled-themes-night 'dracla)
+(defvar toggled-themes-night 'dracula)
 ;; (defvar toggled-themes-night 'solarized-dark)
 ;; (defvar toggled-themes-night 'srcery)
 
