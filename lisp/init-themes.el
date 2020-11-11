@@ -8,7 +8,7 @@
    solarized-theme
    srcery-theme
    zenburn-theme
-   dracla-theme))
+   dracula-theme))
 
 ;; Sample usage
 ;; (load-theme 'solarized-light t)
