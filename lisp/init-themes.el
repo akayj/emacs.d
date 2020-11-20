@@ -8,7 +8,8 @@
    solarized-theme
    srcery-theme
    zenburn-theme
-   dracula-theme))
+   dracula-theme
+   material-theme))
 
 ;; Sample usage
 ;; (load-theme 'solarized-light t)
@@ -23,11 +24,12 @@
 
 ;; daylight theme
 ;; (defvar toggled-themes-day nil)
-(defvar toggled-themes-day 'solarized-light)
+;; (defvar toggled-themes-day 'solarized-light)
 ;; (defvar toggled-themes-day 'monokai)
+(defvar toggled-themes-day 'material-light)
 
 ;; night theme
-(defvar toggled-themes-night 'dracula)
+(defvar toggled-themes-night 'material)
 ;; (defvar toggled-themes-night 'solarized-dark)
 ;; (defvar toggled-themes-night 'srcery)
 
