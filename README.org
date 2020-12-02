@@ -6,3 +6,10 @@
    - Speedup lauching.
    - Smart theme switch according to current_time
    - ~more~ ...
+
+** Install
+
+#+BEGIN_SRC shell
+git clone https://github.com/akayj/emacs.d.git ~/.emacs.d --depth=1
+git submodule update --init --recursive
+#+END_SRC
