@@ -32,7 +32,7 @@
 (require 'init-alias nil t)
 
 (require 'init-symbols)
-(require 'init-gui-frames)
+(require 'init-gui)
 ;; (require 'init-shortcut)
 
 ;; (require 'init-helm)
