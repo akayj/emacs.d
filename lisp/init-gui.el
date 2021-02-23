@@ -36,6 +36,10 @@
 ;; (set-frame-font "Fira Code-13")
 ;; (set-frame-font "Inconsolata-18")
 
+;; 修复中文显示问题
+(set-fontset-font "fontset-default"
+		  'gb18030 '("Microsoft YaHei" . "unicode-bmp"))
+
 (defvar my/frame-font-size
   (cond
    ((equal *laptop-env* "home") 14)
