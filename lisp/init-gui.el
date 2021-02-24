@@ -1,4 +1,4 @@
-;;; init-gui-frames.el -- setup gui related default configurations
+;;; init-gui.el -- setup gui related default configurations
 
 ;;; Commentary:
 
@@ -73,5 +73,5 @@
   (dimmer-configure-helm)
   (dimmer-mode t))
 
-(provide 'init-gui-frames)
-;;; init-gui-frames.el ends here
+(provide 'init-gui)
+;;; init-gui.el ends here
