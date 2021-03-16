@@ -7,7 +7,7 @@
 
 (require 'smtpmail)
 
-(setq user-full-name "YuJianjian")
+(setq user-full-name "余剑剑")
 (setq user-mail-address "yujianjian@xinye.com")
 
 ;; (setq send-mail-function 'smtpmail-send-it)
@@ -19,6 +19,7 @@
       )
 
 (require 'mu4e)
+(setq mu4e-mu-binary "/usr/local/bin/mu")
 (setq mu4e-maildir (expand-file-name "~/mails/xinye"))
 
 (setq
