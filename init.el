@@ -35,6 +35,8 @@
 (require 'init-gui)
 ;; (require 'init-shortcut)
 
+(require 'init-mail)
+
 ;; (require 'init-helm)
 
 (require 'init-evil)
