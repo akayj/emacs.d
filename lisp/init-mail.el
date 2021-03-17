@@ -10,6 +10,7 @@
 (setq user-full-name "余剑剑")
 (setq user-mail-address "yujianjian@xinye.com")
 
+;; Sent mail
 ;; (setq send-mail-function 'smtpmail-send-it)
 (setq message-send-mail-function 'smtpmail-send-it
       smtpmail-default-smtp-server "partner.outlook.cn"
@@ -27,15 +28,19 @@
  mu4e-drafts-folder  "/xinye/Drafts"
  mu4e-trash-folder  "/xinye/Trash"
  mu4e-refile-folder  "/xinye/All Email"
- mu4e-compose-signature  "---\nYu Jianjian"
  )
 
-;; get mail
-(setq mu4e-get-mail-command "mbsync -c ~/.mbsyncrc --all"
+;; Get mail
+(setq mu4e-get-mail-command "mbsync -c ~/.mbsyncrc -a"
       mu4e-html2text-command "w3m -T text/html"
       mu4e-update-interval 60
       mu4e-headers-auto-update t
+      mu4e-hide-index-messages t
       mu4e-compose-signature-auto-include nil)
+
+(add-hook 'mu4e-index-updated-hook
+	  (defun new-mail-sound ()
+	    (shell-command "afplay /System/Library/Sounds/Glass.aiff &")))
 
 (setq mu4e-show-images t)
 (when (fboundp 'imagemagick-register-types)

@@ -36,6 +36,7 @@
 ;; (require 'init-shortcut)
 
 (require 'init-mail)
+(autoload 'wl "wl" "Wanderlust" t)
 
 ;; (require 'init-helm)
 
