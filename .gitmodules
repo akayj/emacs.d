@@ -7,3 +7,6 @@
 [submodule "org"]
 	path = org
 	url = https://code.orgmode.org/bzg/org-mode.git
+[submodule "org-dev"]
+	path = org
+	url = https://code.orgmode.org/bzg/org-mode.git
