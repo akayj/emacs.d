@@ -40,8 +40,11 @@
 
 (add-hook 'mu4e-index-updated-hook
 	  (defun new-mail-sound ()
-	    (shell-command "afplay /System/Library/Sounds/Glass.aiff &")))
+	    ;; (shell-command "afplay /System/Library/Sounds/Glass.aiff &")
+	    (message "new mail received")
+	    ))
 
+(setq mu4e-view-show-images t)
 (setq mu4e-show-images t)
 (when (fboundp 'imagemagick-register-types)
   (imagemagick-register-types))

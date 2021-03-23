@@ -3,7 +3,7 @@
 ;;; Code:
 
 (defun go/copy-envs ()
-  "Init go mode."
+  "Init go enviroments."
   (when (memq window-system '(mac ns x))
     (dolist (env '("GOPATH" "GOROOT"))
       (unless (getenv env)
@@ -62,8 +62,8 @@
 
 (use-package go-guru
   :ensure t
-  :config
-  (go-guru-hl-identifier-mode))
+  :defer t
+  :hook (go-mode . go-guru-hl-identifier-mode))
 
 (use-package company-go
   :ensure t
