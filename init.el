@@ -54,6 +54,7 @@
 ;; golang
 (require 'init-golang)
 (require 'init-golang-lsp)
+(require 'init-grpc)
 
 ;; rust
 (require 'init-rust)
