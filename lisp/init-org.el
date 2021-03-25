@@ -45,5 +45,8 @@
   (org-mode . my-org-symbols)
   )
 
+;; FIX void `org-collect-keywords' error
+(org-reload)
+
 (provide 'init-org)
 ;;; init-org.el ends here
