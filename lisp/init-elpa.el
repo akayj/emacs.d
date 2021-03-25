@@ -87,8 +87,8 @@
 (defun delete-old-pkgs ()
   "Delete old version packags."
   (interactive)
-  ;; (let ((basedir package-user-dir))
-  (let ((basedir "/Users/yujianjian/myelpa"))
+  (let ((basedir package-user-dir))
+  ;; (let ((basedir "/Users/yujianjian/myelpa"))
     (dolist (f (directory-files basedir t "[^\\(\\.\\|\\.\\.\\|\\.DS_Store\\|\\.git\\|archives\\)$]"))
       (when (and
 	     (file-directory-p f)
