@@ -45,6 +45,19 @@
   (org-mode . my-org-symbols)
   )
 
+(use-package org-mime :ensure t
+  :hook
+  ;; (org-mime-html . (lambda ()
+  ;;		     (org-mime-change-element-style
+  ;;		      "pre" (format "color: %s; background-color: %s; padding: 0.5em;"
+  ;;				    "#E6E1DC" "#232323"))))
+
+  (org-mime-html . (lambda ()
+		     (while (re-search-forward "@\\([^@]*\\)@" nil t)
+		       (replace-match "<span style=\"color:red\">\\1</span>")))
+		 )
+  )
+
 ;; FIX void `org-collect-keywords' error
 (org-reload)
 
