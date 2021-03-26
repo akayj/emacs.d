@@ -25,10 +25,16 @@
 ;; (elpamr-create-mirror-for-installed)
 
 ;; 清华源
-(setq package-archives '(("gnu" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
-                         ("melpa" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")
-                         ("melpa-stable" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa-stable/")
-                         ("org" . "https://mirrors.tuna.tsinghua.edu.cn/elpa/org/")))
+; (setq package-archives '(("gnu" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
+;                          ("melpa" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")
+;                          ("melpa-stable" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa-stable/")
+;                          ("org" . "https://mirrors.tuna.tsinghua.edu.cn/elpa/org/")))
+
+;; 腾讯源
+(setq package-archives '(("gnu" . "http://mirrors.cloud.tencent.com/elpa/gnu/")
+                         ("melpa" . "http://mirrors.cloud.tencent.com/elpa/melpa/")
+                         ("melpa-stable" . "http://mirrors.cloud.tencent.com/elpa/melpa-stable/")
+                         ("org" . "https://mirrors.cloud.tencent.com/elpa/org/")))
 
 ;; (setq package-archives '(("myelpa-local" . "~/myelpa/")))
 ;; (add-to-list 'package-archives '("myelpa-local" . "~/myelpa/"))
