@@ -34,6 +34,7 @@
 (require 'init-symbols)
 (require 'init-gui)
 ;; (require 'init-shortcut)
+(require 'init-windows)
 
 (require 'init-mail)
 ; (autoload 'wl "wl" "Wanderlust" t)
