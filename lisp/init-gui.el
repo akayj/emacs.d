@@ -38,7 +38,7 @@
 
 ;; 修复中文显示问题
 (set-fontset-font "fontset-default"
-		  'gb18030 '("Microsoft YaHei" . "unicode-bmp"))
+		  'gb18030 '("PingFang SC" . "unicode-bmp"))
 
 (defvar my/frame-font-size
   (cond
@@ -64,6 +64,7 @@
   (global-display-line-numbers-mode))
 
 (when (fboundp 'windmove-default-keybindings)
+  ;; Shift-{Left,Right,Up,Down}
   (windmove-default-keybindings))
 
 (use-package dimmer
