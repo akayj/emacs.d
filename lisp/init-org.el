@@ -54,6 +54,7 @@
 
   (org-mime-html . (lambda ()
 		     (while (re-search-forward "@\\([^@]*\\)@" nil t)
+		     ;; (while (re-search-forward "@([^@]*)@" nil t)
 		       (replace-match "<span style=\"color:red\">\\1</span>")))
 		 )
   )
