@@ -7,17 +7,16 @@
 
 (require 'smtpmail)
 
-(setq user-full-name "余剑剑")
-(setq user-mail-address "yujianjian@xinye.com")
+(setq user-full-name "余剑剑"
+      user-mail-address "yujianjian@xinye.com")
 
 ;; Sent mail
-;; (setq send-mail-function 'smtpmail-send-it)
 (setq message-send-mail-function 'smtpmail-send-it
       smtpmail-default-smtp-server "partner.outlook.cn"
       smtpmail-smtp-user "yujianjian@xinye.com"
-      smtpmail-smtp-service 25
+      smtpmail-smtp-service 587
       smtpmail-stream-type 'starttls
-      )
+      smtpmail-use-gnutls nil)
 
 (require 'mu4e)
 (setq mu4e-mu-binary "/usr/local/bin/mu")
