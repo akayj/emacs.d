@@ -41,7 +41,7 @@
 		  (line-beginning-position (+ 1 arg)))
   (message "%d line%s copied" arg (if (= 1 arg) "" "s")))
 
-(global-set-key "\C-c\C-k" 'copy-line)
+(global-set-key (kbd "C-c C-k") 'copy-line)
 
 ;; duplicate current line
 ;; (defun duplicate-current-line (&optional n)

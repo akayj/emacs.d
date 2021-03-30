@@ -32,8 +32,7 @@
   (global-set-key (kbd "C-h v") #'helpful-variable)
   (global-set-key (kbd "C-h k") #'helpful-key)
   (global-set-key (kbd "C-h F") #'helpful-function)
-  (global-set-key (kbd "C-h C") #'helpful-command)
-  )
+  (global-set-key (kbd "C-h C") #'helpful-command))
 
 (provide 'init-keys)
 ;;; init-keys.el ends here
