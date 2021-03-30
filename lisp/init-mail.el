@@ -48,5 +48,10 @@
 (when (fboundp 'imagemagick-register-types)
   (imagemagick-register-types))
 
+;; Bookmarks
+(add-to-list 'mu4e-bookmarks
+  '(:name "Big messages" :query "size:5M..500M" :key ?b)
+  t)
+
 (provide 'init-mail)
 ;;; init-mail.el ends here
