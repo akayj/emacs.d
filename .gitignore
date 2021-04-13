@@ -3,6 +3,8 @@
 *.pyc
 *.dat
 
+
+.DS_Store
 custom.el
 recentf
 .lsp-session-*
