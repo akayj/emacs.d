@@ -37,8 +37,10 @@
 ;; (set-frame-font "Inconsolata-18")
 
 ;; 修复中文显示问题
+(if (featurep 'set-fontset-font)
 (set-fontset-font "fontset-default"
 		  'gb18030 '("PingFang SC" . "unicode-bmp"))
+ )
 
 (defvar my/frame-font-size
   (cond
