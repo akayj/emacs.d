@@ -48,8 +48,12 @@
   ;; format go source code
   ;; (setq gofmt-command "goimports")
   :custom
-  (gofmt-command "goreturns")
-  (gofmt-args '("-local" "git.ppd.com/ops"))
+  ;; (gofmt-command "gofmt")
+  ;; (gofmt-command "goreturns")
+  ;; (gofmt-args '("-local" "git.ppd.com/quark" "-local" "git.ppd.com/ops"))
+
+  (gofmt-command "goimports")
+  (gofmt-args '("-format-only" "-local" "git.ppd.com/quark" "-local" "git.ppd.com/ops"))
   )
 
 (use-package go-errcheck :ensure t)
