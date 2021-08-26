@@ -7,6 +7,7 @@
 .DS_Store
 custom.el
 recentf
+network-security.data
 .lsp-session-*
 projectile-*
 bookmarks
