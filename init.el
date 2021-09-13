@@ -90,6 +90,8 @@
 
 (require 'init-org)
 
+(require 'init-vue)
+
 ;; (require 'init-flycheck)
 
 ;; (require 'init-yasnippet)
