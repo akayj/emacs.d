@@ -33,6 +33,14 @@
   (evil-define-key 'normal tide-mode-map "gb" 'tide-jump-back)
   )
 
+(use-package vue-mode
+  :ensure t
+
+  :config
+  ;; 0, 1, or 2, representing (respectively) none, low, and high coloring
+  (setq mmm-submode-decoration-level 0)
+  )
+
 (use-package tide
   :ensure t
   :after (typescript-mode company flycheck)

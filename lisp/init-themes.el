@@ -1,6 +1,7 @@
 ;;; init-themes.el -- custom themes
 
 ;;; Commentary:
+;;; Author: askingyj@gmail.com
 
 ;;; Code:
 (install-missing-package

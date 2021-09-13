@@ -39,6 +39,8 @@
 (require 'init-mail)
 ; (autoload 'wl "wl" "Wanderlust" t)
 
+(require 'init-rss)
+
 ;; (require 'init-helm)
 
 (require 'init-evil)
