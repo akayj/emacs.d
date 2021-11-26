@@ -6,7 +6,8 @@
   :ensure t
   :commands (lsp lsp-defined)
   :custom
-  ;; configure warning with the `lsp-enable-file-watchers' and `lsp-file-watch-threshold' variables
+  ;; configure warning with the `lsp-enable-file-watchers'
+  ;; and `lsp-file-watch-threshold' variables
   (lsp-enable-file-watchers nil)
   (lsp-file-watch-threshold 100)
   :hook
