@@ -3,4 +3,4 @@
 	url = https://github.com/redguardtoo/elpa-mirror.git
 [submodule "org"]
 	path = org
-	url = git://git.sv.gnu.org/emacs/org-mode.git
+	url = https://github.com/bzg/org-mode.git
