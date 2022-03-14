@@ -30,17 +30,18 @@
 	      ;; (top . 50)
 	      ))))
 
-(defvar my/frame-font-family "Cascadia Code PL")
-;; (defvar my/frame-font-family "Jetbrains Mono")
+;; (defvar my/frame-font-family "Cascadia Code PL")
+(defvar my/frame-font-family "Jetbrains Mono")
 ;; (set-frame-font "DejaVu Sans Mono-14")
-;; (set-frame-font "Fira Code-13")
+(set-frame-font "Fira Code-14")
 ;; (set-frame-font "Inconsolata-18")
+;; (set-frame-font "Jetbrains Mono-15")
 
 ;; 修复中文显示问题
 (if (featurep 'set-fontset-font)
-(set-fontset-font "fontset-default"
-		  'gb18030 '("PingFang SC" . "unicode-bmp"))
- )
+    (set-fontset-font "fontset-default"
+		      'gb18030 '("PingFang SC" . "unicode-bmp"))
+  )
 
 (defvar my/frame-font-size
   (cond
