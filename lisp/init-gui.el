@@ -55,7 +55,6 @@
 	  my/frame-font-family
 	  my/frame-font-size))
 
-
 (set-frame-font my/frame-font)
 
 (blink-cursor-mode 0)
