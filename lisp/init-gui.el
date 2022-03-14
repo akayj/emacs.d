@@ -31,9 +31,11 @@
 	      ))))
 
 ;; (defvar my/frame-font-family "Cascadia Code PL")
-(defvar my/frame-font-family "Jetbrains Mono")
+;; (defvar my/frame-font-family "Jetbrains Mono")
+(defvar my/frame-font-family "Fira Code")
+
 ;; (set-frame-font "DejaVu Sans Mono-14")
-(set-frame-font "Fira Code-14")
+;; (set-frame-font "Fira Code-14")
 ;; (set-frame-font "Inconsolata-18")
 ;; (set-frame-font "Jetbrains Mono-15")
 

@@ -22,7 +22,8 @@
   (setq racer-rust-src-path
 	(concat (string-trim
 		 (shell-command-to-string "rustc --print sysroot"))
-		"/lib/rustlib/src/rust/src"))
+		"/lib/rustlib/src/rust/library"))
+		;; "/lib/rustlib/src/rust/src"))
 
   :config
   (evil-define-key 'normal racer-mode-map "gd" 'racer-find-definition)
