@@ -74,6 +74,9 @@
 ;; python
 (require 'init-python)
 
+;; powershell
+(require 'init-ps)
+
 ;; git
 (require 'init-git)
 

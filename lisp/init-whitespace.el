@@ -5,10 +5,11 @@
 ;;; Code:
 (setq-default show-trailing-whitespace t)
 
-(use-package whitespace-cleanup-mode
-  :ensure t
-  :config
-  (add-hook 'after-init-hook 'global-whitespace-cleanup-mode))
+(defun my-prog-nuke-trailing-whitespace ()
+  (when (derived-mode-p 'prog-mode)
+    (delete-trailing-whitespace)))
+
+(add-hook 'before-save-hook 'my-prog-nuke-trailing-whitespace)
 
 (provide 'init-whitespace)
 ;;; init-whitespace.el ends here
