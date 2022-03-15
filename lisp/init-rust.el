@@ -37,7 +37,7 @@
 ;;   (add-hook 'rust-mode-hook
 ;;           (lambda () (prettify-symbols-mode)))
 
-;;   (add-hook 'rust-mode-hook 'eglot-ensure)
+;;   ;; (add-hook 'rust-mode-hook 'eglot-ensure)
 
 ;;   ;; :hook
 ;;   ;; ((rust-mode . #'racer-mode)
@@ -54,9 +54,16 @@
   :requires eglot
 
   :config
+  ;; (add-hook 'rustic-mode-hook 'rk/rustic-mode-hook)
+  (add-hook 'rustic-mode-hook 'eglot-ensure)
   (setq rustic-format-on-save t)
-  (add-hook 'rustic-mode-hook 'rk/rustic-mode-hook)
-  (add-hook 'rustic-mode-hook 'eglot-ensure))
+
+  :hook
+  (rustic-mode 'rk/rustic-mode-hook)
+
+  :custom
+  (rustic-format-on-save t)
+  )
 
 
 (provide 'init-rust)

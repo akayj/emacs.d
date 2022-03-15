@@ -137,7 +137,7 @@ want to use in the modeline *in lieu of* the original.")
 
 	;; row and column
 	"["
-	(propertize "%2l,%2c" 'face 'font-lock-type-face)
+	(propertize "行:%2l,列:%2c" 'face 'font-lock-type-face)
 	"] "
 
 	'(:eval (current-file-size))

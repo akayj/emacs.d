@@ -54,13 +54,13 @@
 
 (require 'init-tags)
 
+;; rust
+(require 'init-rust)
+
 ;; golang
 (require 'init-golang)
 (require 'init-golang-lsp)
 (require 'init-grpc)
-
-;; rust
-(require 'init-rust)
 
 ;; javascript
 (require 'init-js)
@@ -111,7 +111,8 @@
 (if (string-prefix-p "vagrant" system-name)
     (load-theme toggled-themes-night t)
   (with-eval-after-load 'init-themes
-    (change-theme 60)))
+    (change-theme 60))
+  )
 
 (provide 'init)
 ;;; init.el ends here
