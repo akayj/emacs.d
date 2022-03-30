@@ -6,7 +6,7 @@
   )
 
 ;; transpancy windows
-(set-frame-parameter (selected-frame) 'alpha (list 85 50))
+;; (set-frame-parameter (selected-frame) 'alpha (list 85 50))
 
 (provide 'init-windows)
 ;;; init-windows.el ends here

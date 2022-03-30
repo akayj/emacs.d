@@ -53,18 +53,34 @@
   :ensure t
   :requires eglot
 
+  ;; :init
+  ;; (setq rustic-format-on-save t)
+
   :config
-  ;; (add-hook 'rustic-mode-hook 'rk/rustic-mode-hook)
+  (add-hook 'rustic-mode-hook 'rk/rustic-mode-hook)
   (add-hook 'rustic-mode-hook 'eglot-ensure)
-  (setq rustic-format-on-save t)
 
-  :hook
-  (rustic-mode 'rk/rustic-mode-hook)
-
-  :custom
-  (rustic-format-on-save t)
+  ;; :hook
+  ;; (rustic-mode 'rk/rustic-mode-hook)
   )
 
+(use-package lsp-mode
+  :ensure t
+  :commands lsp
+  :custom
+  (lsp-rust-analyzer-cargo-watch-command "clippy")
+  (lsp-rust-analyzer-server-display-inlay-hints t)
+  (lsp-eldoc-render-all t)
+  (lsp-idle-delay 0.6)
+
+  :hook
+  (lsp-mode . 'lsp-ui-mode)
+ )
+
+(add-hook 'before-save-hook
+	  (lambda ()
+	    (when (eq major-mode 'rustic-mode)
+	      (rustic-format-buffer))))
 
 (provide 'init-rust)
 ;;; init-rust.el ends here
