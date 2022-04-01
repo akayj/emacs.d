@@ -44,7 +44,8 @@
 ;; (require 'init-helm)
 
 (require 'init-evil)
-;; (require 'init-company-mode)
+(require 'init-yasnippet)
+(require 'init-company-mode)
 (require 'init-pair)
 
 (require 'init-swiper)
@@ -91,6 +92,7 @@
 (require 'init-keys)
 
 (require 'init-modeline)
+;; (require 'init-modeline2)
 
 (require 'init-org)
 
@@ -98,7 +100,6 @@
 
 ;; (require 'init-flycheck)
 
-;; (require 'init-yasnippet)
 
 (require 'init-dockerfile)
 

@@ -25,6 +25,13 @@
 ;; (elpamr-create-mirror-for-installed)
 
 
+;; Emacs China
+(setq package-archives '(("gnu"   . "http://elpa.zilongshanren.com/gnu/")
+			 ("melpa" . "http://elpa.zilongshanren.com/melpa/")
+			 ("melpa-stable" . "http://elpa.zilongshanren.com/stable-melpa/")
+			 ("org" . "http://elpa.zilongshanren.org")))
+
+
 ;; 清华源
 ;; (setq package-archives '(("gnu" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
 ;;                          ("melpa" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")
@@ -32,12 +39,12 @@
 ;;                          ("org" . "https://mirrors.tuna.tsinghua.edu.cn/elpa/org/")))
 
 ;; 腾讯源
-(setq package-archives '(("gnu" . "http://mirrors.cloud.tencent.com/elpa/gnu/")
-                         ;; ("melpa" . "https://melpa.org/packages/")
-                         ;; ("melpa-stable" . "https://stable.melpa.org/packages/")
-                         ("melpa" . "http://mirrors.cloud.tencent.com/elpa/melpa/")
-                         ("melpa-stable" . "http://mirrors.cloud.tencent.com/elpa/melpa-stable/")
-                         ("org" . "https://mirrors.cloud.tencent.com/elpa/org/")))
+;; (setq package-archives '(("gnu" . "http://mirrors.cloud.tencent.com/elpa/gnu/")
+;;                          ;; ("melpa" . "https://melpa.org/packages/")
+;;                          ;; ("melpa-stable" . "https://stable.melpa.org/packages/")
+;;                          ("melpa" . "http://mirrors.cloud.tencent.com/elpa/melpa/")
+;;                          ("melpa-stable" . "http://mirrors.cloud.tencent.com/elpa/melpa-stable/")
+;;                          ("org" . "https://mirrors.cloud.tencent.com/elpa/org/")))
 
 ;; (setq package-archives '(("myelpa-local" . "~/myelpa/")))
 ;; (add-to-list 'package-archives '("myelpa-local" . "~/myelpa/"))
@@ -62,6 +69,7 @@
 ;; 	("myelpa-local" . 100)))
 
 (package-initialize)
+;; (package-refresh-contents)
 
 
 (defvar my-packages

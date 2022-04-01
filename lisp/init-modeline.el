@@ -5,6 +5,25 @@
 ;;; Code:
 (use-package all-the-icons :ensure t)
 
+(setq my-flycheck-mode-line
+      '(:eval
+	(pcase flycheck-last-status-change
+	  (`not-checked nil)
+	  (`no-checker (propertize " -" 'face 'warning))
+	  (`running (propertize " ✷" 'face 'success))
+	  (`errored (propertize " !" 'face 'error))
+	  (`finished
+	   (let* ((error-counts (flycheck-count-errors flycheck-current-errors))
+		  (no-errors (cdr (assq 'error error-counts)))
+		  (no-warnings (cdr (assq 'warning error-counts)))
+		  (face (cond (no-errors 'error)
+			      (no-warnings 'warning)
+			      (t 'success))))
+	     (propertize (format "[%s/%s]" (or no-errors 0) (or no-warnings 0))
+			 'face face)))
+	  (`interrupted " -")
+	  (`suspicious '(propertize " ?" 'face 'warning)))))
+
 (defvar mode-line-cleaner-alist
   `((auto-complete-mode . 945) ;; α
     (yas-minor-mode . 9422)
@@ -41,6 +60,17 @@ want to use in the modeline *in lieu of* the original.")
 ;;       (setq results (concat results (char-to-string (cdr mode))))
 ;;       ))
 ;;   results)
+
+(defun mode-line-fill (face reserve)
+  "Return empty space using FACE and leaving RESERVE space on the right."
+  (unless reserve
+    (setq reserve 20))
+  (when (and window-system (eq 'right (get-scroll-bar-mode)))
+    (setq reserve (- reserve 3)))
+  (propertize " "
+	      'display `((space :align-to
+				(- (+ right right-fringe right-margin) ,reserve)))
+	      'face face))
 
 (defvar mode-name-replace-plist
       '(
@@ -117,37 +147,56 @@ want to use in the modeline *in lieu of* the original.")
 		'face 'all-the-icons-purple)))
 
 (setq-default mode-line-format
-      (list
-	;; evil state
-	" "
-	'(:eval (evil-generate-mode-line-tag evil-state))
+	      (list
+	       ;; evil state
+	       " "
+	       '(:eval (evil-generate-mode-line-tag evil-state))
 
-	;; major mode
-	" "
-	'(:eval (simplify-major-mode-name))
+	       ;; major mode
+	       " "
+	       '(:eval (simplify-major-mode-name))
 
-	;; buffer name; the file name as a tool tip
-	" "
-	'(:eval
-	  (if (and buffer-file-name (buffer-modified-p))
-	      (propertize "%b " 'face '((:foreground "red" :weight bold :slant italic))
-			'help-echo (buffer-file-name))
-	    (propertize "%b ")
-	    ))
+	       ;; buffer name; the file name as a tool tip
+	       " "
+	       '(:eval
+		 (if (and buffer-file-name (buffer-modified-p))
+		     (propertize "%b " 'face '((:foreground "red" :slant italic))
+				 'help-echo (buffer-file-name))
+		   (propertize "%b " 'help-echo (buffer-file-name))
+		   ))
 
-	;; row and column
-	"["
-	(propertize "行:%2l,列:%2c" 'face 'font-lock-type-face)
-	"] "
+	       ;; '(vc-mode vc-mode)
+	       '(:eval (vc-modeline-setup))
 
-	'(:eval (current-file-size))
+	       " "
 
-	'(:eval (current-buffer-loc))
+	       '(:eval (current-file-size))
 
-	;; '(vc-mode vc-mode)
-	'(:eval (vc-modeline-setup))
-	)
-      )
+	       ;; '(:eval (current-buffer-loc))
+
+	       ;; minor modes
+	       ;; minor-mode-alist
+
+	       "%1 "
+	       my-flycheck-mode-line
+
+	       ;; global-mode-string goes in mode-line-misc-info
+	       mode-line-misc-info
+
+	       (mode-line-fill 'mode-line 20)
+	       ;; row and column
+	       "["
+	       (propertize "行:%2l,列:%2c" 'face 'font-lock-type-face)
+	       "] "
+
+	       mode-line-end-spaces
+	       " "
+	       '(:eval (propertize (format-time-string "%H:%M")
+				   'help-echo
+				   (concat (format-time-string "%c; ")
+					   (emacs-uptime))))
+
+	       ))
 
 ;; (set-face-attribute 'mode-line nil :family "DejaVu Sans Mono" :height 150)
 ;; (set-face-attribute 'mode-line-inactive nil :family "DejaVu Sans Mono" :height 150)
