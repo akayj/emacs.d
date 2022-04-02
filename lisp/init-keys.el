@@ -34,5 +34,8 @@
   (global-set-key (kbd "C-h F") #'helpful-function)
   (global-set-key (kbd "C-h C") #'helpful-command))
 
+;; Global key bindings
+(global-set-key (kbd "<s-return>") 'toggle-frame-fullscreen)
+
 (provide 'init-keys)
 ;;; init-keys.el ends here

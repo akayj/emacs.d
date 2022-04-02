@@ -16,6 +16,7 @@
   (add-hook 'c++-mode-hook #'smartparens-mode)
   (add-hook 'java-mode-hook #'smartparens-mode)
   (add-hook 'html-mode-hook #'smartparens-mode)
+  (add-hook 'rustic-mode-hook #'smartparens-mode)
   )
 
 (use-package rainbow-delimiters
@@ -23,6 +24,7 @@
   :config
   (add-hook 'emacs-lisp-mode-hook #'rainbow-delimiters-mode)
   (add-hook 'lisp-interaction-mode-hook  #'rainbow-delimiters-mode)
+  (add-hook 'rustic-mode-hook  #'rainbow-delimiters-mode)
   )
 
 ;; (use-package autopair

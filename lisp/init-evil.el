@@ -46,6 +46,7 @@
 	  ;; buffer
 	  "x" 'kill-this-buffer
 	  "b" 'ivy-switch-buffer
+	  ;; "b" 'counsel-switch-buffer
 	  "s" 'save-buffer
 
 	  ;; `projectile' settings

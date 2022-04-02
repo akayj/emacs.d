@@ -62,7 +62,7 @@ Return t if START-TIME <= now <= END-TIME, otherwise nil."
       (if target-theme
 	  (load-theme target-theme t)
 	(mapc 'disable-theme custom-enabled-themes))
-      (message "%s it's %s, change theme %s => %s"
+      (message "%s it's %s, switch theme %s to %s"
 	       (format-time-string "%Y-%m-%d %H:%M:%S")
 	       (if is-day "daylight" "night") current-theme target-theme))
     )
