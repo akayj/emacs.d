@@ -32,103 +32,77 @@
   (interactive "P")
   (let ((start-time (current-time)))
     (when (require name nil t)
-      (message "Load `%s' cost: %.2f secs"
+      (message "[%s] load cost: %f seconds"
 	       name (time-to-seconds (time-since start-time))))))
 
-;; (require 'init-utils)
-(load-my-package 'init-utils)
+(defvar required-package-alist
+  '(
+    init-utils
+    init-elpa
+    init-alias
+    init-symbols
+    init-gui
+    init-windows
 
-;; (require 'init-elpa)
-(load-my-package 'init-elpa)
+    init-evil
+    init-yasnippet
 
-;; (require 'init-alias nil t)
-(load-my-package 'init-alias)
+    init-company-mode
+    init-pair
 
-(require 'init-symbols)
-(require 'init-gui)
-;; (require 'init-shortcut)
-(require 'init-windows)
+    init-swiper
+    init-find
 
-;; (require 'init-mail)
-; (autoload 'wl "wl" "Wanderlust" t)
+    init-whitespace
+    init-todo
 
-;; (require 'init-rss)
+    init-tags
 
-;; (require 'init-helm)
+    ;; rust
+    init-rust
 
-;; (require 'init-evil)
-(load-my-package 'init-evil)
+    ;; golang
+    init-golang
+    init-golang-lsp
+    init-grpc
 
-;; (require 'init-yasnippet)
-(load-my-package 'init-yasnippet)
+    ;; javascript
+    init-js
+    ;; yaml
+    init-yaml
+    init-toml
 
-(require 'init-company-mode)
-(require 'init-pair)
+    ;; lua
+    init-lua
 
-(require 'init-swiper)
-(require 'init-find)
+    ;; python
+    init-python
+    ;; powershell
+    init-ps
+    ;; git
+    init-git
+    init-themes
+    init-csv
 
-(require 'init-whitespace)
-(require 'init-todo)
+    init-keys
 
-(require 'init-tags)
+    init-modeline
 
-;; rust
-;; (require 'init-rust)
-(load-my-package 'init-rust)
+    init-vue
 
-;; golang
-(require 'init-golang)
-(require 'init-golang-lsp)
-(require 'init-grpc)
+    init-dockerfile
 
-;; javascript
-(require 'init-js)
-;; yaml
-(require 'init-yaml)
-(require 'init-toml)
-
-;; lua
-(require 'init-lua)
-
-;; python
-(require 'init-python)
-
-;; powershell
-(require 'init-ps)
-
-;; git
-(require 'init-git)
-
-;; (require 'init-ibuffer)
-(require 'init-themes)
-
-(require 'init-csv)
-
-;; (require 'init-diminish)
-
-(require 'init-keys)
-
-(require 'init-modeline)
-;; (require 'init-modeline2)
-(load-my-package 'init-modeline)
-
-;; (require 'init-org)
-;; (load-my-package 'init-org)
-
-(require 'init-vue)
-
-;; (require 'init-flycheck)
+    init-tree
+    init-projectile
+    ))
 
 
-(require 'init-dockerfile)
+(dolist (p required-package-alist)
+  (load-my-package p))
 
-(require 'init-tree)
-(require 'init-projectile)
-
-(use-package esup
-  :ensure t
-  :pin melpa)
+;; (use-package esup
+;;   :ensure t
+;;   :pin melpa)
 
 (when (require 'time-date nil t)
   (message "Emacs startup time: %.2f seconds."
