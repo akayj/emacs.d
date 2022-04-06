@@ -91,7 +91,9 @@ want to use in the modeline *in lieu of* the original.")
   ;; 如果没有icon的替换能力，就直接使用文字显示
   (if (and (display-graphic-p) (featurep 'all-the-icons-icon-for-file))
       (all-the-icons-icon-for-file (buffer-name) :height 0.98 :v-adjust -0.15)
-    (propertize "%m" 'face '((:foreground "blue" :weight bold)))
+    (propertize "%m" 'face '((
+			      ;; :foreground "blue"
+			      :weight bold)))
     )
   )
 
@@ -160,8 +162,8 @@ want to use in the modeline *in lieu of* the original.")
 	       " "
 	       '(:eval
 		 (if (and buffer-file-name (buffer-modified-p))
-		     (propertize "%b " 'face '((:foreground "red" :slant italic))
-				 'help-echo (buffer-file-name))
+		     (propertize "%b " 'face '((:foreground "red"))
+				 'help-echo (format "%s <未保存>" (buffer-file-name)))
 		   (propertize "%b " 'help-echo (buffer-file-name))
 		   ))
 
@@ -189,13 +191,13 @@ want to use in the modeline *in lieu of* the original.")
 	       (propertize "行:%2l,列:%2c" 'face 'font-lock-type-face)
 	       "] "
 
-	       mode-line-end-spaces
+	       ;; mode-line-end-spaces
 	       " "
 	       '(:eval (propertize (format-time-string "%H:%M")
 				   'help-echo
 				   (concat (format-time-string "%c; ")
 					   (emacs-uptime))))
-
+	       " "
 	       ))
 
 ;; (set-face-attribute 'mode-line nil :family "DejaVu Sans Mono" :height 150)
