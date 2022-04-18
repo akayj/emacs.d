@@ -40,18 +40,18 @@
 (defvar toggled-minute-night 0)
 
 ;; daylight theme
-(defvar toggled-themes-day nil)
+;; (defvar toggled-themes-day nil)
 ;; (defvar toggled-themes-day 'solarized-light)
 ;; (defvar toggled-themes-day 'monokai)
 ;; (defvar toggled-themes-day 'material-light)
-;; (defvar toggled-themes-day modus-operandi)
+(defvar toggled-themes-day 'modus-operandi)
 
 ;; night theme
 ;; (defvar toggled-themes-night 'material)
 ;; (defvar toggled-themes-night 'solarized-dark)
-(defvar toggled-themes-night 'monokai)
+;; (defvar toggled-themes-night 'monokai)
 ;; (defvar toggled-themes-night 'srcery)
-;; (defvar toggled-themes-day modus-vivendi)
+(defvar toggled-themes-night 'modus-vivendi)
 
 ;; `M-x list-colors-display'
 ;; (set-face-foreground 'font-lock-string-face "dark red")
@@ -87,9 +87,7 @@ Return t if START-TIME <= now <= END-TIME, otherwise nil."
 	(mapc 'disable-theme custom-enabled-themes))
       (message "[%s] %s on, smooth swith from %s to %s"
 	       (format-time-string "%Y-%m-%d %H:%M:%S")
-	       (if is-day "daylight" "night") current-theme target-theme))
-    )
-  )
+	       (if is-day "daylight" "night") current-theme target-theme))))
 
 ;;;###autoload
 (defun change-theme (interval)
@@ -112,7 +110,6 @@ Smart delay in the first time."
   )
 
 ;; (change-theme 60)
-
 
 (provide 'init-themes)
 ;;; init-themes.el ends here
