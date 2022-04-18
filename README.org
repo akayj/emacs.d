@@ -1,10 +1,17 @@
 * My emacs configurations
   My personal =.emacs.d= configurations.
 
+** ScreenShot
+*** Dark mode
+#+caption: Emacs 28 modus theme in dark mode
+#+attr_latex: scale=0.75
+#+label: fig:emacs
+[[./screenshots/emacs-theme.png]]
+
 ** Features
    - Minimal packages required.
    - Speedup lauching.
-   - Smart theme switch according to current_time
+   - Smart theme switch between day and night
    - ~more~ ...
 
 ** Install

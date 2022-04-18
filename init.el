@@ -36,8 +36,7 @@
 	       name (time-to-seconds (time-since start-time))))))
 
 (defvar required-package-alist
-  '(
-    init-utils
+  '(init-utils
     init-elpa
     init-alias
     init-symbols
