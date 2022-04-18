@@ -8,6 +8,12 @@
 #+label: fig:emacs
 [[./screenshots/emacs-theme.png]]
 
+*** Light mode
+#+caption: Emacs 28 modus theme in light mode
+#+attr_latex: scale=0.75
+#+label: fig:emacs
+[[./screenshots/emacs-theme-day.png]]
+
 ** Features
    - Minimal packages required.
    - Speedup lauching.
