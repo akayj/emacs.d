@@ -108,8 +108,8 @@
 
 (if (string-prefix-p "vagrant" system-name)
     (load-theme toggled-themes-night t)
-  ;; (with-eval-after-load 'init-themes
-  ;;   (change-theme 60))
+  (with-eval-after-load 'init-themes
+    (change-theme 60))
   )
 
 (provide 'init)
