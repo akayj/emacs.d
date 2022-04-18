@@ -1,4 +1,4 @@
-;;; init-themes.el -- custom themes
+;;; init-themes.el -- custom themes  -*- lexical-binding: t; -*-
 
 ;;; Commentary:
 ;;; Author: askingyj@gmail.com
@@ -12,6 +12,22 @@
    dracula-theme
    material-theme))
 
+(use-package modus-themes
+  :ensure
+  :init
+  ;; Add all your customizations prior to loading the themes
+  (setq modus-themes-italic-constructs t
+	modus-themes-bold-constructs nil
+	modus-themes-region '(bg-only no-extend))
+
+  ;; Load the theme files before enabling a theme
+  (modus-themes-load-themes)
+  :config
+  ;; Load the theme of your choice:
+  (modus-themes-load-operandi) 		;; OR (modus-theme-load-vivendi)
+  :bind ("<f5>" . module-themes-toggle)
+  )
+
 ;; Sample usage
 ;; (load-theme 'solarized-light t)
 
@@ -24,15 +40,22 @@
 (defvar toggled-minute-night 0)
 
 ;; daylight theme
-;; (defvar toggled-themes-day nil)
+(defvar toggled-themes-day nil)
 ;; (defvar toggled-themes-day 'solarized-light)
-(defvar toggled-themes-day 'monokai)
+;; (defvar toggled-themes-day 'monokai)
 ;; (defvar toggled-themes-day 'material-light)
+;; (defvar toggled-themes-day modus-operandi)
 
 ;; night theme
 ;; (defvar toggled-themes-night 'material)
-(defvar toggled-themes-night 'solarized-dark)
+;; (defvar toggled-themes-night 'solarized-dark)
+(defvar toggled-themes-night 'monokai)
 ;; (defvar toggled-themes-night 'srcery)
+;; (defvar toggled-themes-day modus-vivendi)
+
+;; `M-x list-colors-display'
+;; (set-face-foreground 'font-lock-string-face "dark red")
+;; (set-face-foreground 'font-lock-comment-face "gray")
 
 (defun time-to-stamp (time-alist)
   "Parse TIME-ALIST hour minute list to float style."
@@ -62,7 +85,7 @@ Return t if START-TIME <= now <= END-TIME, otherwise nil."
       (if target-theme
 	  (load-theme target-theme t)
 	(mapc 'disable-theme custom-enabled-themes))
-      (message "%s it's %s, switch theme %s to %s"
+      (message "[%s] %s on, smooth swith from %s to %s"
 	       (format-time-string "%Y-%m-%d %H:%M:%S")
 	       (if is-day "daylight" "night") current-theme target-theme))
     )
@@ -89,6 +112,7 @@ Smart delay in the first time."
   )
 
 ;; (change-theme 60)
+
 
 (provide 'init-themes)
 ;;; init-themes.el ends here

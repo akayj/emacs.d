@@ -3,7 +3,9 @@
 ;;; Commentary:
 
 ;;; Code:
-(use-package all-the-icons :ensure t)
+(use-package all-the-icons
+  :ensure t
+  :if (display-graphic-p))
 
 (setq my-flycheck-mode-line
       '(:eval
@@ -167,6 +169,12 @@ want to use in the modeline *in lieu of* the original.")
 		   (propertize "%b " 'help-echo (buffer-file-name))
 		   ))
 
+	       ;; Read-Only
+	       '(:eval
+		 (if (and buffer-file-name buffer-read-only)
+		     (propertize "RO " 'face '((:foreground "yellow")))
+		   ))
+
 	       ;; '(vc-mode vc-mode)
 	       '(:eval (vc-modeline-setup))
 
@@ -186,10 +194,9 @@ want to use in the modeline *in lieu of* the original.")
 	       mode-line-misc-info
 
 	       (mode-line-fill 'mode-line 20)
+
 	       ;; row and column
-	       "["
-	       (propertize "行:%2l,列:%2c" 'face 'font-lock-type-face)
-	       "] "
+	       (propertize "%2l/%2c" 'face 'font-lock-type-face)
 
 	       ;; mode-line-end-spaces
 	       " "
