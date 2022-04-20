@@ -12,12 +12,9 @@
   (lsp-file-watch-threshold 100)
   (lsp-idle-delay 0.6)
 
-  (lsp-rust-analyzer-cargo-watch-command "clippy")
-  (lsp-rust-analyzer-server-display-inlay-hints t)
-
   :hook
   (go-mode . lsp-deferred)
-  (lsp-mode . 'lsp-ui-mode)
+  ;; (lsp-mode . 'lsp-ui-mode)
   )
 
 (defun lsp-go-install-save-hooks ()

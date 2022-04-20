@@ -36,7 +36,20 @@
      ("MEETING" :foreground "forest green" :weight bold)
      ))
 
-  (org-directory "~/gits/org")
+  (org-capture-templates
+   '(("n" "Notes" entry
+      (file "~/org/inbox.org") "* %^{Description} %^g\n Added: %U\n%?")
+     ("m" "Meeting notes" entry
+      (file "~/org/meetings.org") "* TODO %^{Title} %t\n- %?")
+     ("t" "TODO" entry
+      (file "~/org/inbox.org") "* TODO %^{Title}")
+     ("e" "Event" entry
+      (file "~/org/calendar.org") "* %^{Is it a todo?||TODO |NEXT }%^{Title}\n%^t\n%?")
+     ("w" "Work TODO" entry
+      (file "~/org/work.org") "* TODO %^{Title}")
+     ))
+
+  ;; (org-directory "~/gits/org")
 
   :config
   ;; (evil-leader/set-key "oc" 'org-capture)
@@ -61,6 +74,11 @@
 
 ;; FIX void `org-collect-keywords' error
 (org-reload)
+
+(use-package ox-hugo
+  :ensure t
+  :pin melpa
+  :after ox)
 
 (provide 'init-org)
 ;;; init-org.el ends here

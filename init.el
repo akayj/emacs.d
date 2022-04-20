@@ -8,7 +8,9 @@
 ;; set C-x C-f start directory
 (setq default-directory (concat (getenv "HOME") "/"))
 
-(setq gc-cons-threshold 400000)
+(setq gc-cons-threshold 100000000) 	; 100mb
+(setq read-process-output-max (* 1024 1024)) ;; 1mb
+
 (add-hook 'focus-out-hook #'garbage-collect) ; auto gc while all frames lost focus.
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
 
@@ -62,7 +64,7 @@
 
     ;; golang
     init-golang
-    init-golang-lsp
+    ;; init-golang-lsp
     init-grpc
 
     ;; javascript
@@ -82,6 +84,7 @@
     init-git
     init-themes
     init-csv
+    init-org
 
     init-keys
 
