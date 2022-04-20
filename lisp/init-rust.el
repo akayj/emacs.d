@@ -36,6 +36,7 @@
   ;; enable / disable the hints as your prefer:
   (lsp-headerline-breadcrumb-mode t)
 
+  ;; FIXME: not working
   (lsp-rust-analyzer-server-display-inlay-hints t)
   (lsp-rust-analyzer-inlay-hints-mode t)
 
