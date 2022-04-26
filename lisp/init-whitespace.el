@@ -1,4 +1,4 @@
-;;; init-whitespace.el --  trailing space indentify
+;;; init-whitespace.el --  trailing space indentify and cleanup
 
 ;;; Commentary:
 

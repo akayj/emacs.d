@@ -196,7 +196,7 @@ want to use in the modeline *in lieu of* the original.")
 	       (mode-line-fill 'mode-line 20)
 
 	       ;; row and column
-	       (propertize "%2l/%2c" 'face 'font-lock-type-face)
+	       (propertize "%02l,%c" 'face 'font-lock-type-face)
 
 	       ;; mode-line-end-spaces
 	       " "
@@ -207,8 +207,8 @@ want to use in the modeline *in lieu of* the original.")
 	       " "
 	       ))
 
-;; (set-face-attribute 'mode-line nil :family "DejaVu Sans Mono" :height 150)
-;; (set-face-attribute 'mode-line-inactive nil :family "DejaVu Sans Mono" :height 150)
+;; (set-face-attribute 'mode-line nil :family "DejaVu Sans Mono" :height 140)
+;; (set-face-attribute 'mode-line-inactive nil :family "DejaVu Sans Mono" :height 140)
 
 
 (provide 'init-modeline)

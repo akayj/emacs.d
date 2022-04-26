@@ -45,8 +45,9 @@
   (lsp-rust-analyzer-display-parameter-hints nil)
   (lsp-rust-analyzer-display-reborrow-hints nil)
 
-  (lsp-rust-analyzer-macro-expansion-method
-   (-compose 'lsp-rust-analyzer-macro-expansion-default (lsp-get-renderer "rust")))
+  (lsp-rust-analyzer-proc-macro-enable t)
+  ;; (lsp-rust-analyzer-macro-expansion-method
+  ;;  (-compose 'lsp-rust-analyzer-macro-expansion-default (lsp-get-renderer "rust")))
 
   ;; :hook
   ;; (lsp-mode . 'lsp-ui-mode)

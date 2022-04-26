@@ -40,9 +40,10 @@
 ;; (set-frame-font "Jetbrains Mono-15")
 
 ;; 修复中文显示问题
-(if (featurep 'set-fontset-font)
+(if (functionp 'set-fontset-font)
     (set-fontset-font "fontset-default"
-		      'gb18030 '("PingFang SC" . "unicode-bmp"))
+		      'gb18030 '("MiSans" . "unicode-bmp"))
+		      ;; 'gb18030 '("PingFang SC" . "unicode-bmp"))
   )
 
 (defvar my/frame-font-size
