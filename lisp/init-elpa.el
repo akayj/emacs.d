@@ -47,7 +47,7 @@
                           ;; ("org" . "https://mirrors.cloud.tencent.com/elpa/org/")))
 
 ;; (setq package-archives '(("myelpa-local" . "~/myelpa/")))
-;; (add-to-list 'package-archives '("myelpa-local" . "~/myelpa/"))
+(add-to-list 'package-archives '("myelpa-local" . "~/myelpa/"))
 
 ;; FIXME: connection refused
 ;; https://raw.githubusercontent.com/akayj/myelpa/master/
@@ -57,19 +57,19 @@
 ;; (setq package-archives '(("myelpa-ppd" . "http://git.ppd.com/yujianjian/myelpa/raw/master/")))
 ;; (add-to-list 'package-archives '("myelpa-ppd" . "http://git.ppd.com/yujianjian/myelpa/raw/master/"))
 
-;; (add-to-list 'package-archives '(
-;;          ("myelpa-gitee" . "https://gitee.com/askingyj/myelpa/raw/master/")
-;;      )
-;;  )
+; (add-to-list 'package-archives '(
+;          ("myelpa-gitee" . "https://gitee.com/askingyj/myelpa/raw/master/")
+;      )
+;  )
 
-;; (setq package-archive-priorities
-;;       '(("melpa-stable" . 20)
-;; 	("gnu" . 10)
-;; 	("melpa" . 6)
-;; 	("myelpa-local" . 100)))
+(setq package-archive-priorities
+      '(("melpa-stable" . 20)
+	("gnu" . 10)
+	("melpa" . 6)
+	("myelpa-local" . 100)))
 
 (package-initialize)
-;; (package-refresh-contents)
+;;(package-refresh-contents)
 
 (defvar my-packages
   '(use-package better-defaults)

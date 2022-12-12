@@ -7,7 +7,7 @@
   :ensure t
   :defer t
   :init
-  (advice-add 'python-mode :before 'elpy-enable)
+  ;; (advice-add 'python-mode :before 'elpy-enable)
 
   :hook
   (python .
@@ -16,6 +16,12 @@
 	    (setq indent-tabs-mode t)
 	    (setq python-indent-offset 4)
 	    ))
+  )
+
+(use-package pip-requirements :ensure t
+
+  ; :hook
+  ; (pip-requirements-mode #'pip-requirements-auto-complete-setup)
   )
 
 (provide 'init-python)

@@ -86,7 +86,7 @@
     init-git
     init-themes
     init-csv
-    init-org
+    ;; init-org
 
     init-keys
 
