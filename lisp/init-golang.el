@@ -40,9 +40,10 @@
   :config
   (progn
     (add-hook 'before-save-hook 'gofmt-before-save)
+    ;; (add-hook 'go-mode-hook 'lsp-deferred)
 
-    (add-to-list 'auto-mode-alist '("\\.go\\'" . go-mode))
     (autoload 'go-mode "go-mode" nil t)
+    (add-to-list 'auto-mode-alist '("\\.go\\'" . go-mode))
     )
 
   ;; format go source code
@@ -53,7 +54,10 @@
   ;; (gofmt-args '("-local" "git.ppd.com/quark" "-local" "git.ppd.com/ops"))
 
   (gofmt-command "goimports")
-  (gofmt-args '("-format-only" "-local" "git.ppd.com/quark" "-local" "git.ppd.com/ops"))
+  (gofmt-args '("-format-only"
+		"-local" "git.ppd.com/quark"
+		"-local" "git.ppd.com/ops"
+		"--local" "git.ppd.com/nap"))
   )
 
 (use-package go-errcheck :ensure t)

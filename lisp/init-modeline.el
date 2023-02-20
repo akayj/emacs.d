@@ -120,7 +120,7 @@ want to use in the modeline *in lieu of* the original.")
     (format "%.2f" num)))
 
 (defun semantic-file-size (size &optional kilo)
-  "Semantic file's SIZE in KILO."
+  "File's SIZE in KILO."
   (let* (($fsize size)
 	 ($kilo (if kilo kilo 1024))
 	 ($units "BKMG")

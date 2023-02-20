@@ -33,21 +33,27 @@
 
 
 ;; 清华源
-(setq package-archives '(("gnu" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
-                         ("melpa" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")
-                         ("melpa-stable" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa-stable/")
-                         ("org" . "https://mirrors.tuna.tsinghua.edu.cn/elpa/org/")))
+;; (setq package-archives '(("gnu" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
+;;                          ("melpa" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")
+;;                          ("melpa-stable" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa-stable/")
+;;                          ("org" . "https://mirrors.tuna.tsinghua.edu.cn/elpa/org/")))
+
+(setq package-archives '(("gnu"   . "http://1.15.88.122/gnu/")
+			 ("melpa" . "http://1.15.88.122/melpa/")
+			 ("melpa-stable" . "http://1.15.88.122/stable-melpa/")
+			 ("org" . "http://1.15.88.122/org/")))
+
 
 ;; 腾讯源
 ;; (setq package-archives '(("gnu" . "http://mirrors.cloud.tencent.com/elpa/gnu/")
-;;                          ;; ("melpa" . "https://melpa.org/packages/")
-;;                          ;; ("melpa-stable" . "https://stable.melpa.org/packages/")
-;;                          ("melpa" . "http://mirrors.cloud.tencent.com/elpa/melpa/")
-;;                          ("melpa-stable" . "http://mirrors.cloud.tencent.com/elpa/melpa-stable/")
-;;                          ("org" . "https://mirrors.cloud.tencent.com/elpa/org/")))
+                          ;; ("melpa" . "https://melpa.org/packages/")
+                          ;; ("melpa-stable" . "https://stable.melpa.org/packages/")
+                          ;; ("melpa" . "http://mirrors.cloud.tencent.com/elpa/melpa/")
+                          ;; ("melpa-stable" . "http://mirrors.cloud.tencent.com/elpa/melpa-stable/")
+                          ;; ("org" . "https://mirrors.cloud.tencent.com/elpa/org/")))
 
 ;; (setq package-archives '(("myelpa-local" . "~/myelpa/")))
-;; (add-to-list 'package-archives '("myelpa-local" . "~/myelpa/"))
+(add-to-list 'package-archives '("myelpa-local" . "~/myelpa/"))
 
 ;; FIXME: connection refused
 ;; https://raw.githubusercontent.com/akayj/myelpa/master/
@@ -57,20 +63,19 @@
 ;; (setq package-archives '(("myelpa-ppd" . "http://git.ppd.com/yujianjian/myelpa/raw/master/")))
 ;; (add-to-list 'package-archives '("myelpa-ppd" . "http://git.ppd.com/yujianjian/myelpa/raw/master/"))
 
-;; (add-to-list 'package-archives '(
-;;          ("myelpa-gitee" . "https://gitee.com/askingyj/myelpa/raw/master/")
-;;      )
-;;  )
+; (add-to-list 'package-archives '(
+;          ("myelpa-gitee" . "https://gitee.com/askingyj/myelpa/raw/master/")
+;      )
+;  )
 
-;; (setq package-archive-priorities
-;;       '(("melpa-stable" . 20)
-;; 	("gnu" . 10)
-;; 	("melpa" . 6)
-;; 	("myelpa-local" . 100)))
+(setq package-archive-priorities
+      '(("melpa-stable" . 20)
+	("gnu" . 10)
+	("melpa" . 6)
+	("myelpa-local" . 100)))
 
 (package-initialize)
-;; (package-refresh-contents)
-
+;;(package-refresh-contents)
 
 (defvar my-packages
   '(use-package better-defaults)

@@ -21,9 +21,12 @@
 (setq auto-save-default nil)
 (show-paren-mode 1)
 
+(global-auto-revert-mode t)
+
 (fset 'yes-or-no-p 'y-or-n-p)
 
 (set-default 'fill-column 80)
+(setq-default indent-tabs-mode nil)
 
 (defvar emacs-load-start-time (current-time))
 
@@ -44,6 +47,7 @@
     init-symbols
     init-gui
     init-windows
+    ;; init-hl-indent
 
     init-evil
     init-yasnippet
@@ -84,11 +88,11 @@
     init-git
     init-themes
     init-csv
-    init-org
+    ;; init-org
 
     init-keys
 
-    init-modeline
+    ;; init-modeline
 
     init-vue
 
