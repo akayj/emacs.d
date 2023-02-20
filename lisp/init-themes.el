@@ -51,7 +51,8 @@
 ;; (defvar toggled-themes-night 'solarized-dark)
 ;; (defvar toggled-themes-night 'monokai)
 ;; (defvar toggled-themes-night 'srcery)
-(defvar toggled-themes-night 'modus-vivendi)
+;; (defvar toggled-themes-night 'modus-vivendi)
+(defvar toggled-themes-night 'solarized-light)
 
 ;; `M-x list-colors-display'
 ;; (set-face-foreground 'font-lock-string-face "dark red")

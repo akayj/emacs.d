@@ -30,8 +30,8 @@
 	      ;; (top . 50)
 	      ))))
 
-(defvar my/frame-font-family "Cascadia Code PL")
-;; (defvar my/frame-font-family "Jetbrains Mono")
+;; (defvar my/frame-font-family "Cascadia Code PL")
+(defvar my/frame-font-family "Jetbrains Mono")
 ;; (defvar my/frame-font-family "Fira Code")
 
 ;; (set-frame-font "DejaVu Sans Mono-14")

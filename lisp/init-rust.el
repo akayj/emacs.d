@@ -18,7 +18,7 @@
   ;; (setq lsp-signature-auto-activate nil)
 
   ;; comment to disable rustfmt on save
-  ;; (setq rustic-format-on-save t)
+  (setq rustic-format-on-save t)
   (add-hook 'rustic-mode-hook 'rk/rustic-mode-hook))
 
 ;; (add-hook 'before-save-hook
@@ -31,7 +31,7 @@
   :commands lsp
   :custom
   (lsp-rust-analyzer-cargo-watch-command "clippy")
-  ;; (lsp-eldoc-render-all t)
+  (lsp-eldoc-render-all t)
   (lsp-idle-delay 0.6)
   ;; enable / disable the hints as your prefer:
   (lsp-headerline-breadcrumb-mode t)
@@ -50,18 +50,19 @@
   ;;  (-compose 'lsp-rust-analyzer-macro-expansion-default (lsp-get-renderer "rust")))
 
   ;; :hook
-  ;; (lsp-mode . 'lsp-ui-mode)
+  (lsp-mode . 'lsp-ui-mode)
  )
 
-;; (use-package lsp-ui
-;;   :ensure
-;;   :commands lsp-ui-mode
-;;   :custom
-;;   (lsp-ui-sideline-show-diagnostics t)
-;;   (lsp-ui-sideline-show-hover t)
-;;   (lsp-ui-peek-always-show t)
-;;   (lsp-ui-doc-enable nil)
-;;   )
+(use-package lsp-ui
+  :ensure
+  :commands lsp-ui-mode
+  :custom
+  (lsp-ui-peek-always-show t)
+  (lsp-ui-sideline-show-hover t)
+  (lsp-ui-doc-enable nil)
+
+  ;; (lsp-ui-sideline-show-diagnostics t)
+  )
 
 
 (use-package flycheck :ensure)

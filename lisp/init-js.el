@@ -37,6 +37,11 @@
   :hook
   (js2-mode . my-add-pretty-lambda))
 
+(add-hook 'json-mode-hook
+	  (lambda ()
+	    (make-local-variable 'js-indent-level)
+	    (setq js-indent-level 2)))
+
 (use-package tern :ensure t)
 
 (use-package web-mode

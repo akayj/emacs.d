@@ -22,9 +22,11 @@
 (use-package rainbow-delimiters
   :ensure t
   :config
-  (add-hook 'emacs-lisp-mode-hook #'rainbow-delimiters-mode)
-  (add-hook 'lisp-interaction-mode-hook  #'rainbow-delimiters-mode)
-  (add-hook 'rustic-mode-hook  #'rainbow-delimiters-mode)
+  ;; (add-hook 'emacs-lisp-mode-hook #'rainbow-delimiters-mode)
+  ;; (add-hook 'lisp-interaction-mode-hook  #'rainbow-delimiters-mode)
+  ;; (add-hook 'rustic-mode-hook  #'rainbow-delimiters-mode)
+  ;; (add-hook 'go-mode-hook #'rainbow-delimiters-mode)
+  (add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
   )
 
 ;; (use-package autopair
