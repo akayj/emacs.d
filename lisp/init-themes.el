@@ -12,21 +12,21 @@
    dracula-theme
    material-theme))
 
-(use-package modus-themes
-  :ensure
-  :init
-  ;; Add all your customizations prior to loading the themes
-  (setq modus-themes-italic-constructs t
-	modus-themes-bold-constructs nil
-	modus-themes-region '(bg-only no-extend))
+;; (use-package modus-themes
+;;   :ensure t
+;;   :init
+;;   ;; Add all your customizations prior to loading the themes
+;;   (setq modus-themes-italic-constructs t
+;; 	modus-themes-bold-constructs nil
+;; 	modus-themes-region '(bg-only no-extend))
 
-  ;; Load the theme files before enabling a theme
-  (modus-themes-load-themes)
-  :config
-  ;; Load the theme of your choice:
-  (modus-themes-load-operandi) 		;; OR (modus-theme-load-vivendi)
-  :bind ("<f5>" . module-themes-toggle)
-  )
+;;   ;; Load the theme files before enabling a theme
+;;   (modus-themes-load-themes)
+;;   :config
+;;   ;; Load the theme of your choice:
+;;   (modus-themes-load-operandi) 		;; OR (modus-theme-load-vivendi)
+;;   :bind ("<f5>" . module-themes-toggle)
+;;   )
 
 ;; Sample usage
 ;; (load-theme 'solarized-light t)
@@ -41,17 +41,17 @@
 
 ;; daylight theme
 ;; (defvar toggled-themes-day nil)
-;; (defvar toggled-themes-day 'solarized-light)
+(defvar toggled-themes-day 'solarized-light)
 ;; (defvar toggled-themes-day 'monokai)
 ;; (defvar toggled-themes-day 'material-light)
-(defvar toggled-themes-day 'modus-operandi)
+;; (defvar toggled-themes-day 'modus-operandi)
 
 ;; night theme
-;; (defvar toggled-themes-night 'material)
+(defvar toggled-themes-night 'material)
 ;; (defvar toggled-themes-night 'solarized-dark)
 ;; (defvar toggled-themes-night 'monokai)
 ;; (defvar toggled-themes-night 'srcery)
-(defvar toggled-themes-night 'modus-vivendi)
+;; (defvar toggled-themes-night 'modus-vivendi)
 
 ;; `M-x list-colors-display'
 ;; (set-face-foreground 'font-lock-string-face "dark red")

@@ -31,13 +31,14 @@
 	      ))))
 
 ;; (defvar my/frame-font-family "Cascadia Code PL")
-;; (defvar my/frame-font-family "Jetbrains Mono")
-(defvar my/frame-font-family "Fira Code")
+(defvar my/frame-font-family "Jetbrains Mono")
+;; (defvar my/frame-font-family "Fira Code")
 
 ;; (set-frame-font "DejaVu Sans Mono-14")
 ;; (set-frame-font "Fira Code-14")
 ;; (set-frame-font "Inconsolata-18")
-;; (set-frame-font "Jetbrains Mono-15")
+;; (set-frame-font "Jetbrains Mono-13")
+;; (set-frame-font "Cascadia Code PL-14")
 
 ;; 修复中文显示问题
 (if (functionp 'set-fontset-font)

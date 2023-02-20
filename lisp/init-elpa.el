@@ -26,17 +26,17 @@
 
 
 ;; Emacs China
-(setq package-archives '(("gnu"   . "http://elpa.zilongshanren.com/gnu/")
-			 ("melpa" . "http://elpa.zilongshanren.com/melpa/")
-			 ("melpa-stable" . "http://elpa.zilongshanren.com/stable-melpa/")
-			 ("org" . "http://elpa.zilongshanren.org")))
+;; (setq package-archives '(("gnu"   . "http://elpa.zilongshanren.com/gnu/")
+;; 			 ("melpa" . "http://elpa.zilongshanren.com/melpa/")
+;; 			 ("melpa-stable" . "http://elpa.zilongshanren.com/stable-melpa/")
+;; 			 ("org" . "http://elpa.zilongshanren.org")))
 
 
 ;; 清华源
-;; (setq package-archives '(("gnu" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
-;;                          ("melpa" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")
-;;                          ("melpa-stable" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa-stable/")
-;;                          ("org" . "https://mirrors.tuna.tsinghua.edu.cn/elpa/org/")))
+(setq package-archives '(("gnu" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
+                         ("melpa" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")
+                         ("melpa-stable" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa-stable/")
+                         ("org" . "https://mirrors.tuna.tsinghua.edu.cn/elpa/org/")))
 
 ;; 腾讯源
 ;; (setq package-archives '(("gnu" . "http://mirrors.cloud.tencent.com/elpa/gnu/")
