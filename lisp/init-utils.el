@@ -9,8 +9,9 @@
     (when missing-packages
       (package-refresh-contents)
       (dolist (p missing-packages)
-	(package-install p)
-	(message "%s is installed!" (show-package-info p))))))
+        (unless (package-installed-p p)
+          (package-install p)
+          (message "%s is installed!" (show-package-info p)))))))
 
 ;;;###autoload
 (defun show-package-info (pkg &optional version-separator)

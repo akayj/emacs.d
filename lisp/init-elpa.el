@@ -75,13 +75,17 @@
 	("myelpa-local" . 100)))
 
 (package-initialize)
-;;(package-refresh-contents)
+
+;; (unless (package-installed-p 'use-package)
+;;   (package-refresh-contents)
+;;   (package-install 'use-package))
 
 (defvar my-packages
   '(use-package better-defaults)
   "A list of packages to ensure are installed at launch.")
 
 (install-missing-package my-packages)
+
 ;; (dolist (p my-packages)
 ;;   (unless (package-installed-p p)
 ;;     (package-refresh-contents)
