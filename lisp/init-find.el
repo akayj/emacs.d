@@ -40,5 +40,13 @@
   :config
   (ace-pinyin-global-mode +1))
 
+(use-package posframe
+  :ensure t)
+
+(use-package cnfonts
+  :ensure t
+  :config
+  (cnfonts-mode 1))
+
 (provide 'init-find)
 ;;; init-find.el ends here
