@@ -33,7 +33,7 @@
 
 (use-package avy
   :ensure t
-  :bind ("C-l" . avy-goto-char-2)available)
+  :bind ("C-l" . avy-goto-char-2))
 
 (use-package ace-pinyin
   :ensure t
@@ -43,10 +43,10 @@
 (use-package posframe
   :ensure t)
 
-(use-package cnfonts
-  :ensure t
-  :config
-  (cnfonts-mode 1))
+;; (use-package cnfonts
+;;   :ensure t
+;;   :config
+;;   (cnfonts-mode 1))
 
 (provide 'init-find)
 ;;; init-find.el ends here

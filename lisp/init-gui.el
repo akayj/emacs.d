@@ -37,7 +37,7 @@
 ;; (set-frame-font "DejaVu Sans Mono-14")
 ;; (set-frame-font "Fira Code-14")
 ;; (set-frame-font "Inconsolata-18")
-(set-frame-font "Jetbrains Mono-15")
+(set-frame-font "Jetbrains Mono-13")
 ;; (set-frame-font "Cascadia Code PL-14")
 
 ;; 修复中文显示问题
