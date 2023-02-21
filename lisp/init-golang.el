@@ -14,6 +14,7 @@
   )
 
 (use-package exec-path-from-shell
+  :if (memq window-system '(mac ns))
   :ensure t
   :config
   (progn
@@ -64,8 +65,8 @@
 
 (use-package go-autocomplete
   :ensure t
+  :requires auto-complete
   :config
-  (require 'auto-complete)
   (ac-config-default))
 
 (use-package go-guru
@@ -82,8 +83,10 @@
 ;; ElDoc
 (use-package go-eldoc
   :ensure t
-  :config
-  (add-hook 'go-mode-hook 'go-eldoc-setup))
+  :hook (go-mode . go-eldoc-setup)
+  ;; :config
+  ;; (add-hook 'go-mode-hook 'go-eldoc-setup)
+  )
 
 (provide 'init-golang)
 ;;; init-golang.el ends here

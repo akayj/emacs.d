@@ -10,5 +10,26 @@
   (setq ffip-use-rust-fd t)
   )
 
+(use-package color-moccur
+  :commands (isearch-moccur isearch-all)
+  :bind (("M-s O" . moccur)
+         :map isearch-mode-map
+         ("M-o" . isearch-moccur)
+         ("M-O" . isearch-moccur-all))
+  :init
+  (setq isearch-lazy-highlight t)
+  :config
+  (use-package moccur-edit)
+  )
+
+;; (use-package ace-jump-mode
+;;   :defer t
+;;   :init
+;;   (autoload 'ace-jump-mode "ace-jump-mode" nil t)
+;;   (bind-key "C-." 'ace-jump-mode))
+
+(use-package ace-jump-mode
+  :bind ("C-." . ace-jump-mode))
+
 (provide 'init-find)
 ;;; init-find.el ends here
