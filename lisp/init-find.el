@@ -31,5 +31,14 @@
 (use-package ace-jump-mode
   :bind ("C-." . ace-jump-mode))
 
+(use-package avy
+  :ensure t
+  :bind ("C-l" . avy-goto-char-2)available)
+
+(use-package ace-pinyin
+  :ensure t
+  :config
+  (ace-pinyin-global-mode +1))
+
 (provide 'init-find)
 ;;; init-find.el ends here
