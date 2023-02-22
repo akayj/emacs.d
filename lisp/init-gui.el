@@ -20,15 +20,15 @@
 (when (fboundp 'set-scroll-bar-mode)
   (set-scroll-bar-mode nil))
 
+(defun my/frame-recenter (&optional frame)
+  "Center FRAME on the screen."
+  (interactive)
+  (unless (eq 'maximised (frame-parameter nil 'fullscreen))
+    (modify-frame-parameters
+     frame '((user-position . t) (top . 0.5) (left . 0.5)))))
+
 (if (display-graphic-p)
-    (progn
-      (setq initial-frame-alist
-	    '(
-	      (width . 96)
-	      (height . 50)
-	      (left . 50)
-	      ;; (top . 50)
-	      ))))
+    (my/frame-recenter))
 
 ;; (defvar my/frame-font-family "Cascadia Code PL")
 (defvar my/frame-font-family "Jetbrains Mono")
