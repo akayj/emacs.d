@@ -8,7 +8,8 @@
 ;; set C-x C-f start directory
 (setq default-directory (concat (getenv "HOME") "/"))
 
-(setq gc-cons-threshold 100000000) 	; 100mb
+;; (setq gc-cons-threshold 100000000) 	; 100mb
+(setq gc-cons-threshold (* 100 1024 1024)) 	; 100mb
 (setq read-process-output-max (* 1024 1024)) ;; 1mb
 
 (add-hook 'focus-out-hook #'garbage-collect) ; auto gc while all frames lost focus.
