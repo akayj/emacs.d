@@ -6,6 +6,7 @@
 (setq inhibit-startup-screen t)
 
 (defconst *is-macos* (memq window-system '(ns x)))
+(defconst *is-win* (memq window-system '(w32)))
 (defconst *laptop-env*
   (if (string-prefix-p "PPD-" (system-name))
       "work" "home"))
@@ -37,20 +38,22 @@
 ;; (set-frame-font "DejaVu Sans Mono-14")
 ;; (set-frame-font "Fira Code-14")
 ;; (set-frame-font "Inconsolata-18")
-(set-frame-font "Jetbrains Mono-13")
+;; (set-frame-font "Jetbrains Mono-12")
 ;; (set-frame-font "Cascadia Code PL-14")
 
 ;; 修复中文显示问题
 (if (functionp 'set-fontset-font)
     (set-fontset-font "fontset-default"
-		      ;; 'gb18030 '("MiSans" . "unicode-bmp"))
-		      'gb18030 '("PingFang SC" . "unicode-bmp"))
+		      'gb18030 '("MiSans" . "unicode-bmp"))
+		      ;; 'gb18030 '("PingFang SC" . "unicode-bmp"))
   )
 
 (defvar my/frame-font-size
   (cond
-   ((equal *laptop-env* "home") 14)
-   ((equal *laptop-env* "work") 15)))
+   ((and (equal *laptop-env* "home") *is-win*) 12)
+   ((and (equal *laptop-env* "home") *is-macos* 14))
+   ((and (equal *laptop-env* "work") *is-macos* 15))
+   ))
 
 (defvar my/frame-font
   (format "%s-%d"
