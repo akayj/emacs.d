@@ -1,6 +1,7 @@
-;;; init-swiper.el -- provides swiper/counsel/ivy packages
+;;; init-ivy.el -- ivy(swiper, counsel) setups
 
 ;;; Commentary:
+;; ivy = counsel + swiper
 
 ;;; Code:
 (use-package ivy
@@ -21,6 +22,12 @@
 
   (define-key minibuffer-local-map (kbd "C-r") 'counsel-minibuffer-history)
   )
+
+(use-package ivy-posframe
+  :ensure t
+  :config
+  (setq ivy-posframe-display-functions-alist '((t . ivy-posframe-display)))
+  (ivy-posframe-mode 1))
 
 
 (use-package counsel
@@ -47,5 +54,5 @@
   )
 
 
-(provide 'init-swiper)
-;;; init-swiper.el ends here
+(provide 'init-ivy)
+;;; init-ivy.el ends here

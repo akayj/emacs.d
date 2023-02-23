@@ -55,7 +55,7 @@
     init-company-mode
     init-pair
 
-    init-swiper
+    init-ivy
     init-find
     init-translate
 
