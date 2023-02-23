@@ -57,6 +57,7 @@
 
     init-swiper
     init-find
+    init-translate
 
     init-whitespace
     init-todo
