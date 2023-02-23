@@ -64,6 +64,7 @@
     init-todo
 
     init-tags
+    init-treesitter
 
     ;; rust
     init-rust
