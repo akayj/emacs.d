@@ -26,11 +26,17 @@
 
 
 ;; Emacs China
-;; (setq package-archives '(("gnu"   . "http://elpa.zilongshanren.com/gnu/")
-;; 			 ("melpa" . "http://elpa.zilongshanren.com/melpa/")
-;; 			 ("melpa-stable" . "http://elpa.zilongshanren.com/stable-melpa/")
-;; 			 ("org" . "http://elpa.zilongshanren.org")))
+(setq package-archives '(("gnu"   . "http://1.15.88.122/gnu/")
+			 ("melpa" . "http://1.15.88.122/melpa/")
+			 ("melpa-stable" . "http://1.15.88.122/stable-melpa/")
+			 ("org" . "http://1.15.88.122/org/")))
 
+;; USTC 中科大
+;; (setq package-archives '(("gnu" . "http://mirrors.ustc.edu.cn/elpa/gnu/")
+;;                          ("melpa" . "http://mirrors.ustc.edu.cn/elpa/melpa/")
+;;                          ("melpa-stable" . "http://mirrors.ustc.edu.cn/elpa/stable-melpa/")
+;;                          ;; ("org" . "http://mirrors.ustc.edu.cn/elpa/org/")
+;;                          ("nongnu" . "http://mirrors.ustc.edu.cn/elpa/nongnu/")))
 
 ;; 清华源
 ;; (setq package-archives '(("gnu" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
@@ -38,19 +44,13 @@
 ;;                          ("melpa-stable" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa-stable/")
 ;;                          ("org" . "https://mirrors.tuna.tsinghua.edu.cn/elpa/org/")))
 
-(setq package-archives '(("gnu"   . "http://1.15.88.122/gnu/")
-			 ("melpa" . "http://1.15.88.122/melpa/")
-			 ("melpa-stable" . "http://1.15.88.122/stable-melpa/")
-			 ("org" . "http://1.15.88.122/org/")))
-
-
 ;; 腾讯源
 ;; (setq package-archives '(("gnu" . "http://mirrors.cloud.tencent.com/elpa/gnu/")
-                          ;; ("melpa" . "https://melpa.org/packages/")
-                          ;; ("melpa-stable" . "https://stable.melpa.org/packages/")
-                          ;; ("melpa" . "http://mirrors.cloud.tencent.com/elpa/melpa/")
-                          ;; ("melpa-stable" . "http://mirrors.cloud.tencent.com/elpa/melpa-stable/")
-                          ;; ("org" . "https://mirrors.cloud.tencent.com/elpa/org/")))
+;;                           ("melpa" . "https://melpa.org/packages/")
+;;                           ("melpa-stable" . "https://stable.melpa.org/packages/")
+;;                           ("melpa" . "http://mirrors.cloud.tencent.com/elpa/melpa/")
+;;                           ("melpa-stable" . "http://mirrors.cloud.tencent.com/elpa/melpa-stable/")
+;;                           ("org" . "https://mirrors.cloud.tencent.com/elpa/org/")))
 
 ;; (setq package-archives '(("myelpa-local" . "~/myelpa/")))
 (add-to-list 'package-archives '("myelpa-local" . "~/myelpa/"))

@@ -43,8 +43,12 @@
 
 ;; 修复中文显示问题
 (if (functionp 'set-fontset-font)
-    (set-fontset-font "fontset-default"
-		      'gb18030 '("MiSans" . "unicode-bmp"))
+    (set-fontset-font "fontset-default" 'gb18030
+                      (cond
+                       (*is-macos* '("PingFang SC" . "unicode-bmp"))
+                       (*is-win* '("MiSans" . "unicode-bmp")))
+                      )
+		      ;; 'gb18030 '("MiSans" . "unicode-bmp"))
 		      ;; 'gb18030 '("PingFang SC" . "unicode-bmp"))
   )
 
@@ -53,6 +57,7 @@
    ((and (equal *laptop-env* "home") *is-win*) 12)
    ((and (equal *laptop-env* "home") *is-macos* 14))
    ((and (equal *laptop-env* "work") *is-macos* 15))
+   (t 14)
    ))
 
 (defvar my/frame-font

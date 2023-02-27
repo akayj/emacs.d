@@ -18,12 +18,12 @@
   (interactive "sPackage name: ")
   (when (package-installed-p pkg)
     (let* ((separator (if version-separator version-separator "."))
-	   (desc (cadr (assoc pkg package-alist)))
-	   (name (symbol-name pkg))
-	   (version (string-join
-		     (seq-map (lambda (n) (number-to-string n))
-			      (package-desc-version desc))
-		     separator)))
+           (desc (cadr (assoc pkg package-alist)))
+           (name (symbol-name pkg))
+           (version (string-join
+                     (seq-map (lambda (n) (number-to-string n))
+                              (package-desc-version desc))
+                     separator)))
       (format "%s %s" name version))))
 
 (defadvice find-file (before make-directory-maybe (filename &optional wildcards) activate)
