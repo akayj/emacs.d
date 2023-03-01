@@ -90,13 +90,13 @@
 				   'help-echo (buffer-file-name)))
 
 
-	       " [" ;; insert vs overwrite mode, input-method in a tooltip
-	       '(:eval (propertize (if overwrite-mode "Ovr" "Ins")
-				   'face 'font-lock-preprocessor-face
-				   'help-echo (concat "Buffer is in "
-						      (if overwrite-mode
-							  "overwrite"
-							"insert") " mode")))
+	       ;; " [" ;; insert vs overwrite mode, input-method in a tooltip
+	       ;; '(:eval (propertize (if overwrite-mode "Ovr" "Ins")
+	       ;;  		   'face 'font-lock-preprocessor-face
+	       ;;  		   'help-echo (concat "Buffer is in "
+	       ;;  				      (if overwrite-mode
+	       ;;  					  "overwrite"
+	       ;;  					"insert") " mode")))
 
 	       ;; was this buffer modified since the last save?
 	       '(:eval (when (buffer-modified-p)
@@ -145,10 +145,11 @@
 	       (mode-line-fill 'mode-line 20)
 
 	       ;; line and column
-	       "(" ;; '%02' to set to 2 chars at least; prevents flickering
+	       ;; "(" ;; '%02' to set to 2 chars at least; prevents flickering
 	       (propertize "%02l" 'face 'font-lock-type-face) ","
 	       (propertize "%02c" 'face 'font-lock-type-face)
-	       ") "
+	       ;; ") "
+               " "
 
 	       '(:eval (buffer-encoding-abbrev))
 	       mode-line-end-spaces

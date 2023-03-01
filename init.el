@@ -95,9 +95,9 @@
 
     init-keys
 
-    ;; init-modeline
+    init-modeline
     ;; init-modeline2
-    init-doom-modeline
+    ;; init-doom-modeline
 
     init-vue
 
