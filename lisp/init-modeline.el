@@ -38,7 +38,7 @@
     (flycheck-mode . 9403)
 
     ;; Major modes
-    ;; (lisp-interaction-mode . 955) ;; λ
+    (lisp-interaction-mode . 955) ;; λ
     ;; (hi-lock-mode . nil)
     ;; (python-mode . "Py")
 
@@ -54,14 +54,14 @@ must pass the correct minor/major mode symbol and a string you
 want to use in the modeline *in lieu of* the original.")
 
 ;; FIXME: this can not modify modeline correctlly
-;; (defun minor-mode-str ()
-;;   (setq results "")
-;;   (let* (
-;;	 (modes (seq-filter (lambda (cleaner) (assq (car cleaner) minor-mode-alist)) mode-line-cleaner-alist)))
-;;     (dolist (mode modes)
-;;       (setq results (concat results (char-to-string (cdr mode))))
-;;       ))
-;;   results)
+(defun minor-mode-str ()
+  (setq results "")
+  (let* (
+	 (modes (seq-filter (lambda (cleaner) (assq (car cleaner) minor-mode-alist)) mode-line-cleaner-alist)))
+    (dolist (mode modes)
+      (setq results (concat results (char-to-string (cdr mode))))
+      ))
+  results)
 
 (defun mode-line-fill (face reserve)
   "Return empty space using FACE and leaving RESERVE space on the right."
@@ -91,8 +91,9 @@ want to use in the modeline *in lieu of* the original.")
 (defun simplify-major-mode-name ()
   "Return simplified major mode name."
   ;; 如果没有icon的替换能力，就直接使用文字显示
-  (if (and (display-graphic-p) (featurep 'all-the-icons-icon-for-file))
-      (all-the-icons-icon-for-file (buffer-name) :height 0.98 :v-adjust -0.15)
+  (if (and (display-graphic-p) (functionp 'all-the-icons-icon-for-file))
+      ;; (all-the-icons-icon-for-file (buffer-name) :height 0.98 :v-adjust -0.15)
+      (all-the-icons-icon-for-file (buffer-name) :height 1)
     (propertize "%m" 'face '((
 			      ;; :foreground "blue"
 			      :weight bold)))
@@ -109,7 +110,9 @@ want to use in the modeline *in lieu of* the original.")
 	     (face (cond ((string-match "^ -" noback) 'mode-line-vc)
 			 ((string-match "^ [:@]" noback) 'mode-line-vc-edit)
 			 ((string-match "^ [!\\?]" noback) 'mode-line-vc-modified)))
-	     (branch-name (format " %s" (substring noback 2))))
+             (branch-name (format " %s %s"
+                                  (all-the-icons-octicon "git-branch" :height 1 :v-adjust +0.15)
+                                  (substring noback 2))))
 	(propertize branch-name 'face 'font-lock-type-face))
     )
   )
@@ -185,7 +188,7 @@ want to use in the modeline *in lieu of* the original.")
 	       ;; '(:eval (current-buffer-loc))
 
 	       ;; minor modes
-	       ;; minor-mode-alist
+	       minor-mode-alist
 
 	       "%1 "
 	       my-flycheck-mode-line
