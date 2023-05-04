@@ -46,10 +46,8 @@
     (set-fontset-font "fontset-default" 'gb18030
                       (cond
                        (*is-macos* '("PingFang SC" . "unicode-bmp"))
-                       (*is-win* '("MiSans" . "unicode-bmp")))
+                       (*is-win* '("微软雅黑" . "unicode-bmp")))
                       )
-		      ;; 'gb18030 '("MiSans" . "unicode-bmp"))
-		      ;; 'gb18030 '("PingFang SC" . "unicode-bmp"))
   )
 
 (defvar my/frame-font-size
